@@ -1,57 +1,126 @@
-hola entraste a la gerencia.
+hola entraste a la gerencia. este seria la vista de gerencia 
+<?php
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Índice con Bootstrap</title>
+    <title>Sistema SALON DE EVENTOS</title>
 
-    <!-- Enlace a Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Índice</h1>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <!-- FONTAWESOME STYLES-->
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+       <!--CUSTOM BASIC STYLES-->
+       <link href="{{ asset('css/basic.css') }}" rel="stylesheet">
+    <!--CUSTOM MAIN STYLES-->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-      <ul class="list-group">
-        <li class="list-group-item"><a href="#seccion1">Sección 1</a></li>
-        <li class="list-group-item"><a href="#seccion2">Sección 2</a></li>
-        <li class="list-group-item"><a href="#seccion3">Sección 3</a></li>
-      </ul>
+    
+</head>
 
-      <hr />
+@include('plantillas.header')
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                        <style>
+                        
+                        div{
+                            background-color:#E3E8F7;
+                        }
+                         .gradiente {
+                              background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+                              height: 200px; /* ajusta la altura según sea necesario */}
+                              .main-box{
+                             background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(8,25,131,1) 40%, rgba(0,212,255,1) 98%);
+                                
+                                }
+                        </style>
+                    
+                    <div class="col-md-12">
+                        <center>
+                        <h1 >PANEL DE CONTROL</h1>
+                        
+                       <br><h2 style="text-align:center;"> Has accedido al <strong>SISTEMA  SALON DE EVENTOS como (GERENTE) </strong> </h2>
+                        </center>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <style>
+                        div{
 
-      <h2 id="seccion1">Sección 1</h2>
-      <p>Contenido de la sección 1.</p>
+                            background-color:#E3E8F7;
+                            
+                        }
+                            .gradiente {
+                            background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+                              height: 200px; /* ajusta la altura según sea necesario */
+  }
+                        </style>
+                
+                <div class="row">
+				<br><br>
+				  <div class="col-md-4">
+                        <div class="main-box">
+                            <a href="eventos.php">
+                                <i class="fa fa-calendar fa-5x"></i>
+                                <h5>VER Y AGREGAR  EVENTOS</h5>
+                            </a>
+                        </div>
+                    </div>
+				
+				
+                
+                    <div class="col-md-4">
+                        <div class="main-box">
+                            <a href="paquetes.php">
+                                <i class="fa fa-cutlery fa-5x"></i>
+                                <h5>VER PAQUETES </h5>
+                            </a>
+                        </div>
+                    </div>
+					
+					
+					 <div class="col-md-4">
+                        <div class="main-box">
+                            <a href="report.php">
+                                <i class="fa fa-cubes fa-5x"></i>
+                                <h5>VER SERVICIOS</h5>
+                            </a>
+                        </div>
+                    </div>
+                  
 
-      <h2 id="seccion2">Sección 2</h2>
-      <<p>Contenido de la sección 2.</p>
+                </div>
+                <!-- /. ROW  -->
 
-      <h2 id="seccion3">Sección 3</h2>
-      <p>Contenido de la sección 3.</p>
+            
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
     </div>
+    <!-- /. WRAPPER  -->
 
-    <!-- Scripts de Bootstrap -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSKpeG"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <div id="footer-sec">
+  Ayuda  <a href="" target="_blank">SALÓN JARDINES </a>
+    </div>
+   
+   <script src="js/jquery-1.10.2.js"></script>	
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="js/jquery.metisMenu.js"></script>
+       <!-- CUSTOM SCRIPTS -->
+    <script src="js/custom1.js"></script>
+    
+
+
+</body>
 </html>

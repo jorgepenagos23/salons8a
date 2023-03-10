@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Iniciar sesión</title>
 </head>
 <body>
@@ -8,11 +9,11 @@
         <div>{{ session('error') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('login.authenticate') }}">
+    <form method="POST" action="{{ route('login2.authenticate') }}">
         @csrf
 
         <div>
-            <h1> BIENVENIDO INGRESA TUS DATOS</h1>
+            <h1> BIENVENIDO INGRESA TUS DATOS  GERENTE</h1>
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username">
         </div>

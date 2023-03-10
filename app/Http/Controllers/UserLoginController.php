@@ -19,14 +19,15 @@ class UserLoginController extends Controller
         $password = $request->input('password');
 
         // Verificar si el usuario y contraseña son correctos (en este ejemplo, son 'admin' y 'password')
-        if ($username == 'admin' && $password == 'password') {
+        if ($username == 'cliente' && $password == 'cliente') {
             // Si el usuario y contraseña son correctos, redirigir al usuario a la página de inicio con un mensaje de éxito
-            return redirect('/ejemplo2')->with('success', 'Inicio de sesión exitoso');
+            return redirect('/index_cliente')->with('success', 'Inicio de sesión exitoso');
         } else {
             // Si el usuario y contraseña no son correctos, redirigir al usuario al formulario de inicio de sesión con un mensaje de error
             return redirect('/ejemplo')->with('error', 'Usuario o contraseña incorrectos');
         }
     }
+    
 
 
 

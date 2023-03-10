@@ -26,6 +26,22 @@ class ExampleController extends Controller
     }
 
 
+    
+    public function dashboard_usuarios()
+    {
+        // Aquí puedes realizar cualquier lógica que necesites para tu aplicación
+        $mensaje = 'Hola, mundo!';
+
+        // Llamamos a la vista 'ejemplo' y le pasamos el mensaje como variable
+        return view('cliente.indexcliente', ['mensaje' => $mensaje]);
+    }
+
+
+
+
+
+
+
 
     
 

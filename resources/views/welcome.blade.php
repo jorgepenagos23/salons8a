@@ -13,22 +13,18 @@
         <body>
         <div class="flex-center position-ref full-height">
        
-                <div class="top-right links">
-               
-                </div>
-
+            
             <div class="content">
                 <div class="title m-b-md">
                     SALÓN DE EVENTOS
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('gerente.login') }}">GERENTE</a>
-                    <a href="{{ route('user.login') }}">CLIENTE</a>
-                    <a href="{{ route('ejemplo') }}">ANONIMO</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-               
+                    <a href="{{ route('gerente.showLoginForm') }}">GERENTE</a>
+                    <a href="{{ route('user.showLoginForm') }}">CLIENTE</a>
+                    <a href="{{ route('ejemplo') }}">EMPLEADO</a>
+                  
+
                 </div>
             </div>
         </div>
