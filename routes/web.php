@@ -41,6 +41,7 @@ Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('
 //rutas para mostrar login gerente 
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
 Route::post('/inicio', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
+
 //rutas para el gerente muestre paquetes, servicios eventos
 Route::get('gerente/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
 Route::get('gerente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');

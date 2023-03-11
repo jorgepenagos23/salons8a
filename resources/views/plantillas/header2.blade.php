@@ -53,7 +53,7 @@
          
         
                              <li>
-                                 <a class="active-menu" href="{{route('paquetes.ver')}}"><i class="fa fa-dashboard "></i>Agregar Evento </a>
+                                 <a class="active-menu" href="{{route('paquetes.paquete')}}"><i class="fa fa-dashboard "></i>Agregar Evento </a>
                              </li>
                              
                               <li>
