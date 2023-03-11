@@ -48,9 +48,9 @@ error_reporting(0);
                         <h1 class="page-head-line">Paquetes  
 						<?php
 						echo (isset($_GET['action']) && @$_GET['action']=="add" || @$_GET['action']=="edit")?
-						' <a href="paquetes.php" class="btn btn-primary btn-sm pull-right">Volver <i class="glyphicon glyphicon-arrow-right"></i></a>':'<a href="paquetes.php?action=add" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar paquetes </a>';
+						' <a href="paquetes.php" class="btn btn-primary btn-sm pull-right">Volver <i class="glyphicon glyphicon-arrow-right"></i></a>':'<a href="" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar paquetes </a>';
 						?>
-						</h1>
+						</ah1>
                      
 <?php
 
@@ -152,7 +152,7 @@ echo $errormsg;
                                 <table class="table table-striped table-bordered table-hover" id="tSortable22">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>#Id</th>
                                             <th>Paquete seleccionado</th>
                                             <th>Evento</th>
                                             <th>Detalle</th>

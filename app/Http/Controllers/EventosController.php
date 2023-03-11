@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Eventos;
 use Illuminate\Http\Request;
 
 class EventosController extends Controller
@@ -11,10 +12,8 @@ class EventosController extends Controller
      */
     public function index()
     {
-        
-        return view('eventos.eventos');
-
-
+        $eventos = Eventos::all();
+        return view('eventos.eventos', compact('eventos'));
     }
 
     /**
@@ -22,7 +21,7 @@ class EventosController extends Controller
      */
     public function create()
     {
-        //
+        return view('eventos.create');
     }
 
     /**

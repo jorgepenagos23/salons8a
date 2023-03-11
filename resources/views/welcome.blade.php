@@ -23,7 +23,7 @@
                     <a href="{{ route('gerente.showLoginForm') }}">GERENTE</a>
                     <a href="{{ route('user.showLoginForm') }}">CLIENTE</a>
                     <a href="{{ route('ejemplo') }}">EMPLEADO</a>
-                  
+                    <a href="">Paquetes</a>
 
                 </div>
             </div>

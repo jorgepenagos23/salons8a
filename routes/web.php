@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\GerenteLoginController;
+use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
@@ -26,7 +27,7 @@ Route::get('/', function () {
 //rutas para mostrar el texto de advertencia
 Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 //rutas para mostrar index gerente
-Route::get('/ejemplo2', [ExampleController::class, 'dashboard'])->name('ejemplo2');
+//Route::get('/ejemplo2', [ExampleController::class, 'dashboard'])->name('ejemplo2');
 
 //rutas para mostrar index cliente
 Route::get('/index_cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
@@ -39,17 +40,14 @@ Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('
 
 //rutas para mostrar login gerente 
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
-Route::post('/gerente/login', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
-
+Route::post('/inicio', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
+//rutas para el gerente muestre paquetes, servicios eventos
+Route::get('gerente/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
+Route::get('gerente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
+Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
 
 //rutas para mostrar paquetes 
-Route::get('/paquetes', [Paquetes::class, 'index'])->name('paquetes.ver');
 
 //rutas para mostrar eventos 
-Route::get('/eventos', [EventosController::class, 'index'])->name('eventos.ver');
-
 
 //rutas para mostrar servicios 
-Route::get('/servicios', [ServiciosController::class, 'index'])->name('servicios.ver');
-
-

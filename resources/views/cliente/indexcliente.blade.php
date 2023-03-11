@@ -46,10 +46,7 @@ error_reporting(0);
 						?>
 						</h1>
                      
-<?php
 
-
-?>
                     </div>
                 </div>
 				

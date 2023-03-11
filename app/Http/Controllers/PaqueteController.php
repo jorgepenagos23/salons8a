@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Paquete;
 use Illuminate\Http\Request;
 
-class Paquetes extends Controller
+class PaqueteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        
-        return view('paquetes.paquetes');
-
-
+        $paquetes = Paquete::all();
+        return view('paquetes.paquete', compact('paquetes'));
     }
 
     /**
@@ -22,7 +21,7 @@ class Paquetes extends Controller
      */
     public function create()
     {
-        //
+        return view('paquetes.create');
     }
 
     /**
@@ -36,7 +35,7 @@ class Paquetes extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Paquete $paquete)
     {
         //
     }
@@ -44,7 +43,7 @@ class Paquetes extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Paquete $paquete)
     {
         //
     }
@@ -52,7 +51,7 @@ class Paquetes extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Paquete $paquete)
     {
         //
     }
@@ -60,7 +59,7 @@ class Paquetes extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Paquete $paquete)
     {
         //
     }

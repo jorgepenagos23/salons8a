@@ -58,17 +58,18 @@ hola entraste a la gerencia. este seria la vista de gerencia
                             background-color:#E3E8F7;
                             
                         }
-                            .gradiente {
-                            background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
-                              height: 200px; /* ajusta la altura según sea necesario */
-  }
+                        .gradiente {
+                        background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
+                            height: 200px; /* ajusta la altura según sea necesario */
+                        }
                         </style>
                 
                 <div class="row">
 				<br><br>
 				  <div class="col-md-4">
                         <div class="main-box">
-                            <a href="eventos.php">
+                            {{-- {{route()}} --}}
+                            <a href="{{route('eventos.eventos')}}">
                                 <i class="fa fa-calendar fa-5x"></i>
                                 <h5>VER Y AGREGAR  EVENTOS</h5>
                             </a>
@@ -79,7 +80,7 @@ hola entraste a la gerencia. este seria la vista de gerencia
                 
                     <div class="col-md-4">
                         <div class="main-box">
-                            <a href="paquetes.php">
+                            <a href="{{route('paquetes.paquete')}}">
                                 <i class="fa fa-cutlery fa-5x"></i>
                                 <h5>VER PAQUETES </h5>
                             </a>
@@ -89,7 +90,7 @@ hola entraste a la gerencia. este seria la vista de gerencia
 					
 					 <div class="col-md-4">
                         <div class="main-box">
-                            <a href="report.php">
+                            <a href="{{route('servicios.servicios')}}">
                                 <i class="fa fa-cubes fa-5x"></i>
                                 <h5>VER SERVICIOS</h5>
                             </a>

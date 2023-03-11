@@ -56,31 +56,31 @@ encabezado  para gerente
 
 
                     <li>
-                        <a class="active-menu" href="index.php"><i class="fa fa-dashboard "></i>Home </a>
+                        <a class="active-menu" href="gerenteInicio.blade.php"><i class="fa fa-dashboard "></i>Home </a>
                     </li>
 					
 					 <li>
-                        <a href="paquetes.php"><i class="fa fa-cutlery fa-3x "></i>Paquetes</a>
+                        <a href="{{route('paquetes.paquete')}}"><i class="fa fa-cutlery fa-3x "></i>Paquetes</a>
                     </li>
 					
 					 <li>
-                        <a href="eventos.php"><i class="fa fa-calendar fa-3x"></i>Eventos</a>
+                        <a href="{{route('eventos.eventos')}}"><i class="fa fa-calendar fa-3x"></i>Eventos</a>
                     </li>
 					<li>
-                        <a href="fees.php"><i class="fa fa-cubes fa-3x"></i>Servicios</a>
+                        <a href="{{route('servicios.servicios')}}"><i class="fa fa-cubes fa-3x"></i>Servicios</a>
                     </li>
 					 <li>
-                        <a href="report.php"><i class="fa fa-table  fa-3x "></i>Ver resumen </a>
+                        <a href=""><i class="fa fa-table  fa-3x "></i>Ver resumen </a>
                     </li>
 					
 					 
 					
 					<li>
-                        <a href="#"><i class="fa fa-cogs "></i>PANEL ADMIN</a>
+                        <a href=""><i class="fa fa-cogs "></i>PANEL ADMIN</a>
                     </li>
 					
 					 <li>
-                        <a href="#"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
+                        <a href="{{ route('gerente.showLoginForm') }}"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
                     </li>
 					
 			
