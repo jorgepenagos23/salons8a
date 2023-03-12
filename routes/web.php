@@ -30,8 +30,8 @@ Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 //Route::get('/ejemplo2', [ExampleController::class, 'dashboard'])->name('ejemplo2');
 
 //rutas para mostrar index cliente
-Route::get('/index_cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
-
+Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
+//Route::get('cliente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
 //rutas para mostrar login usuario 
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
