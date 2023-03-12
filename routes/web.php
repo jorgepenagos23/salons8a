@@ -37,7 +37,6 @@ Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->n
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
-
 //rutas para mostrar login gerente 
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
 Route::post('/inicio', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
