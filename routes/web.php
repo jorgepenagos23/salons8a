@@ -7,6 +7,7 @@ use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
+use App\Models\Servicios;
 use Illuminate\Support\Facades\Route;
 use Tests\Unit\ExampleTest;
 
@@ -22,7 +23,7 @@ use Tests\Unit\ExampleTest;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+ return view('welcome');
 });
 //rutas para mostrar el texto de advertencia
 Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
@@ -30,13 +31,12 @@ Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 //Route::get('/ejemplo2', [ExampleController::class, 'dashboard'])->name('ejemplo2');
 
 //rutas para mostrar index cliente
-Route::get('/index_cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
-
+Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
+//Route::get('cliente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
 //rutas para mostrar login usuario 
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
-
 
 //rutas para mostrar login gerente 
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
@@ -66,6 +66,9 @@ Route::get('eventos/eventos', [EventosController::class, 'index'])->name('evento
 
 
 //rutas para mostrar servicios 
+Route::get('servicios/index_servicios', [ServiciosController::class, 'index2'])->name('servicios.index');
+Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])->name('agregar.servicios');
+
 
 
 //rutas para logout salir de cliente

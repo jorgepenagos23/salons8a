@@ -1,4 +1,3 @@
-encabezado  para gerente
 
 <body>
     <div id="wrapper">
@@ -72,17 +71,13 @@ encabezado  para gerente
                         <a href="{{route('servicios.servicios')}}"><i class="fa fa-cubes fa-3x"></i>Servicios</a>
                     </li>
 					 <li>
-                        <a href=""><i class="fa fa-table  fa-3x "></i>Ver resumen </a>
+                        <a href=""><i class="fa fa-users  fa-3x "></i>Ver Usuarios  </a>
                     </li>
 					
 					 
 				
-					<li>
-                        <a href=""><i class="fa fa-cogs "></i>PANEL ADMIN</a>
-                    </li>
-					
 					 <li>
-                        <a href="{{ route('gerente.showLoginForm') }}"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
+                        <a href="#"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
                     </li>
 					
 			

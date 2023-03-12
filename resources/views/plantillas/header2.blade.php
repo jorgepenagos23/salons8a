@@ -1,11 +1,11 @@
-         encabezado  para un cliente  un customer 
+
          <body>
              <div id="wrapper">
                  <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 4">
                      <div class="navbar-header">
                          <style>
                           .navbar.navbar-default.navbar-cls-top {
-                             background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(219, 252, 70) 100%);
+                            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(238, 193, 44) 100%);
          }   
                              .navbar-default.navbar-side {
                                  background-color: #e6eef7;
@@ -51,7 +51,7 @@
          
                              </li>
                              <li>
-                                <a class="active-menu" href="{{route('gerente.gerenteinicio')}}"><i class="fa fa-dashboard "></i>Home </a>
+                                <a class="active-menu" href="{{route('index_cliente')}}"><i class="fa fa-dashboard "></i>Home </a>
                             </li>
                             
         

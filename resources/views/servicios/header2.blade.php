@@ -1,10 +1,11 @@
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 4">
             <div class="navbar-header">
                 <style>
                  .navbar.navbar-default.navbar-cls-top {
-                  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(70, 252, 222) 100%);
+                    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(223, 81, 46) 100%);
 }   
                     .navbar-default.navbar-side {
                         background-color: #e6eef7;
@@ -29,7 +30,7 @@
                     <span class="icon-bar"></span>
 
                 </button>
-                <a class="navbar-brand" href="index.php">PAQUETES  </a>
+                <a class="navbar-brand" href="index.php">SERVICIOS  </a>
             </div>
 
         </nav>
@@ -50,14 +51,10 @@
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('paquetes.paquete')}}"><i class="fa fa-dashboard "></i>Regresar </a>
+                       <a class="active-menu" href="{{route('servicios.servicios')}}"><i class="fa fa-dashboard "></i>Regresar </a>
                    </li>
                    
 
-                   
-    
-                    
-            
                 </ul>
 
             </div>

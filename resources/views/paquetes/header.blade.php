@@ -1,11 +1,10 @@
-encabezado
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 4">
             <div class="navbar-header">
                 <style>
                  .navbar.navbar-default.navbar-cls-top {
-                    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(219, 252, 70) 100%);
+                    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(70, 252, 222) 100%);
 }   
                     .navbar-default.navbar-side {
                         background-color: #e6eef7;
@@ -30,7 +29,7 @@ encabezado
                     <span class="icon-bar"></span>
 
                 </button>
-                <a class="navbar-brand" href="index.php">SALON  </a>
+                <a class="navbar-brand" href="index.php">PAQUETES  </a>
             </div>
 
         </nav>
@@ -61,12 +60,6 @@ encabezado
                     
                    
        
-                   
-                     <li>
-                        <a href="#"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
-                    </li>
-                    
-            
                 </ul>
 
             </div>

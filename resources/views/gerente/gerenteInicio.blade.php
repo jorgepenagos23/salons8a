@@ -1,4 +1,3 @@
-hola entraste a la gerencia. este seria la vista de gerencia 
 <?php
 
 ?>
