@@ -45,6 +45,7 @@ div{
             <th>Descripción</th>
             <th>Fecha</th>
             <th>Fotografias</th>
+            <th>d</th>
           </tr>
         </thead>
         <tbody>
