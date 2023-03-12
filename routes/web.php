@@ -8,6 +8,7 @@ use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
+use App\Models\Servicios;
 use Illuminate\Support\Facades\Route;
 use Tests\Unit\ExampleTest;
 
@@ -59,11 +60,14 @@ Route::get('gerente/agrega_paquetes', [PaqueteController::class, 'index2'])->nam
 
 
 //rutas para mostrar eventos para clientes
-Route::get('gerente/eventos', [EventosController::class, 'index2'])->name('agregar.eventos');
+Route::get('agregarevento', [EventosController::class, 'index2'])->name('agregar.eventos');
 Route::get('eventos/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
 
 //rutas para mostrar servicios 
+Route::get('servicios/index_servicios', [ServiciosController::class, 'index2'])->name('servicios.index');
+Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])->name('agregar.servicios');
+
 
 
 //rutas para logout salir de cliente

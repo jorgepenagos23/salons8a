@@ -1,4 +1,3 @@
-//header de gerente
 
 <body>
     <div id="wrapper">

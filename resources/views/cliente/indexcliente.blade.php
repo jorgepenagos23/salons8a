@@ -300,6 +300,71 @@ DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">TECNm</a>
 	</div>
    
   
+						<style>
+							h3 {
+							  color: rgb(77, 77, 77);
+						  
+						  }
+						  div{
+						  
+							  zoom: 1.0; /* Aumenta el tamaño del navbar en un 20% */
+						  }
+							  
+						  </style>
+						  <div>
+							  <table class="table">
+								  <thead>
+									<tr>
+									  <th>#</th>
+									  <th>Titulo</th>
+									  <th>Descripción</th>
+									  <th>Fecha</th>
+									  <th>Fotografias</th>
+									  <th>Atajos</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+									  <td>1</td>
+									  <td>BAUTIZO DE JUANITO</td>
+									  <td>PAQUETE MEMORIAL 100 PERSONAS</td>
+									  <td>28 ABRIL 2023 </td>
+									  <td>
+									<img src="{{ asset('css/descarga.jpg') }}" width="100" height="100">
+									  </td>
+									  <td>
+										<a href="#" class="btn btn-warning">Agregar fotos</a>
+									  </td>
+									</tr>
+									<tr>
+									  <td>2</td>
+									  <td>BAUTIZO DE JUANITO</td>
+									  <td>PAQUETE MEMORIAL 100 PERSONAS</td>
+									  <td>28 ABRIL 2023 </td>
+									  <td>
+									<img src="{{ asset('css/descarga.jpg') }}" width="100" height="100">
+									  </td>
+									  <td>
+										<a href="#" class="btn btn-warning">Agregar fotos</a>
+									  </td>
+									</tr>
+									<tr>
+									  <td>3</td>
+									  <td>BAUTIZO DE JUANITO</td>
+									  <td>PAQUETE MEMORIAL 100 PERSONAS</td>
+									  <td>28 ABRIL 2023 </td>
+									  <td><img src="{{ asset('css/descarga.jpg') }}" width="100" height="100"></td>
+									  <td><a href="#" class="btn btn-warning">Agregar fotos</a>
+									  </td>
+									  <td>
+									</tr>
+								   
+								  </tbody>
+								</table>
+                   				 </div>
+
+
+					
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
