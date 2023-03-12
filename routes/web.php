@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\GerenteLoginController;
@@ -39,9 +40,7 @@ Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('
 
 //rutas para mostrar login gerente 
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
-Route::post('/inicio', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
-
-Route::get('/inicio2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio');
+Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('gerente.gerenteinicio');
 
 
 //rutas para el gerente muestre paquetes, servicios eventos
@@ -69,4 +68,24 @@ Route::get('eventos/eventos', [EventosController::class, 'index'])->name('evento
 
 //rutas para logout salir de cliente
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Empleado login
+Route::get('/empleado/login', [EmpleadosController::class, 'showLoginForm'])->name('gerente.showLoginForm');
+Route::post('/empleados', [EmpleadosController::class, 'authenticate'])->name('login2.authenticate');

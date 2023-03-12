@@ -9,7 +9,7 @@
         <div>{{ session('error') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('login2.authenticate') }}">
+    <form method="POST" action="{{ route('gerente.gerenteinicio') }}">
         @csrf
 
         <div>

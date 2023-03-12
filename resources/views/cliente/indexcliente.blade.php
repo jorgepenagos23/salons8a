@@ -185,18 +185,11 @@ error_reporting(0);
 								<input type="hidden" name="id" value="">
 								<input type="hidden" name="action" value="">
 								
-									<button type="submit" name="save" class="btn btn-primary">Guardar </button>
-								 
-								   
+									<button type="submit" name="save" class="btn btn-primary">Guardar </button>   
 								   
 								</div>
-							</div>
-                         
-                           
-                           
-                         
-                           
-                         </div>
+								</div>
+                           			</div>
 							</form>
 							
                         </div>
@@ -209,13 +202,6 @@ error_reporting(0);
 			   
 			   
 		<script type="text/javascript">
-		
-
-	
-
-		
-		
-		
 		
 		$("#fees").keyup( function(){
 		$("#advancefees").val("");
@@ -236,10 +222,6 @@ error_reporting(0);
 		
 		});
 		
-		
-		
-	
-
 			   
 		<?php
 		}else{
