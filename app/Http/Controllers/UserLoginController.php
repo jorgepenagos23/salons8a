@@ -32,6 +32,5 @@ class UserLoginController extends Controller
 
 
 
-
 }
 

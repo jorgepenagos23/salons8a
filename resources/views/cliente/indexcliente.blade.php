@@ -19,19 +19,10 @@ error_reporting(0);
 <!--CUSTOM MAIN STYLES-->
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 <!-- GOOGLE FONTS-->
-
-    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	
-	<link href="css/ui.css" rel="stylesheet" />
-	<link href="css/datepicker.css" rel="stylesheet" />	
-	
-    <script src="js/jquery-1.10.2.js"></script>
-	
-    <script type='text/javascript' src='js/jquery/jquery-ui-1.10.1.custom.min.js'></script>
-   
 	
 </head>
 @include('plantillas.header2')
@@ -39,10 +30,11 @@ error_reporting(0);
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">VER Y AGREGAR EVENTO  
+                        <h1 class="page-head-line">VER LISTA DE EVENTOS 
+							
+
 						<?php
-						echo (isset($_GET['action']) && @$_GET['action']=="add" || @$_GET['action']=="edit")?
-						' <a href="eventos.php" class="btn btn-primary btn-sm pull-right">Volver <i class="glyphicon glyphicon-arrow-right"></i></a>':'<a href="eventos.php?action=add" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar Evento </a>';
+						
 						?>
 						</h1>
                      
@@ -322,7 +314,7 @@ error_reporting(0);
     <!-- /. WRAPPER  -->
 
     <div id="footer-sec">
-DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">INSTITUO DE DIPLOMADOS</a>
+DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">TECNm</a>
 	</div>
    
   
