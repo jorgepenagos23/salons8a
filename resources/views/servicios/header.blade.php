@@ -1,10 +1,13 @@
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 4">
             <div class="navbar-header">
                 <style>
                  .navbar.navbar-default.navbar-cls-top {
-                  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(70, 252, 222) 100%);
+                    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(223, 81, 46) 100%);
 }   
                     .navbar-default.navbar-side {
                         background-color: #e6eef7;
@@ -29,7 +32,7 @@
                     <span class="icon-bar"></span>
 
                 </button>
-                <a class="navbar-brand" href="index.php">PAQUETES  </a>
+                <a class="navbar-brand" href="index.php">SERVICIOS  </a>
             </div>
 
         </nav>
@@ -50,14 +53,18 @@
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('paquetes.paquete')}}"><i class="fa fa-dashboard "></i>Regresar </a>
+                       <a class="active-menu" href="{{route('gerente.gerenteinicio')}}"><i class="fa fa-dashboard "></i>Home </a>
                    </li>
                    
 
-                   
-    
+                    <li>
+                        <a class="active-menu" href="{{route('agregar.servicios')}}"><i class="fa fa-dashboard "></i>Agregar Servicios </a>
+                    </li>
                     
-            
+                   
+       
+                  
+                
                 </ul>
 
             </div>

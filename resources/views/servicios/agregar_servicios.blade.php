@@ -1,5 +1,5 @@
-
 <?php
+
 // Desactivar toda notificación de error
 error_reporting(0);
 ?>
@@ -8,7 +8,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAQUETES</title>
+    <title>SERVICIOS</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <!-- FONTAWESOME STYLES-->
@@ -24,13 +24,13 @@ error_reporting(0);
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	
 </head>
-@include('paquetes.header_paquete')
+@include('servicios.header2')
 
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">AGREGAR PAQUETES
+                        <h1 class="page-head-line">AGREGAR SERVICIOS
 							
 
 						<?php
@@ -53,15 +53,15 @@ error_reporting(0);
 						<form action="eventos.php" method="post" id="signupForm1" class="form-horizontal">
                         <div class="panel-body">
 						<fieldset class="scheduler-border" >
-						 <legend  class="scheduler-border">Información del Paquete  agregar :</legend>
+						 <legend  class="scheduler-border">Información del Servicio a  agregar :</legend>
 						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Nombre del Paquete </label>
+								<label class="col-sm-2 control-label" for="Old">Nombre del Servicio </label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="sname" name="sname" value=""  />
 								</div>
 							</div>
 						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Costo del Paquete</label>
+								<label class="col-sm-2 control-label" for="Old">Costo del Servicio</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="contact" name="contact" value="" maxlength="10" />
 								</div>
@@ -69,27 +69,12 @@ error_reporting(0);
 
 
 							
-						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Selecciona tu paquete</label>
-								<div class="col-sm-10">
-									<select  class="form-control" id="branch" name="branch" >
-									<option value="" > Para cuantas personas  </option>
-									<option value="paquete1">Memorial : 100 personas </option>
-									<option value="paquete2"> Boda: 200 personas </option>
-									<option value="paquete3"> Bautizo: 250 personas</option>
-                                 
-									</select>
-
-							
-								</div>
-
-						</div>
-			
-					</div>
+					
+				
 						
 					
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="Password">Comentarios del Paquete </label>
+								<label class="col-sm-2 control-label" for="Password">Comentarios del Servicio </label>
 								<div class="col-sm-10">
 	                        <textarea class="form-control" id="remark" name="remark"></textarea >
 								</div>
@@ -119,13 +104,9 @@ error_reporting(0);
 								   
 								</div>
 							</div>
-                         
-                           
-                           
-                         
-                           
+
                          </div>
-							</form>
+			                </form>
 							
                         </div>
                             </div>
@@ -136,60 +117,16 @@ error_reporting(0);
 
 			   
 			   
-		<script type="text/javascript">
 		
 
-	
-		 <link href="css/datatable/datatable.css" rel="stylesheet" />
-		 
-		
-		
-		<div class="panel panel-default">
-                        <div class="panel-heading">
-						panel para agregar  un evento
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-sorting table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="tSortable22">
-                                    <thead>
-                                        <tr>
-                                            <center> 
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Fecha de evento</th>
-                                            <th>Total</th>
-											<th>Fotos</th>
-											
-                                        </tr>
-                                        </center>
-                                    </thead>
-                                    <tbody>
-									
-								
-                                       <tr>
-                                            <td> 1</td>
-                                            <td>EVento Cena de Navidad</td>
-                                            <td> 24 diciembre </td>
-                                            <td>agregar</td>
-											<td>  pendiente</td>
-											<td>  
-											<a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>
-												
-												</td>
-                                        </tr>
-							
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     
-	<script src="js/dataTable/jquery.dataTables.min.js"></script>
-    
    
+
+
+
+
     <div id="footer-sec">
-DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">TECNm</a>
+
+DERECHOS RESERVADOS 2023  <a href="LINK" target="_blank">TECNm</a>
 	</div>
    
   
@@ -199,7 +136,6 @@ DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">TECNm</a>
     <script src="js/jquery.metisMenu.js"></script>
        <!-- CUSTOM SCRIPTS -->
     <script src="js/custom1.js"></script>V
-
     
 </body>
 </html>

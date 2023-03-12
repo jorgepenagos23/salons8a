@@ -146,36 +146,73 @@ echo $errormsg;
                         </div>
                         <div class="panel-body">
                              <div class="table-sorting table-responsive">
-
-                                <table class="table table-striped table-bordered table-hover" id="tSortable22">
+                                <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th>#Id</th>
-                                            <th>Paquete seleccionado</th>
-                                            <th>Evento</th>
-                                            <th>Detalle</th>
-                                        </tr>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>Titulo</th>
+                                        <th>Descripción</th>
+                                        <th>Fecha</th>
+                                        <th>Fotografias</th>
+                                      </tr>
                                     </thead>
                                     <tbody>
-									<?php
-					error_reporting(0);
+                            
+                                      <tr>
+                                        <td>1</td>
+                                        <td>PAQUETE 1</td>
+                                        <td>XV AÑOS </td>
+                                        <td>28 MAYO 2023</td>
+                                        <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+                                        <td>
+                                            <a href="#" class="btn btn-danger">Eliminar</a>
+                                            <a href="#" class="btn btn-primary">Editar</a></td>
+                            
+                            
+                                        </td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <td>1</td>
+                                        <td>PAQUETE 1</td>
+                                        <td>XV AÑOS </td>
+                                        <td>28 MAYO 2023</td>
+                                        <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+                                        <td> 
+                                            <a href="#" class="btn btn-danger">Eliminar</a>
+                                            <a href="#" class="btn btn-primary">Editar</a></td>
+                            
+                                        </td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>PAQUETE 1</td>
+                                            <td>XV AÑOS </td>
+                                            <td>28 MAYO 2023</td>
+                                
+                            
+                                        <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+                                        <td>
+                                            <a href="#" class="btn btn-danger">Eliminar</a>
+                                            <a href="#" class="btn btn-primary">Editar</a></td>
+                            
+                                        </td>
+                                        <td>
+                                      </tr>
+                                     
+                                    </tbody>
+                            
+                                  </table>
+                            
+                                
 
-									{
-									echo '<tr>
-                                            <td>'.$i.'</td>
-                                            <td>'.$r['branch'].'</td>
-                                            <td>'.$r['address'].'</td>
-                                            <td>'.$r['detail'].'</td>
-											<td>
-											<a href="paquetes.php?action=edit&id='.$r['id'].'" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-edit"></span></a>
-											
-											<a onclick="return confirm(\'Realmente deseas continuar. Si confirmas el registro se eliminará de manera irreversible\');" href="branch.php?action=delete&id='.$r['id'].'" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a> </td>
-                                        </tr>';
-										$i++;
-									}
-									?>
-									
-                                        
+
+
+
+
+
                                         
                                     </tbody>
                                 </table>

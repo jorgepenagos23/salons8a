@@ -16,6 +16,17 @@ class ServiciosController extends Controller
         return view('servicios.servicios', compact('servicios'));
     }
 
+    public function index2()
+    {
+        $servicios = Servicios::all();
+        return view('servicios.servicios');
+    }
+
+    public function index3()
+    {
+        $servicios = Servicios::all();
+        return view('servicios.agregar_servicios');
+    }
     /**
      * Show the form for creating a new resource.
      */

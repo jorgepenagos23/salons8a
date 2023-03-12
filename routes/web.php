@@ -7,6 +7,7 @@ use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
+use App\Models\Servicios;
 use Illuminate\Support\Facades\Route;
 use Tests\Unit\ExampleTest;
 
@@ -22,7 +23,7 @@ use Tests\Unit\ExampleTest;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+ return view('welcome');
 });
 //rutas para mostrar el texto de advertencia
 Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
@@ -65,6 +66,9 @@ Route::get('eventos/eventos', [EventosController::class, 'index'])->name('evento
 
 
 //rutas para mostrar servicios 
+Route::get('servicios/index_servicios', [ServiciosController::class, 'index2'])->name('servicios.index');
+Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])->name('agregar.servicios');
+
 
 
 //rutas para logout salir de cliente
