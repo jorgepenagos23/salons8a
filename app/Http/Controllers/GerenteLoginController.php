@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class GerenteLoginController extends Controller
 {
@@ -29,4 +30,11 @@ class GerenteLoginController extends Controller
             return redirect('/ejemplo');
         }
     }
+
+
+        public function index(){
+            
+            return view('gerente.gerenteinicio');
+        }
+
 }

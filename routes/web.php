@@ -42,13 +42,32 @@ Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
 Route::post('/inicio', [GerenteLoginController::class, 'authenticate'])->name('login2.authenticate');
 
+Route::get('/inicio2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio');
+
+
 //rutas para el gerente muestre paquetes, servicios eventos
 Route::get('gerente/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
 Route::get('gerente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
 
+
+
+
+
 //rutas para mostrar paquetes 
 
-//rutas para mostrar eventos 
+Route::get('gerente/agrega_paquetes', [PaqueteController::class, 'index2'])->name('agregar.paquetes');
+
+
+
+//rutas para mostrar eventos para clientes
+Route::get('gerente/eventos', [EventosController::class, 'index2'])->name('agregar.eventos');
+Route::get('eventos/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
+
 
 //rutas para mostrar servicios 
+
+
+//rutas para logout salir de cliente
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -30,7 +30,7 @@
                              <span class="icon-bar"></span>
          
                          </button>
-                         <a class="navbar-brand" href="index.php">CLIENTES </a>
+                         <a class="navbar-brand" href="index.php">SALON  </a>
                      </div>
          
                  </nav>
@@ -50,17 +50,17 @@
                                  </div> -->
          
                              </li>
-         
+                             <li>
+                                <a class="active-menu" href="{{route('gerente.gerenteinicio')}}"><i class="fa fa-dashboard "></i>Home </a>
+                            </li>
+                            
         
                              <li>
-                                 <a class="active-menu" href="{{route('paquetes.paquete')}}"><i class="fa fa-dashboard "></i>Agregar Evento </a>
+                                 <a class="active-menu" href="{{route('agregar.eventos')}}"><i class="fa fa-dashboard "></i>Agregar Evento </a>
                              </li>
                              
-                              <li>
-                                 <a href="paquetes.php"><i class="fa fa-cutlery fa-3x "></i>Ver lista</a>
-                             </li>
-                             
-                 
+                            
+                
                             
                               <li>
                                  <a href="#"><i class="fa fa-power-off "></i>Cerrar Sesión</a>

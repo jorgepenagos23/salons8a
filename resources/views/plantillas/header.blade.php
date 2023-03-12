@@ -38,7 +38,7 @@ encabezado  para gerente
         </nav>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
-        <br> <br> 
+        <br>  
            <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
@@ -56,16 +56,18 @@ encabezado  para gerente
 
 
                     <li>
-                        <a class="active-menu" href="gerenteInicio.blade.php"><i class="fa fa-dashboard "></i>Home </a>
+                        <a class="active-menu" href="{{route('gerente.gerenteinicio')}}"><i class="fa fa-dashboard "></i>Home </a>
                     </li>
 					
-					 <li>
-                        <a href="{{route('paquetes.paquete')}}"><i class="fa fa-cutlery fa-3x "></i>Paquetes</a>
+                    <li> 
+                        <a href="{{route('paquetes.paquete')}}"><i class="fa fa-th fa-3x "></i>Paquetes</a>
                     </li>
 					
+
 					 <li>
                         <a href="{{route('eventos.eventos')}}"><i class="fa fa-calendar fa-3x"></i>Eventos</a>
                     </li>
+                    
 					<li>
                         <a href="{{route('servicios.servicios')}}"><i class="fa fa-cubes fa-3x"></i>Servicios</a>
                     </li>
@@ -74,7 +76,7 @@ encabezado  para gerente
                     </li>
 					
 					 
-					
+				
 					<li>
                         <a href=""><i class="fa fa-cogs "></i>PANEL ADMIN</a>
                     </li>

@@ -3,7 +3,6 @@ hola entraste a la gerencia. este seria la vista de gerencia
 
 ?>
 
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,6 +20,7 @@ hola entraste a la gerencia. este seria la vista de gerencia
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     
 </head>
@@ -81,7 +81,7 @@ hola entraste a la gerencia. este seria la vista de gerencia
                     <div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('paquetes.paquete')}}">
-                                <i class="fa fa-cutlery fa-5x"></i>
+                                <i class="fa fa-th fa-5x"></i>
                                 <h5>VER PAQUETES </h5>
                             </a>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Eventos;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class EventosController extends Controller
 {
@@ -14,6 +15,12 @@ class EventosController extends Controller
     {
         $eventos = Eventos::all();
         return view('eventos.eventos', compact('eventos'));
+
+    }
+
+    public function index2(){
+
+        return view('eventos.agregar_evento');
     }
 
     /**

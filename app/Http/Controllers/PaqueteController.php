@@ -15,6 +15,11 @@ class PaqueteController extends Controller
         $paquetes = Paquete::all();
         return view('paquetes.paquete', compact('paquetes'));
     }
+    public function index2()
+    {
+        $paquetes = Paquete::all();
+        return view('paquetes.agregar_paquetes');
+    }
 
     /**
      * Show the form for creating a new resource.

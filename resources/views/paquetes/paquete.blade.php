@@ -20,6 +20,7 @@ error_reporting(0);
 <!--CUSTOM MAIN STYLES-->
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 <!-- GOOGLE FONTS-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -36,9 +37,8 @@ error_reporting(0);
 
 	
 </head>
+@include('paquetes.header')
 <?php
-include("php/header.php");
-error_reporting(0);
 
 ?>
         <div id="page-wrapper">
@@ -47,8 +47,6 @@ error_reporting(0);
                     <div class="col-md-12">
                         <h1 class="page-head-line">Paquetes  
 						<?php
-						echo (isset($_GET['action']) && @$_GET['action']=="add" || @$_GET['action']=="edit")?
-						' <a href="paquetes.php" class="btn btn-primary btn-sm pull-right">Volver <i class="glyphicon glyphicon-arrow-right"></i></a>':'<a href="" class="btn btn-primary btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Agregar paquetes </a>';
 						?>
 						</ah1>
                      

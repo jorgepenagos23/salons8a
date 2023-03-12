@@ -23,7 +23,7 @@ error_reporting(0);
 
    	
 </head>
-@include('cliente.header_cliente')
+@include('paquetes.header_paquete')
 
 <style>
   h3 {
@@ -36,7 +36,8 @@ div{
 }
     
 </style>
-<div>
+<div class="col-sm-10 col-sm-offset-1">
+
     <table class="table">
         <thead>
           <tr>
@@ -48,25 +49,45 @@ div{
           </tr>
         </thead>
         <tbody>
+
           <tr>
             <td>1</td>
-            <td>Juan</td>
-            <td>Pérez</td>
-            <td>28</td>
+            <td>PAQUETE 1</td>
+            <td>XV AÑOS </td>
+            <td>28 MAYO 2023</td>
+            <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+            <td>
+                <a href="#" class="btn btn-danger">Eliminar</a>
+                <a href="#" class="btn btn-primary">Editar</a></td>
+
+
+            </td>
           </tr>
+
           <tr>
-            <td>2</td>
-            <td>María</td>
-            <td>López</td>
-            <td>35</td>
+            <td>1</td>
+            <td>PAQUETE 1</td>
+            <td>XV AÑOS </td>
+            <td>28 MAYO 2023</td>
+            <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+            <td> 
+                <a href="#" class="btn btn-danger">Eliminar</a>
+                <a href="#" class="btn btn-primary">Editar</a></td>
+
+            </td>
           </tr>
+
           <tr>
-            <td>3</td>
-            <td>Pablo</td>
-            <td>González</td>
-            <td>42</td>
-            <td><img src="{{ asset('css/descarga.jpg') }}" width="100" height="100"></td>
-            <td><a href="#" class="btn btn-danger">Eliminar</a>
+            <tr>
+                <td>1</td>
+                <td>PAQUETE 1</td>
+                <td>XV AÑOS </td>
+                <td>28 MAYO 2023</td>
+    
+
+            <td><img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
+            <td>
+                <a href="#" class="btn btn-danger">Eliminar</a>
                 <a href="#" class="btn btn-primary">Editar</a></td>
 
             </td>
@@ -84,7 +105,7 @@ div{
 
                       <div class="col-md-8">
                         <div class="card">
-                          <div class="card-header">Agregar evento</div>
+                          <div class="card-header">Agregar paquetes </div>
                           <div class="card-body">
                             <form method="POST" action="">
                               @csrf
