@@ -75,8 +75,6 @@
                         </div>
                     </div>
 				
-				
-                
                     <div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('paquetes.paquete')}}">
@@ -86,8 +84,7 @@
                         </div>
                     </div>
 					
-					
-					 <div class="col-md-4">
+					<div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('servicios.servicios')}}">
                                 <i class="fa fa-cubes fa-5x"></i>
@@ -95,7 +92,15 @@
                             </a>
                         </div>
                     </div>
-                  
+
+                    <div class="col-md-4">
+                        <div class="main-box">
+                            <a href="{{route('usuariotabla.ver')}}">
+                                <i class="fa fa-users fa-5x"></i>
+                                <h5>VER Y AGREGAR USUARIOS</h5>
+                            </a>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- /. ROW  -->

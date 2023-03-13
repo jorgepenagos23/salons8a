@@ -88,5 +88,5 @@ Route::post('/empleadosvalidar', [EmpleadosController::class, 'authenticate'])->
 Route::get('/empleados', [EmpleadosController::class, 'indexEmpleados'])->name('empleados.index');
 
 //Para las rutas  de ver usuarios
-Route::get('gerente/usuarios', [UsuariosController::class, 'index'])->name('usuario.ver');
-Route::get('gerente/usuarios', [UsuariosController::class, 'index2'])->name('usuariotabla.ver');
+Route::get('gerente/usuarios', [UsuariosController::class, 'verUsuarios'])->name('usuariotabla.ver');
+Route::get('gerente/agregarusuario', [UsuariosController::class, 'agregarUsuarios'])->name('usuarios.agregarUsuarios');

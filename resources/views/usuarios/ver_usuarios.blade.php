@@ -25,7 +25,7 @@ error_reporting(0);
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	
 </head>
-@include('servicios.header')
+@include('plantillas.header6')
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -58,7 +58,6 @@ error_reporting(0);
                                             <th>Nombre</th>
                                             <th>Privilegio</th>
                                             <th>Detalles</th>
-											<th>Fotos</th>
 											
                                         </tr>
                                         </center>
@@ -72,9 +71,7 @@ error_reporting(0);
                                             <td>Jorge</td>
                                             <td>cliente</td>
                                             <td>Detalles por definir</td>
-											<td> 
-                                             <img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100">
-                                            </td>
+											
 											<td>  
 											 <a href="#" class="btn btn-danger">Eliminar</a>
                								 <a href="#" class="btn btn-primary">Editar</a></td>	
@@ -84,12 +81,10 @@ error_reporting(0);
                                             <td>Andres</td>
                                             <td>Gerente</td>
                                             <td>Detalles por definir</td>
-											<td> 
-                                             <img src="{{ asset('css/payaso.jpg') }}" width="100" height="100">
-                                            </td>
 											<td>  
 											 <a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>	
+               								 <a href="#" class="btn btn-primary">Editar</a>
+                                            </td>	
 										</td>
 
 
