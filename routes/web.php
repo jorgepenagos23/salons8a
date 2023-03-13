@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnonimoController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\ExampleController;
@@ -74,22 +75,13 @@ Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//Anonimo login e inicio
+Route::get('/login', [AnonimoController::class, 'showLoginForm'])->name('anonimo.showLoginForm');
+Route::post('/anonimovalidar', [AnonimoController::class, 'authenticate'])->name('anonimo.authenticate');
+Route::get('/paquetes', [AnonimoController::class, 'indexAnonimo'])->name('anonimo.index');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Empleado login
-Route::get('/empleado/login', [EmpleadosController::class, 'showLoginForm'])->name('gerente.showLoginForm');
-Route::post('/empleados', [EmpleadosController::class, 'authenticate'])->name('login2.authenticate');
+//Empleado login e inicio
+Route::get('/empleado/login', [EmpleadosController::class, 'showLoginForm'])->name('empleados.showLoginForm');
+Route::post('/empleadosvalidar', [EmpleadosController::class, 'authenticate'])->name('empleados.authenticate');
+Route::get('/empleados', [EmpleadosController::class, 'indexEmpleados'])->name('empleados.index');

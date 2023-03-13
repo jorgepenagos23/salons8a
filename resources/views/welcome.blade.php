@@ -22,8 +22,8 @@
                 <div class="links">
                     <a href="{{ route('gerente.showLoginForm') }}">GERENTE</a>
                     <a href="{{ route('user.showLoginForm') }}">CLIENTE</a>
-                    <a href="{{ route('ejemplo') }}">EMPLEADO</a>
-                    <a href="">Paquetes</a>
+                    <a href="{{ route('empleados.showLoginForm') }}">EMPLEADO</a>
+                    <a href="{{ route('anonimo.showLoginForm') }}">Paquetes</a>
 
                 </div>
             </div>

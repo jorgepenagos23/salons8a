@@ -51,12 +51,12 @@ encabezado  para un empleado  un customer
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('empleados.index')}}"><i class="fa fa-dashboard "></i>Home </a>
+                       <a class="active-menu" href="{{route('anonimo.index')}}"><i class="fa fa-dashboard "></i>Home </a>
                    </li>
                    
 
                     <li>
-                        <a class="active-menu" href="{{route('eventos.eventos')}}"><i class="fa fa-dashboard "></i>agregar abono a Evento </a>
+                        <a class="active-menu" href="{{route('user.showLoginForm')}}"><i class="fa fa-dashboard "></i>Iniciar sesion</a>
                     </li>
                     
                    

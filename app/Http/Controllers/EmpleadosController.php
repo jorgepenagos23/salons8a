@@ -20,14 +20,13 @@ class EmpleadosController extends Controller
         // Verificar si el usuario y contraseña son correctos (en este ejemplo, son 'admin' y 'password')
         if ($username == 'empleado' && $password == 'empleado') {
             // Si el usuario y contraseña son correctos, redirigir al usuario a la página de inicio con un mensaje de éxito
-            return view('empleados.empleadosIndex');
+            return redirect(route("empleados.index"));
         } else {
             // Si el usuario y contraseña no son correctos, redirigir al usuario al formulario de inicio de sesión con un mensaje de error
             return redirect('/ejemplo');
         }
     }
-
-    public function index()
+    public function indexEmpleados()
     {
         return view('empleados.empleadosIndex');
     }

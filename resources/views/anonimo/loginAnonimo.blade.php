@@ -11,11 +11,12 @@
         <div>{{ session('error') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('empleados.authenticate') }}">
+    <form method="POST" action="{{route('anonimo.authenticate')}}">
         @csrf
+
         <div class="login-container">
             <div class="title">
-                <h1>BIENVENIDO, INGRESA TUS DATOS EMPLEADO</h1>
+                <h1>INGRESA TUS DATOS ANONIMO</h1>
             </div>
             <img src="{{asset('css/login-icon.svg')}}" alt="username-icon" style="height: 7rem" >
             <div class="form-group">

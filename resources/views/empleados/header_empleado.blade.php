@@ -52,7 +52,7 @@
 <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('index_cliente')}}">Volver</a>
+        <a class="nav-link" href="{{route('empleados.index')}}">Volver</a>
       </li>
       </li>
     </ul>
