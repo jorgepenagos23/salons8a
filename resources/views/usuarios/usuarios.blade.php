@@ -52,7 +52,7 @@
                             {{-- {{route()}} --}}
                             <a href="{{route('eventos.eventos')}}">
                                 <i class="fa fa-calendar fa-5x"></i>
-                                <h5>VER Y AGREGAR  EVENTOS</h5>
+                                <h5>VER Y AGREGAR  USUARIOS</h5>
                             </a>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div class="main-box">
                             <a href="{{route('paquetes.paquete')}}">
                                 <i class="fa fa-th fa-5x"></i>
-                                <h5>VER PAQUETES </h5>
+                                <h5>VER USUARIOS </h5>
                             </a>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="main-box">
                             <a href="{{route('servicios.servicios')}}">
                                 <i class="fa fa-cubes fa-5x"></i>
-                                <h5>VER SERVICIOS</h5>
+                                <h5>VER USUARIOS</h5>
                             </a>
                         </div>
                     </div>

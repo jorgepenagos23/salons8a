@@ -9,6 +9,7 @@ use App\Http\Controllers\PaqueteController;
 use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
+use App\Http\Controllers\UsuariosController;
 use App\Models\Servicios;
 use Illuminate\Support\Facades\Route;
 use Tests\Unit\ExampleTest;
@@ -85,3 +86,7 @@ Route::get('/paquetes', [AnonimoController::class, 'indexAnonimo'])->name('anoni
 Route::get('/empleado/login', [EmpleadosController::class, 'showLoginForm'])->name('empleados.showLoginForm');
 Route::post('/empleadosvalidar', [EmpleadosController::class, 'authenticate'])->name('empleados.authenticate');
 Route::get('/empleados', [EmpleadosController::class, 'indexEmpleados'])->name('empleados.index');
+
+//Para las rutas  de ver usuarios
+Route::get('gerente/usuarios', [UsuariosController::class, 'index'])->name('usuario.ver');
+Route::get('gerente/usuarios', [UsuariosController::class, 'index2'])->name('usuariotabla.ver');

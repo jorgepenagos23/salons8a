@@ -56,7 +56,7 @@ error_reporting(0);
                                             <center> 
                                             <th>#</th>
                                             <th>Nombre</th>
-                                            <th>Servicio</th>
+                                            <th>Privilegio</th>
                                             <th>Detalles</th>
 											<th>Fotos</th>
 											
@@ -69,8 +69,8 @@ error_reporting(0);
 								
                                        <tr>
                                             <td> 1</td>
-                                            <td>Infable</td>
-                                            <td>OCUPADO</td>
+                                            <td>Jorge</td>
+                                            <td>cliente</td>
                                             <td>Detalles por definir</td>
 											<td> 
                                              <img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100">
@@ -81,8 +81,8 @@ error_reporting(0);
 										</td>
                                         <tr>
                                             <td> 2</td>
-                                            <td>Payaso</td>
-                                            <td>LIBRE</td>
+                                            <td>Andres</td>
+                                            <td>Gerente</td>
                                             <td>Detalles por definir</td>
 											<td> 
                                              <img src="{{ asset('css/payaso.jpg') }}" width="100" height="100">
