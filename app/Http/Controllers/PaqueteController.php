@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paquete;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PaqueteController extends Controller
 {
@@ -12,8 +13,9 @@ class PaqueteController extends Controller
      */
     public function index()
     {
-        $paquetes = Paquete::all();
-        return view('paquetes.paquete', compact('paquetes'));
+
+        $paquetes = DB::select('select * from paquetes');
+        return view('paquetes.paquete', ['lista' => $paquetes]);
     }
     public function index2()
     {
@@ -26,7 +28,7 @@ class PaqueteController extends Controller
      */
     public function create()
     {
-        return view('paquetes.create');
+        return view('paquetes.agregar_paquetes');
     }
 
     /**

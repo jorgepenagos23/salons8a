@@ -9,6 +9,13 @@ class GerenteLoginController extends Controller
 {
 
 
+    public function index(){
+
+        return view('gerente.gerenteInicio');
+
+    }
+
+
     public function showLoginForm()
     {
         return view('gerente.login');

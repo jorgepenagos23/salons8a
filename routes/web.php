@@ -37,12 +37,14 @@ Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
 //Route::get('cliente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
-//rutas para mostrar login usuario 
+//rutas para mostrar login usuario
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
-//rutas para mostrar login gerente 
+//rutas para mostrar login gerente
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
+Route::get('/gerente2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio2');
+
 Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('gerente.gerenteinicio');
 
 
@@ -55,7 +57,7 @@ Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('se
 
 
 
-//rutas para mostrar paquetes 
+//rutas para mostrar paquetes
 
 Route::get('gerente/agrega_paquetes', [PaqueteController::class, 'index2'])->name('agregar.paquetes');
 
@@ -66,7 +68,7 @@ Route::get('agregarevento', [EventosController::class, 'index2'])->name('agregar
 Route::get('eventos/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
 
-//rutas para mostrar servicios 
+//rutas para mostrar servicios
 Route::get('servicios/index_servicios', [ServiciosController::class, 'index2'])->name('servicios.index');
 Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])->name('agregar.servicios');
 
