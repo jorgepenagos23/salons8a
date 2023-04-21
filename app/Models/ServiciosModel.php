@@ -8,11 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class ServiciosModel extends Model
 {
     use HasFactory;
+    protected $table = 'servicios';
+
 
     protected $fillable = [
-        'name',
-        'description',
-        'price',
+        'id',
+        'nombre',
+        'descripción',
+        'precio',
+        'created_at',
+        'updated_at',
+
     ];
 
     public function paquetes()
@@ -24,6 +30,8 @@ class ServiciosModel extends Model
     {
         return $this->belongsToMany(EventosModel::class);
     }
+
+
 
 
 }

@@ -22,8 +22,8 @@ return new class extends Migration
             $table->tinyInteger('confirmado')->default(0);
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('id_paquete')->references('id_paquete')->on('paquetes')->onDelete('cascade');
-
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
         });
     }

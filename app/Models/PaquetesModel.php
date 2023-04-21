@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PaquetesModel extends Model
 {
+    protected $table = 'paquetes';
+
     use HasFactory;
     protected $fillable = [
         'nombre',

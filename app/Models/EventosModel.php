@@ -10,16 +10,22 @@ class EventosModel extends Model
 {
     use HasFactory;
 
+    protected $table = 'eventos';
 
+    protected $fillable = [
+        'id',
+        'usuario_id',
+        'id_paquete',
+        'nombre',
+        'descripción',
+        'fecha_evento',
+        'status',
+        'confirmado',
+        'created_at',
+        'updated_at',
 
+    ];
 
-
-    public function servicios(){
-
-
-    return $this->hasMany(ServiciosModel::class);
-
-    }
 
 
     public function paquetes()
@@ -27,6 +33,11 @@ class EventosModel extends Model
         return $this->belongsToMany(PaquetesModel::class);
 
     }
+
+    public function servicios()
+{
+    return $this->belongsToMany(ServiciosModel::class);
+}
 
 
 

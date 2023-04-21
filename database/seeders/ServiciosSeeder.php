@@ -14,18 +14,18 @@ class ServiciosSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('services')->insert([
+        DB::table('servicios')->insert([
             'nombre' => 'Mantelería',
             'descripción' => 'Servicio de  mantelería color blanco',
             'precio' => 100.00,
         ]);
-        DB::table('services')->insert([
+        DB::table('servicios')->insert([
             'nombre' => 'Aire Acondicionado',
             'descripción' => 'Servicio de aire acondicionado para eventos',
             'precio' => 150.00,
         ]);
 
-        DB::table('services')->insert([
+        DB::table('servicios')->insert([
         'nombre' => 'Meseros',
         'descripción' => 'Servicio de Meseros',
         'precio' => 200.00,

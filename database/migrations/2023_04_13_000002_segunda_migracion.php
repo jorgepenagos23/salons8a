@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('precio',10,3);
             $table->boolean('active')->default(false);
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
+
         });
     }
 

@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('tipo_usuario',20);
             $table->string('apellidos',20);
             $table->text('direccion');
-            $table->text('Telefono');
+            $table->text('telefono');
             $table->integer('edad');
             $table->string('email')->unique();
             $table->string('contraseña')->nullable(false); // Definir la co
-            $table->timestamps(); // Agrega created_at y updated_at
+
+            $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('usuarios');
     }
 };

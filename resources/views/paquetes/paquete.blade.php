@@ -74,7 +74,7 @@ error_reporting(0);
                                     <tbody>
                                         @foreach ($lista AS $item)
                                       <tr>
-                                        <td>{{$item->idpaquete}}</td>
+                                        <td>{{$item->id_paquete}}</td>
                                         <td>{{$item->nombre}}</td>
                                         <td>{{$item->descripción}}</td>
                                         <td>{{$item->precio}}</td>
