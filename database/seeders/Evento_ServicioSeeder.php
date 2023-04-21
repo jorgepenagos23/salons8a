@@ -1,35 +1,28 @@
 <?php
+use Illuminate\Database\Seeder;
 use App\Models\Evento;
 use App\Models\Servicio;
 use App\Models\EventoServicio;
 use App\Models\EventosModel;
 use App\Models\ServiciosModel;
-use Database\Seeders\EventosSeeder;
-use Illuminate\Database\Seeder;
 
 class EventoServicioSeeder extends Seeder
 {
     public function run()
     {
-        $evento = EventosModel::create([
-            'nombre' => 'Evento de ejemplo',
-            'fecha' => '2023-05-01',
-            // Agrega los demás campos necesarios
-        ]);
+        // Obtener una lista ordenada de los IDs de eventos y servicios
+        $evento_ids = EventosModel::orderBy('id')->pluck('id')->toArray();
+        $servicio_ids = ServiciosModel::orderBy('id')->pluck('id')->toArray();
 
-        $servicio = ServiciosModel::create([
-            'nombre' => 'Servicio de ejemplo',
-            'descripcion' => 'Descripción del servicio',
-            // Agrega los demás campos necesarios
-        ]);
-
-        EventoServicio::create([
-            'evento_id' => $evento->id,
-            'servicio_id' => $servicio->id,
-        ]);
-
-
-
-
+        // Recorrer la lista de IDs de eventos y servicios y crear registros en la tabla intermedia
+        foreach ($evento_ids as $evento_id) {
+            foreach ($servicio_ids as $servicio_id) {
+                EventoServicio::create([
+                    'evento_id' => $evento_id,
+                    'servicio_id' => $servicio_id,
+                ]);
+            }
+        }
     }
 }
+
