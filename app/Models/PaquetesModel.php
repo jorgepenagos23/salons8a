@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PaquetesModel extends Model
 {
     protected $table = 'paquetes';
+    protected $primaryKey = 'id_paquete';
 
     use HasFactory;
     protected $fillable = [
         'nombre',
         'descripción',
         'precio',
-        'activo',
+        'active',
     ];
 
     public function eventos()

@@ -80,8 +80,9 @@ error_reporting(0);
                                         <td>{{$item->precio}}</td>
                                         <td> <img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
                                         <td>
-                                         <a href="#" class="btn btn-danger">Eliminar</a>
-                                        <a href="#" class="btn btn-primary">Editar</a></td>
+                                            <a href="{{ route('paquetes.edit_paquetes', $item->id_paquete) }}" class="btn btn-primary">Editar</a>
+
+
                                        </td>
                                       </tr>
                                       @endforeach
@@ -104,18 +105,6 @@ error_reporting(0);
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-
-    <div id="footer-sec">
-	Para más desarrollos gratuitos, accede a <a href="#" target="_blank">shhhhh</a>
-    </div>
-
-
-    <!-- BOOTSTRAP SCRIPTS -->
-    <script src="js/bootstrap.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="js/jquery.metisMenu.js"></script>
-       <!-- CUSTOM SCRIPTS -->
-    <script src="js/custom1.js"></script>
 
 
 </body>

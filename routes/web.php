@@ -60,6 +60,11 @@ Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('se
 //rutas para mostrar paquetes
 
 Route::get('gerente/agrega_paquetes', [PaqueteController::class, 'index2'])->name('agregar.paquetes');
+Route::post('/paquetes/agrega', [PaqueteController::class, 'store'])->name('paquetes.store');
+
+Route::get('paquetes/{id_paquete}/edit', [PaqueteController::class, 'edit'])->name('paquetes.edit_paquetes');
+Route::put('paquetes/{id_paquete}', [PaqueteController::class, 'update'])->name('paquetes.update');
+
 
 
 
@@ -89,6 +94,21 @@ Route::get('/empleado/login', [EmpleadosController::class, 'showLoginForm'])->na
 Route::post('/empleadosvalidar', [EmpleadosController::class, 'authenticate'])->name('empleados.authenticate');
 Route::get('/empleados', [EmpleadosController::class, 'indexEmpleados'])->name('empleados.index');
 
-//Para las rutas  de ver usuarios
+
+//Para las rutas  de ver usuarios de guia ------------------------------------------------------------------------------------------ no mover arriba ya sirve.
+Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios/create', [UsuariosController::class, 'create'])->name('usuarios.create');
+//Para las rutas  de ver usuarios de guia
+Route::get('/usuarios/{usuario}/edit', [UsuariosController::class, 'edit'])->name('usuarios.edit');
+Route::put('/usuarios/{usuario}', [UsuariosController::class, 'update'])->name('usuarios.update');
+
+
+
+//Para las rutas  de ver usuarios no mover
 Route::get('gerente/usuarios', [UsuariosController::class, 'verUsuarios'])->name('usuariotabla.ver');
 Route::get('gerente/agregarusuario', [UsuariosController::class, 'agregarUsuarios'])->name('usuarios.agregarUsuarios');
+Route::post('/usuarios', [UsuariosController::class, 'store'])->name('usuarios.store');
+Route::get('usuarios/{id}/edit', [UsuariosController::class, 'edit'])->name('usuarios.edit_usuario');
+Route::delete('usuarios/{id}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+
+

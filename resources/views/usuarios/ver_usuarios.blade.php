@@ -2,7 +2,6 @@
 <?php
 
 // Desactivar toda notificación de error
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,81 +22,93 @@ error_reporting(0);
 
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	
+
 </head>
 @include('plantillas.header6')
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">VER LISTA DE USUARIOS 
-							
+                        <h1 class="page-head-line">VER LISTA DE USUARIOS
+
 
 						<?php
-						
+
 						?>
 						</h1>
 						<style>
 							h3 {
 							  color: rgb(77, 77, 77);
-						  
+
 						  }
 						  div{
-						  
+
 							  zoom: 1.0; /* Aumenta el tamaño del navbar en un 20% */
 						  }
-							  
+
 						  </style>
-						   <div class="panel-body">
-                            <div class="table-sorting table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="tSortable22">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                         Listar Usuarios
+                        </div>
+                        <div class="panel-body">
+                             <div class="table-sorting table-responsive">
+                                <table class="table">
                                     <thead>
-                                        <tr>
-                                            <center> 
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Privilegio</th>
-                                            <th>Detalles</th>
-											
-                                        </tr>
-                                        </center>
+                                      <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Rol</th>
+                                        <th>Apellidos</th>
+                                        <th>Direccion</th>
+                                        <th>Telefono</th>
+                                        <th>Edad</th>
+                                        <th>Email</th>
+                                      </tr>
                                     </thead>
-                                    
                                     <tbody>
-									
-								
+                                        @foreach ($lista AS $item)
+                                      <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->nombre}}</td>
+                                        <td>{{$item->tipo_usuario}}</td>
+                                        <td>{{$item->apellidos}}</td>
+                                        <td>{{$item->direccion}}</td>
+                                        <td>{{$item->telefono}}</td>
+                                        <td>{{$item->edad}}</td>
+                                        <td>{{$item->email}}</td>
+
+
+
+
+                                        <td> <img src="{{ asset('users_img/user1.png') }}" width="100" height="100"></td>
+                                        <td>
+                                            <form action="{{ route('usuarios.destroy',['id' => $item])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                         <a href="{{ route('usuarios.edit_usuario', ['id' => $item]) }}" class="btn btn-primary">Editar</a>
+
+                                        </td>
+                                      </tr>
+
                                        <tr>
-                                            <td> 1</td>
-                                            <td>Jorge</td>
-                                            <td>cliente</td>
-                                            <td>Detalles por definir</td>
-											
-											<td>  
-											 <a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>	
-										</td>
-                                        <tr>
-                                            <td> 2</td>
-                                            <td>Andres</td>
-                                            <td>Gerente</td>
-                                            <td>Detalles por definir</td>
-											<td>  
-											 <a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a>
-                                            </td>	
-										</td>
+                                       </tr>
+                                      @endforeach
+                                    </tbody>
 
+                                  </table>
 
-                                        </tr>
-							
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                    </div>
 
-					
-  
 
-    
+
+
 </body>
 </html>

@@ -1,14 +1,17 @@
 
 <?php
+// VISTA CREATE.PHP VISTA PARA CREAR UN USUARIO
 // Desactivar toda notificación de error
-error_reporting(0);
+
+
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAQUETES</title>
+    <title>AGREGAR USUARIOS</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <!-- FONTAWESOME STYLES-->
@@ -22,154 +25,160 @@ error_reporting(0);
 
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	
+
 </head>
-@include('paquetes.header_paquete')
+@include('usuarios.header_usuarios2')
 
-        <div id="page-wrapper">
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">AGREGAR PAQUETES
-							
+<style>
 
-						<?php
-						
-						?>
-						</h1>
-                     
+.form-container {
+  margin-top: 50px;
+  background-color: #c2d6e9;
+  padding: 40px;
+  border-radius: 10px;
+}
+</style>
 
-                    </div>
-                </div>
-				
-		
-			<script type="text/javascript" src="js/validation/jquery.validate.min.js"></script>
-                <div class="row">
-				
-                    <div class="col-sm-10 col-sm-offset-1">
-               <div class="panel panel-primary">
-                        <div class="panel-heading">
-                        </div>
-						<form action="eventos.php" method="post" id="signupForm1" class="form-horizontal">
-                        <div class="panel-body">
-						<fieldset class="scheduler-border" >
-						 <legend  class="scheduler-border">Información del Usuario a agregar :</legend>
-						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Nombre del Usuario </label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="sname" name="sname" value=""  />
-								</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="Old">Apellidos del Usuario </label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="sname" name="sname" value=""  />
-							</div>
-					    </div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="Old">Domicilio del Usuario </label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="sname" name="sname" value=""  />
-							</div>
-						</div>
-				</div>
-					
-							
-							
-						
-						<div class="form-group">
-								<div class="col-sm-8 col-sm-offset-2">
-								<input type="hidden" name="id" value="">
-								<input type="hidden" name="action" value="">
-								
-									<button type="submit" name="save" class="btn btn-primary">Guardar </button>
-								 
-								   
-								   
-								</div>
-							</div>
-                         
-                           
-                           
-                         
-                           
-                         </div>
-							</form>
-							
-                        </div>
+<div class="container">
+    <div class="d-flex justify-content-left align-items-left" style="height: 100vh; background-color: #b0d2f5;">
+        <div class="col-md-11 mx-auto  bg-white p-4" style="border-radius: 10px; box-shadow: 0px 0px 10px #fb4e4e;">
+            <div class="col-md-8 offset-md-2 form-container">
+                <div class="card-header">{{ __('Ingresa los datos para agregar un Nuevo Usuario') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('usuarios.store') }}">
+
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="NOMBRE" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+                                @error('nombre')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                </span>
+                                @enderror
                             </div>
-            
-			
-                </div>
-               
+                            </div>
 
-			   
-			   
-		<script type="text/javascript">
-		
 
-	
-		 <link href="css/datatable/datatable.css" rel="stylesheet" />
-		 
-		
-		
-		<div class="panel panel-default">
-                        <div class="panel-heading">
-						panel para agregar  un evento
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-sorting table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="tSortable22">
-                                    <thead>
-                                        <tr>
-                                            <center> 
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Fecha de evento</th>
-                                            <th>Total</th>
-											<th>Fotos</th>
-											
-                                        </tr>
-                                        </center>
-                                    </thead>
-                                    <tbody>
-									
-								
-                                       <tr>
-                                            <td> 1</td>
-                                            <td>EVento Cena de Navidad</td>
-                                            <td> 24 diciembre </td>
-                                            <td>agregar</td>
-											<td>  pendiente</td>
-											<td>  
-											<a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>
-												
-												</td>
-                                        </tr>
-							
-                                    </tbody>
-                                </table>
+                        <div class="form-group row">
+                            <label for="tipo_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
+                            <select class="form-control" id="tipo_usuario" name="tipo_usuario" class="form-control @error('tipo_usuario') is-invalid @enderror" name="tipo_usuario" value="{{ old('tipo_usuario') }}" required autocomplete="tipo_usuario" autofocus>
+                                <option value="cliente">Cliente</option>
+                                <option value="gerente">Gerente</option>
+                            </select>
+                                @error('tipo_usuario')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-                     
-	<script src="js/dataTable/jquery.dataTables.min.js"></script>
-    
-   
-    <div id="footer-sec">
-DERECHOS RESERVADOS 2023 <a href="LINK" target="_blank">TECNm</a>
-	</div>
-   
-  
-    <!-- BOOTSTRAP SCRIPTS -->
-    <script src="js/bootstrap.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="js/jquery.metisMenu.js"></script>
-       <!-- CUSTOM SCRIPTS -->
-    <script src="js/custom1.js"></script>V
 
-    
+                        <div class="form-group row">
+                            <label for="apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="apellidos" type="text" class="form-control @error('apellidos') is-invalid @enderror" name="apellidos" value="{{ old('apellidos') }}" required autocomplete="apellidos">
+
+                                @error('apellidos')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" value="{{ old('direccion') }}" required autocomplete="direccion">
+
+                                @error('direccion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="tel" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono">
+
+                                @error('telefono')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6">
+                            <label for="edad">Edad</label>
+                            <select class="form-control" id="edad" name="edad">
+                                @foreach(range(1, 100) as $edad)
+                                    <option value="{{ $edad }}">{{ $edad }}</option>
+                                @endforeach
+                            </select>
+                                @error('edad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group ">
+                            <br>
+                            <br>
+                            <label for="contraseña" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                            <div class="col-md-6">
+                                <input id="contraseña" type="password" class="form-control @error('contraseña') is-invalid @enderror" name="contraseña" required autocomplete="new-contraseña">
+
+                                @error('contraseña')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contraseña-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="contraseña-confirm" type="password" class="form-control" name="contraseña_confirmation" required autocomplete="new-contraseña">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Agregar Usuario</button>
+
+
+
+                        </form>
 </body>
 </html>
-
