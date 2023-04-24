@@ -9,7 +9,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LISTAR  EVENTO GERENTES</title>
+    <title>LISTAR  EVENTO CLIENTE</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <!-- FONTAWESOME STYLES-->
@@ -25,7 +25,7 @@ error_reporting(0);
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 </head>
-@include('plantillas.header')
+
 <div id="page-wrapper">
     <div id="page-inner">
         <div class="row">

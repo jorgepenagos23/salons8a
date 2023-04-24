@@ -22,120 +22,105 @@ error_reporting(0);
 
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	
+
 </head>
 @include('servicios.header2')
 
-        <div id="page-wrapper">
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">AGREGAR SERVICIOS
-							
 
-						<?php
-						
-						?>
-						</h1>
-                     
+<style>
 
-                    </div>
-                </div>
-				
-		
-			<script type="text/javascript" src="js/validation/jquery.validate.min.js"></script>
-                <div class="row">
-				
-                    <div class="col-sm-10 col-sm-offset-1">
-               <div class="panel panel-primary">
-                        <div class="panel-heading">
-                        </div>
-						<form action="eventos.php" method="post" id="signupForm1" class="form-horizontal">
-                        <div class="panel-body">
-						<fieldset class="scheduler-border" >
-						 <legend  class="scheduler-border">Información del Servicio a  agregar :</legend>
-						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Nombre del Servicio </label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="sname" name="sname" value=""  />
-								</div>
-							</div>
-						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Costo del Servicio</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="contact" name="contact" value="" maxlength="10" />
-								</div>
-							</div>
+    .row {
+      margin-left: 60px;
+
+    }
+        </style>
 
 
-							
-					
-				
-						
-					
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="Password">Comentarios del Servicio </label>
-								<div class="col-sm-10">
-	                        <textarea class="form-control" id="remark" name="remark"></textarea >
-								</div>
-							</div>
-					
-							</fieldset>
-							
-							 <fieldset class="scheduler-border" >
-						 <legend  class="scheduler-border">Información Opcional:</legend>
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="Password">Fotografias </label>
-								<div class="col-sm-10">
-	                        <textarea class="form-control" id="about" name="about"></textarea >
-								</div>
-							</div>
-							
-							
-						
-						<div class="form-group">
-								<div class="col-sm-8 col-sm-offset-2">
-								<input type="hidden" name="id" value="">
-								<input type="hidden" name="action" value="">
-								
-									<button type="submit" name="save" class="btn btn-primary">Guardar </button>
-								 
-								   
-								   
-								</div>
-							</div>
+<div class="container" style="color: WHITE;">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Agregar Servicio') }}</div>
 
-                         </div>
-			                </form>
-							
-                        </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('servicios.store') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+
+                                @error('nombre')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-            
-			
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="descripción" class="col-md-4 col-form-label text-md-right">{{ __('descripción') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="descripción" class="form-control @error('descripción') is-invalid @enderror" name="descripción" required autocomplete="descripción">{{ old('descripcion') }}</textarea>
+
+                                @error('descripción')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="precio" class="col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="precio" type="number" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" required autocomplete="precio">
+
+                                @error('precio')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="activo" class="col-md-4 col-form-label text-md-right">{{ __('Activo') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="activo" class="form-control @error('activo') is-invalid @enderror" name="activo" required autocomplete="activo">
+                                    <option value="1" {{ old('activo') == '1' ? 'selected' : '' }}>Sí</option>
+                                    <option value="0" {{ old('activo') == '0' ? 'selected' : '' }}>No</option>
+                                </select>
+
+                                @error('activo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Agregar Servicio') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-               
-
-			   
-			   
-		
-
-   
+            </div>
 
 
 
 
-    <div id="footer-sec">
 
-DERECHOS RESERVADOS 2023  <a href="LINK" target="_blank">TECNm</a>
-	</div>
-   
-  
-    <!-- BOOTSTRAP SCRIPTS -->
-    <script src="js/bootstrap.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="js/jquery.metisMenu.js"></script>
-       <!-- CUSTOM SCRIPTS -->
-    <script src="js/custom1.js"></script>V
-    
+
+
 </body>
 </html>

@@ -11,6 +11,7 @@ use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UsuariosController;
 use App\Models\Servicios;
+use App\Models\ServiciosModel;
 use Illuminate\Support\Facades\Route;
 use Tests\Unit\ExampleTest;
 
@@ -37,7 +38,7 @@ Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
 //Route::get('cliente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
 
-//rutas para mostrar login usuario
+//rutas para mostrar login usuario tipo cliente CLIENTE CLIENTE CLIENTE
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
@@ -50,20 +51,41 @@ Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('
 
 //rutas para el gerente muestre paquetes, servicios eventos
 Route::get('gerente/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
+
+//rutas para eventos
+
 Route::get('gerente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
+
+Route::get('/eventos/{id}', [EventosController::class, 'verEventos'])->name('eventos.verEventos');
+Route::post('/eventos/store', [EventosController::class, 'store'])->name('eventos.store');
+Route::get('/eventos/create', [EventosController::class, 'create'])->name('eventos.create');
+Route::get('/evento/{id}/editar', [EventosController::class, 'editar'])->name('evento.editar');
+Route::put('/evento/{id}', [EventosController::class, 'update'])->name('evento.update');
+Route::get('/evento/agregar', [EventosController::class, 'index2'])->name('eventos.index2');
+Route::delete('/eventos/eliminar/{id}', [EventosController::class, 'destroy'])->name('eventos.destroy');
+
+//rutas evento y servicios
+
+
+
+
+
+
+
 Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
 
 
 
 
 
-//rutas para mostrar paquetes
+//rutas para mostrar paquetes no moverle
 
 Route::get('gerente/agrega_paquetes', [PaqueteController::class, 'index2'])->name('agregar.paquetes');
 Route::post('/paquetes/agrega', [PaqueteController::class, 'store'])->name('paquetes.store');
 
 Route::get('paquetes/{id_paquete}/edit', [PaqueteController::class, 'edit'])->name('paquetes.edit_paquetes');
 Route::put('paquetes/{id_paquete}', [PaqueteController::class, 'update'])->name('paquetes.update');
+Route::delete('paquetes/{id_paquete}', [PaqueteController::class, 'destroy'])->name('paquetes.destroy');
 
 
 
@@ -76,6 +98,14 @@ Route::get('eventos/eventos', [EventosController::class, 'index'])->name('evento
 //rutas para mostrar servicios
 Route::get('servicios/index_servicios', [ServiciosController::class, 'index2'])->name('servicios.index');
 Route::get('servicios/agrega_servicios', [ServiciosController::class, 'index3'])->name('agregar.servicios');
+Route::post('/servicios/store', [ServiciosController::class, 'store'])->name('servicios.store');
+
+Route::put('/servicios/editarmas/{servicio}', [ServiciosController::class, 'update'])->name('servicios.update');
+
+Route::get('/servicios/editar/{servicio}', [ServiciosController::class, 'edit'])->name('servicios.edit_servicios');
+
+Route::delete('/servicios/eliminar/{id}', [ServiciosController::class, 'destroy'])->name('servicios.destroy');
+
 
 
 

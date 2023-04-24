@@ -6,10 +6,10 @@
                 <style>
                  .navbar.navbar-default.navbar-cls-top {
                     background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgb(223, 81, 46) 100%);
-}   
+}
                     .navbar-default.navbar-side {
                         background-color: #e6eef7;
-                        
+
                                                     }
                     .sidebar-collapse{
                      background-color: #007bff;
@@ -19,8 +19,8 @@
                         background-color: #007bff;
 
                      }
-                    
-                                                   
+
+
                 </style>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -43,9 +43,9 @@
                             <img src="img/user.png" class="img-thumbnail" />
 
                             <div class="inner-text">
-                                
+
                             <br />
-                               
+
                             </div>
                         </div> -->
 
@@ -53,7 +53,7 @@
                     <li>
                        <a class="active-menu" href="{{route('servicios.servicios')}}"><i class="fa fa-dashboard "></i>Regresar </a>
                    </li>
-                   
+
 
                 </ul>
 

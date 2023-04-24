@@ -10,7 +10,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PAQUETESr</title>
+    <title>LISTAR PAQUETES</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <!-- FONTAWESOME STYLES-->
@@ -81,6 +81,11 @@ error_reporting(0);
                                         <td> <img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
                                         <td>
                                             <a href="{{ route('paquetes.edit_paquetes', $item->id_paquete) }}" class="btn btn-primary">Editar</a>
+                                            <form action="{{ route('paquetes.destroy',['id_paquete' => $item])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
 
 
                                        </td>

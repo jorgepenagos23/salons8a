@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('usuarios')->insert([
-            'nombre' => 'Juan',
+            'nombre' => 'Hugo',
             'tipo_usuario' => 'Cliente',
             'apellidos' => 'Pérez García',
             'direccion' => 'Av. Principal #123',
@@ -23,16 +23,43 @@ class DatabaseSeeder extends Seeder
             'email' => 'juan@gmail.com',
             'contraseña' => Hash::make('123456'),
         ]);
+
+
         DB::table('usuarios')->insert([
-            'nombre' => 'Ana',
+            'nombre' => 'Paco',
+            'tipo_usuario' => 'Cliente',
+            'apellidos' => 'Lopez Diaz',
+            'direccion' => 'Av. Principal #123',
+            'Telefono' => '4352545435',
+            'edad' => 30,
+            'email' => 'paquito@gmail.com',
+            'contraseña' => Hash::make('123456'),
+        ]);
+        DB::table('usuarios')->insert([
+            'nombre' => 'Luis',
+            'tipo_usuario' => 'Cliente',
+            'apellidos' => 'Gonzales G',
+            'direccion' => 'Av. Principal #123',
+            'Telefono' => '9982456235',
+            'edad' => 30,
+            'email' => 'luis@gmail.com',
+            'contraseña' => Hash::make('123456'),
+        ]);
+
+
+
+        DB::table('usuarios')->insert([
+            'nombre' => 'Carlos',
             'tipo_usuario' => 'Gerente',
-            'apellidos' => 'López Hernández',
+            'apellidos' => 'Lopez Diaz',
             'direccion' => 'Calle Secundaria #456',
-            'Telefono' => '0987654321',
+            'Telefono' => '9611702282',
             'edad' => 35,
             'email' => 'ana@gmail.com',
             'contraseña' => Hash::make('abcdef'),
         ]);
+
+
 
 
 

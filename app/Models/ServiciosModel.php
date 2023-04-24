@@ -9,15 +9,15 @@ class ServiciosModel extends Model
 {
     use HasFactory;
     protected $table = 'servicios';
+    protected $primaryKey = 'id';
+
 
 
     protected $fillable = [
-        'id',
         'nombre',
         'descripción',
         'precio',
-        'created_at',
-        'updated_at',
+
 
     ];
 

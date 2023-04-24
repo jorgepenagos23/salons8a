@@ -9,7 +9,7 @@ error_reporting(0);
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SERVICIOS GERENTE</title>
+    <title>LISTAR SERVICIOS  GERENTE</title>
 <!-- BOOTSTRAP STYLES-->
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 <!-- FONTAWESOME STYLES-->
@@ -23,86 +23,88 @@ error_reporting(0);
 
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-	
+
 </head>
 @include('servicios.header')
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">VER LISTA DE SERVICIOS 
-							
+                        <h1 class="page-head-line">VER LISTA DE SERVICIOS
+
 
 						<?php
-						
+
 						?>
 						</h1>
 						<style>
 							h3 {
 							  color: rgb(77, 77, 77);
-						  
+
 						  }
 						  div{
-						  
+
 							  zoom: 1.0; /* Aumenta el tamaño del navbar en un 20% */
 						  }
-							  
+
 						  </style>
 						   <div class="panel-body">
                             <div class="table-sorting table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="tSortable22">
                                     <thead>
                                         <tr>
-                                            <center> 
-                                            <th>#</th>
+                                            <center>
+                                            <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Servicio</th>
-                                            <th>Detalles</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
 											<th>Fotos</th>
-											
+
                                         </tr>
                                         </center>
                                     </thead>
-                                    
+
                                     <tbody>
-									
-								
-                                       <tr>
-                                            <td> 1</td>
-                                            <td>Infable</td>
-                                            <td>OCUPADO</td>
-                                            <td>Detalles por definir</td>
-											<td> 
-                                             <img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100">
-                                            </td>
-											<td>  
-											 <a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>	
-										</td>
+                                        @foreach ($lista AS $item)
                                         <tr>
-                                            <td> 2</td>
-                                            <td>Payaso</td>
-                                            <td>LIBRE</td>
-                                            <td>Detalles por definir</td>
-											<td> 
-                                             <img src="{{ asset('css/payaso.jpg') }}" width="100" height="100">
-                                            </td>
-											<td>  
-											 <a href="#" class="btn btn-danger">Eliminar</a>
-               								 <a href="#" class="btn btn-primary">Editar</a></td>	
-										</td>
+                                          <td>{{$item->id}}</td>
+                                          <td>{{$item->nombre}}</td>
+                                          <td>{{$item->descripción}}</td>
+                                          <td>{{$item->precio}}</td>
+                                          <td> <img src="{{ asset('css/party.jpeg') }}" width="100" height="100"></td>
+                                          <td> <img src="{{ asset('css/payaso.jpg') }}" width="100" height="100"></td>
+                                          <td> <img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100"></td>
+
+
+                                          <td>
+
+
+                                              <a href="{{ route('servicios.edit_servicios', $item->id) }}" class="btn btn-primary">Editar</a>
+
+                                              <form action="{{ route('servicios.destroy',['id' => $item])}}" method="POST">
+                                                  @csrf
+                                                  @method('DELETE')
+                                                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                                              </form>
+
+
+                                         </td>
+                                        </tr>
+                                        @endforeach
+
+
+
 
 
                                         </tr>
-							
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-					
-  
 
-    
+
+
+
 </body>
 </html>

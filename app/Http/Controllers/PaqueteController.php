@@ -43,7 +43,7 @@ class PaqueteController extends Controller
     $validated = $request->validate([
         'nombre' => 'required|max:255',
         'descripción' => 'required',
-        'precio' => 'required|numeric',
+        'precio' => 'required|numeric|min:0.01',
         'active' => 'required|boolean',
     ]);
 
@@ -94,7 +94,7 @@ class PaqueteController extends Controller
         $validated = $request->validate([
             'nombre' => 'required|max:255',
             'descripción' => 'required',
-            'precio' => 'required|numeric',
+            'precio' => 'required|numeric|min:0.01',
             'active' => 'required|boolean',
         ]);
 
@@ -115,8 +115,15 @@ class PaqueteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Paquete $paquete)
+    public function destroy($id_paquete)
     {
-        //
+        $paquete = PaquetesModel::findOrFail($id_paquete);
+        $paquete->delete();
+
+    return redirect()->route('paquetes.paquete')->with('success', 'Paquete eliminado exitosamente.');
+
+
     }
+
+
 }

@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicios;
+use App\Models\ServiciosModel;
+use Database\Seeders\ServiciosSeeder;
 use Illuminate\Http\Request;
+
 
 class ServiciosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $servicios = Servicios::all();
-        return view('servicios.servicios', compact('servicios'));
-    }
+
+     public function index()
+     {
+
+         $servicios = ServiciosModel::all();
+     return view('servicios.servicios', ['lista' => $servicios]);
+     }
 
     public function index2()
     {
@@ -30,6 +35,9 @@ class ServiciosController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+
+
     public function create()
     {
         return view('servicios.create');
@@ -40,8 +48,23 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'nombre' => 'required|max:255',
+            'descripción' => 'required',
+            'precio' => 'required|numeric|min:0',
+
+        ]);
+
+        $servicio = new ServiciosModel();
+        $servicio->nombre = $validatedData['nombre'];
+        $servicio->descripción = $validatedData['descripción'];
+        $servicio->precio = $validatedData['precio'];
+        $servicio->save();
+
+        return redirect()->route('servicios.servicios')->with('success', 'El servicio ha sido creado exitosamente.');
     }
+
 
     /**
      * Display the specified resource.
@@ -54,24 +77,38 @@ class ServiciosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function edit(ServiciosModel $servicio)
+{
+    return view('servicios.edit_servicios', compact('servicio'));
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+public function update(Request $request, ServiciosModel $servicio)
+{
+    $request->validate([
+        'nombre' => 'required',
+        'descripción' => 'required',
+'precio' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
+    ]);
+
+    $servicio->nombre = $request->nombre;
+    $servicio->descripción = $request->descripción;
+    $servicio->precio = $request->precio;
+    $servicio->save();
+
+    return redirect()->route('servicios.servicios')->with('success', 'Servicio actualizado exitosamente.');
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $paquete = ServiciosModel::findOrFail($id);
+        $paquete->delete();
+
+        return redirect()->route('servicios.servicios')->with('success', 'Servicio actualizado exitosamente.');
+
+
     }
 }
