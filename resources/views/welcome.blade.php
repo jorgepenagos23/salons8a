@@ -12,18 +12,15 @@
 
         <body>
         <div class="flex-center position-ref full-height">
-       
-            
+
+
             <div class="content">
                 <div class="title m-b-md">
                     SALÓN DE EVENTOS
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('gerente.showLoginForm') }}">GERENTE</a>
-                    <a href="{{ route('user.showLoginForm') }}">CLIENTE</a>
-                    <a href="{{ route('empleados.showLoginForm') }}">EMPLEADO</a>
-                    <a href="{{ route('anonimo.showLoginForm') }}">Paquetes</a>
+                    <a href="{{ route('gerente.showLoginForm') }}">INICIAR SESION</a>
 
                 </div>
             </div>

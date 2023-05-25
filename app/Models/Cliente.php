@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 
-class Usuarios extends Authenticatable
+
+class Cliente extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
 
     protected $fillable = [
 
@@ -31,6 +31,11 @@ class Usuarios extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function eventos()
+    {
+        return $this->hasMany(EventosModel::class);
+    }
 
 
 

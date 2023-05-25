@@ -1,86 +1,64 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Anonimo;
+use App\Models\Cliente;
+use App\Models\Gerente;
+use App\Models\PaquetesModel;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\FuncCall;
 
 class AnonimoController extends Controller
 {
+
+
+    public function index(){
+        $paquetes = PaquetesModel::all();
+        return view('gerente.gerenteInicio', compact('paquetes'));
+
+    }
+
+
     public function showLoginForm()
     {
-        return view('anonimo.loginAnonimo');
+        return view('gerente.login');
     }
 
-    public function authenticate(Request $request)
-    {
-        // Obtener los valores del usuario y contraseña del formulario de inicio de sesión
-        $username = $request->input('username');
-        $password = $request->input('password');
 
-        // Verificar si el usuario y contraseña son correctos (en este ejemplo, son 'admin' y 'password')
-        if ($username == 'anonimo' && $password == 'anonimo') {
-            // Si el usuario y contraseña son correctos, redirigir al usuario a la página de inicio con un mensaje de éxito
-            return redirect(route("anonimo.index"));
+    public function authenticate(Request $solicitud)
+    {
+        $usuario = $solicitud->input('usuario');
+        $contraseña = $solicitud->input('contraseña');
+        $encontrado = Gerente::where('usuario', $usuario)->first();
+        if (is_null($encontrado)) {
+            $encontrado = Cliente::where('usuario', $usuario)->first();
+            if (is_null($encontrado)) {
+                return redirect('login')
+                    ->with(['mensaje' => 'Error, usuario no encontrado']);
+            } else {
+                $contraseña_bd = $encontrado->contraseña;
+                $conincide = Hash::check($contraseña, $contraseña_bd);
+                if ($conincide) {
+                    Auth::guard('guard_clientes')->login($encontrado);
+                    $_SESSION['AuthGuard'] = 'guard_clientes';
+                    return redirect('@validar');
+                } else {
+                    return redirect('login');
+                }
+            }
         } else {
-            // Si el usuario y contraseña no son correctos, redirigir al usuario al formulario de inicio de sesión con un mensaje de error
-            return redirect('/ejemplo');
+            $contraseña_bd = $encontrado->contraseña;
+            $conincide = Hash::check($contraseña, $contraseña_bd);
+            if ($conincide) {
+                Auth::guard('guard_gerentes')->login($encontrado);
+                $_SESSION['AuthGuard'] = 'guard_gerentes';
+                return redirect('@validar');
+            } else {
+                return redirect('login');
+            }
         }
     }
-    public function indexAnonimo()
-    {
-        return view('anonimo.anonimoInicio');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Anonimo $anonimo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Anonimo $anonimo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Anonimo $anonimo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Anonimo $anonimo)
-    {
-        //
-    }
-
-
 
 
 }

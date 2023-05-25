@@ -40,6 +40,20 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'guard_gerentes' => [
+            'driver' => 'session',
+            'provider' => 'providers_gerentes',
+        ],
+        'guard_clientes' => [
+            'driver' => 'session',
+            'provider' => 'providers_clientes',
+        ],
+
+        'api' => [
+            'driver' => 'basic',
+            'provider' => 'users',
+        ],
+
     ],
 
     /*
@@ -62,13 +76,18 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+            'model' => App\Models\Gerente::class,
+            'model' => App\Models\Cliente::class,
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        ],
+        'providers_gerentes' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Gerente::class,
+        ],
+        'providers_clientes' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Cliente::class,
+        ],
     ],
 
     /*

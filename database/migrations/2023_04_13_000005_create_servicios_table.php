@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('paquetes', function (Blueprint $table) {
-            $table->id('id_paquete');
+        Schema::create('servicios', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre');
-            $table->text('descripción');
-            $table->decimal('precio',10,3);
-            $table->boolean('active')->default(false);
+            $table->string('descripcion');
+            $table->string('costo');
+            $table->enum('estado',['0','1'])->default('0');
+            $table->string('imagen')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 
@@ -28,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paquetes');
+        Schema::dropIfExists('servicios');
     }
-
 };

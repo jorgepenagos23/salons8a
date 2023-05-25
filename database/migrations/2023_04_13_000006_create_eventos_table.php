@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('usuario_id')->nullable();
-            $table->unsignedBigInteger('id_paquete')->nullable();
-            $table->string('nombre', 50);
+            $table->unsignedBigInteger('cliente_id')->nullable();
+            $table->unsignedBigInteger('id_paquete')->nullable();            $table->string('nombre', 50);
             $table->text('descripción');
             $table->dateTime('fecha_evento');
-            $table->tinyInteger('status');
-            $table->tinyInteger('confirmado')->default(0);
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->string('imagen')->nullable();
+            $table->enum('estado',['0','1'])->default('0');
+            $table->foreign('cliente_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('id_paquete')->references('id_paquete')->on('paquetes')->onDelete('cascade');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();

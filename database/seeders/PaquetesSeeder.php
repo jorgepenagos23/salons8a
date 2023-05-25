@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PaquetesModel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,43 +15,41 @@ class PaquetesSeeder extends Seeder
      */
     public function run()
     {
+        $paquete = new PaquetesModel();
+        $paquete->nombre = 'Bodas';
+        $paquete->descripcion='Para bodas';
+        $paquete->costo = '20000';
+        $paquete->estado = '1';
+        $paquete->capacidad = '400';
+        $paquete->gerente_id = '1';
+        $paquete->save();
 
-        // dentro del método run() del seeder de paquetes
+        $paquete = new PaquetesModel();
+        $paquete->nombre = 'XV años';
+        $paquete->descripcion='XV 100 GENTES';
+        $paquete->costo = '10000';
+        $paquete->estado = '1';
+        $paquete->capacidad = '200';
+        $paquete->gerente_id = '1';
+        $paquete->save();
 
-DB::table('paquetes')->insert([
-    [
-        'nombre' => 'Bodas',
-        'descripción' => 'Paquete especial para bodas',
-        'precio' => 1000.00,
-        'active' => true,
-        'created_at' => now(),
-        'updated_at' => now(),
-    ],
-    [
-        'nombre' => 'XV años',
-        'descripción' => 'Paquete especial para XV años',
-        'precio' => 800.00,
-        'active' => true,
-        'created_at' => now(),
-        'updated_at' => now(),
-    ],
-    [
-        'nombre' => 'Fiesta Infantil',
-        'descripción' => 'Paquete especial para fiestas infantiles',
-        'precio' => 500.00,
-        'active' => true,
-        'created_at' => now(),
-        'updated_at' => now(),
-    ],
-    [
-        'nombre' => 'Bautizos',
-        'descripción' => 'Paquete especial para bautizos',
-        'precio' => 600.00,
-        'active' => true,
-        'created_at' => now(),
-        'updated_at' => now(),
-    ],
-]);
+        $paquete = new PaquetesModel();
+        $paquete->nombre = 'Fiesta infantil CON CHUPONCITOS';
+        $paquete->descripcion='FIESTA INFANTIL CHUPONCITO';
+        $paquete->costo = '5000';
+        $paquete->estado = '1';
+        $paquete->capacidad = '400';
+        $paquete->gerente_id = '1';
+        $paquete->save();
+
+        $paquete = new PaquetesModel();
+        $paquete->nombre = 'Bautizos';
+        $paquete->descripcion=' bautizos 100 GENTES';
+        $paquete->costo = '9000';
+        $paquete->estado = '1';
+        $paquete->capacidad = '200';
+        $paquete->gerente_id = '1';
+        $paquete->save();
 
     }
 }

@@ -42,7 +42,7 @@ class EventosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'usuario_id' => 'required|integer',
+            'cliente_id' => 'required|integer',
             'id_paquete' => 'required|integer',
             'nombre' => 'required|string',
             'descripción' => 'required|string',
@@ -52,7 +52,7 @@ class EventosController extends Controller
         ]);
 
         $evento = new EventosModel([
-            'usuario_id' => $request->usuario_id,
+            'cliente_id' => $request->cliente_id,
             'id_paquete' => $request->id_paquete,
             'nombre' => $request->nombre,
             'descripción' => $request->descripción,
@@ -72,11 +72,13 @@ class EventosController extends Controller
      */
     public function verEventos()
     {
-
-       ///segunda forma de  $usuario = DB::select('select * from usuarios');
+        $this->authorize('viewAny', App\Models\EventosModel::class);
 
         $evento = EventosModel::all();
         return view('eventos.eventos',compact('evento'), ['lista' => $evento]);
+
+       ///segunda forma de  $usuario = DB::select('select * from usuarios');
+
     }
 
     /**

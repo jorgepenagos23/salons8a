@@ -9,7 +9,6 @@ class ServiciosModel extends Model
 {
     use HasFactory;
     protected $table = 'servicios';
-    protected $primaryKey = 'id';
 
 
 
@@ -31,6 +30,9 @@ class ServiciosModel extends Model
         return $this->belongsToMany(EventosModel::class);
     }
 
+    public function gerente(){
+        return $this->belongsTo(Gerente::class);
+    }
 
 
 

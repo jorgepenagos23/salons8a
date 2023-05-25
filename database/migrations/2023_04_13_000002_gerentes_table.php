@@ -11,27 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('gerentes', function (Blueprint $table) {
             $table->charset='utf8mb4';
             $table->collation='utf8mb4_unicode_ci';
             $table->id();
             $table->string('nombre',20);
+            $table->string('usuario')->unique();
             $table->string('apellidos',20);
             $table->text('direccion');
             $table->text('telefono');
             $table->integer('edad');
             $table->string('email')->unique();
-            $table->enum('Roles', ['Gerente', 'Cliente', 'Empleado'])->default('Cliente');
-            $table->string('contraseña')->nullable(false); // Definir la co
+            $table->string('password');
+            $table->string("fecha_nacimiento")->default('00-00-0000');
+            $table->string('imagen')->nullable();
+            $table->rememberToken();
+            $table->string('token_autorizacion')->nullable();
             $table->timestamps();
-            $table->timestamp('deleted_at')->nullable();
         });
-
-
-
-
-
-
     }
 
     /**
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('gerentes');
     }
 };

@@ -80,7 +80,7 @@
 
 
 					 <li>
-                        <a href="#"><i class="fa fa-power-off "></i>Cerrar Sesión</a>
+                        <li><a class="dropdown-item" href="{{ route('cerrar_sesion') }}">Cerrar sesión</a></li>
                     </li>
 
 

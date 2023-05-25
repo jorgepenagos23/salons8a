@@ -1,34 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-
-    <title>Iniciar sesión</title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/log.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/stylelogin.css') }}" />
+    <title>Login</title>
 </head>
+
 <body>
-    @if (session('error'))
-        <div>{{ session('error') }}</div>
-    @endif
 
-    <form method="POST" action="{{ route('gerente.gerenteinicio') }}">
-        @csrf
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <img src="imagenes/logo.png" style="width: 120px;">
+                    </div>
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Inicia sesión</h1>
+                        <form action="{{route('authenticate')}}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="usuario">Usuario</label>
+                                <input class="form-control" name="usuario" id="usuario" value="" type="text"
+                                    autofocus placeholder="Usuario">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña</label>
+                                <input type="password" id="password" name="password" placeholder="Contraseña">
+                                <button type="button" id="togglePassword">Mostrar</button>
 
-        <div class="login-container">
-            <div class="title">
-                <h1>INGRESA TUS DATOS GERENTE</h1>
+
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <img src="{{asset('css/login-icon.svg')}}" alt="username-icon" style="height: 7rem" >
-            <div class="form-group">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-                <button type="submit">Iniciar sesión</button>
         </div>
-    </form>
+    </div>
+
+    <script src="{{ asset('js/code.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const toggleButton = document.getElementById('togglePassword');
+
+        toggleButton.addEventListener('click', function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = 'Ocultar';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Mostrar';
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -37,6 +37,7 @@ error_reporting(0);
 
 
 </head>
+
 @include('paquetes.header')
 <?php
 
@@ -73,6 +74,7 @@ error_reporting(0);
                                     </thead>
                                     <tbody>
                                         @foreach ($lista AS $item)
+                                        @can('view', $item)
                                       <tr>
                                         <td>{{$item->id_paquete}}</td>
                                         <td>{{$item->nombre}}</td>
@@ -90,6 +92,7 @@ error_reporting(0);
 
                                        </td>
                                       </tr>
+                                      @endcan
                                       @endforeach
                                     </tbody>
 

@@ -21,7 +21,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    
+
 </head>
 
 @include('plantillas.header')
@@ -29,7 +29,7 @@
             <div id="page-inner">
                 <div class="row">
                         <style>
-                        
+
                         div{
                             background-color:#E3E8F7;
                         }
@@ -38,14 +38,14 @@
                               height: 200px; /* ajusta la altura según sea necesario */}
                               .main-box{
                              background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(8,25,131,1) 40%, rgba(0,212,255,1) 98%);
-                                
+
                                 }
                         </style>
-                    
+
                     <div class="col-md-12">
                         <center>
                         <h1 >PANEL DE CONTROL</h1>
-                        
+
                        <br><h2 style="text-align:center;"> Has accedido al <strong>SISTEMA  SALON DE EVENTOS como (GERENTE) </strong> </h2>
                         </center>
                     </div>
@@ -55,14 +55,16 @@
                         div{
 
                             background-color:#E3E8F7;
-                            
+
                         }
                         .gradiente {
                         background-image: linear-gradient(to bottom, #f7b733, #fc4a1a);
                             height: 200px; /* ajusta la altura según sea necesario */
                         }
                         </style>
-                
+
+
+
                 <div class="row">
 				<br><br>
 				  <div class="col-md-4">
@@ -74,7 +76,7 @@
                             </a>
                         </div>
                     </div>
-				
+
                     <div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('paquetes.paquete')}}">
@@ -83,7 +85,7 @@
                             </a>
                         </div>
                     </div>
-					
+
 					<div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('servicios.servicios')}}">
@@ -105,7 +107,7 @@
                 </div>
                 <!-- /. ROW  -->
 
-            
+
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -116,15 +118,15 @@
     <div id="footer-sec">
   Ayuda  <a href="" target="_blank">SALÓN JARDINES </a>
     </div>
-   
-   <script src="js/jquery-1.10.2.js"></script>	
+
+   <script src="js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="js/jquery.metisMenu.js"></script>
        <!-- CUSTOM SCRIPTS -->
     <script src="js/custom1.js"></script>
-    
+
 
 
 </body>

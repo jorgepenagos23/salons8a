@@ -67,7 +67,7 @@
                                     @foreach ($lista AS $item)
                                     <tr>
                                       <td>{{$item->id}}</td>
-                                      <td>{{$item->usuario_id}}</td>
+                                      <td>{{$item->cliente_id}}</td>
                                       <td>{{$item->id_paquete}}</td>
 
 

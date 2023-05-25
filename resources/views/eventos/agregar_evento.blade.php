@@ -47,12 +47,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="usuario_id" class="col-md-4 col-form-label text-md-right">{{ __('Usuario ID') }}</label>
+                            <label for="cliente_id" class="col-md-4 col-form-label text-md-right">{{ __('Usuario ID') }}</label>
 
                             <div class="col-md-6">
-                                <input id="usuario_id" type="number" class="form-control @error('usuario_id') is-invalid @enderror" name="usuario_id" value="{{ old('usuario_id') }}" required autocomplete="usuario_id" autofocus>
+                                <input id="cliente_id" type="number" class="form-control @error('cliente_id') is-invalid @enderror" name="cliente_id" value="{{ old('cliente_id') }}" required autocomplete="cliente_id" autofocus>
 
-                                @error('usuario_id')
+                                @error('cliente_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

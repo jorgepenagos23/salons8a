@@ -60,7 +60,7 @@ class UserLoginController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'usuario_id' => 'required|integer',
+            'cliente_id' => 'required|integer',
             'id_paquete' => 'required|integer',
             'nombre' => 'required|string',
             'descripción' => 'required|string',
@@ -70,7 +70,7 @@ class UserLoginController extends Controller
         ]);
 
         $evento = new EventosModel([
-            'usuario_id' => $request->usuario_id,
+            'cliente_id' => $request->cliente_id,
             'id_paquete' => $request->id_paquete,
             'nombre' => $request->nombre,
             'descripción' => $request->descripción,

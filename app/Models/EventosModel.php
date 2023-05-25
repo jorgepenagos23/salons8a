@@ -14,7 +14,7 @@ class EventosModel extends Model
 
     protected $fillable = [
         'id',
-        'usuario_id',
+        'cliente_id',
         'id_paquete',
         'nombre',
         'descripción',

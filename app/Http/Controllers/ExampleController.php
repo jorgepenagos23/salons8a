@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ExampleController extends Controller
 {
- 
+
     public function index()
     {
         // Aquí puedes realizar cualquier lógica que necesites para tu aplicación
@@ -26,8 +26,8 @@ class ExampleController extends Controller
     }
 
 
-    
-    public function dashboard_usuarios()
+
+    public function dashboard_cliente()
     {
         // Aquí puedes realizar cualquier lógica que necesites para tu aplicación
         $mensaje = 'Hola, mundo!';
@@ -43,6 +43,6 @@ class ExampleController extends Controller
 
 
 
-    
+
 
 }

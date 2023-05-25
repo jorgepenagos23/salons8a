@@ -28,7 +28,7 @@ class UsuariosController extends Controller
 
     public function store(Request $request)
     {
-        // Validar los datos del formulario
+        // Validar los datos del formulario  para CLIENTE
         $request->validate([
             'nombre' => 'required|max:20',
             'tipo_usuario' => 'required',
@@ -54,7 +54,15 @@ class UsuariosController extends Controller
 
         // Redireccionar al usuario a la lista de usuarios
         return redirect()->route('usuariotabla.ver');
+
+
+
+
+
     }
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnonimoController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\ExampleController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Paquetes;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UsuariosController;
+use App\Models\Gerente;
 use App\Models\Servicios;
 use App\Models\ServiciosModel;
 use Illuminate\Support\Facades\Route;
@@ -29,22 +31,44 @@ use Tests\Unit\ExampleTest;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('inicio', [GerenteLoginController::class, 'inicio'])->name(('inicio'))->middleware('guest');
+
+
+
 //rutas para mostrar el texto de advertencia
 Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 //rutas para mostrar index gerente
 //Route::get('/ejemplo2', [ExampleController::class, 'dashboard'])->name('ejemplo2');
 
+
+///INGRESAR AL SISTEMA LOGIN
+Route::get('login', [GerenteLoginController::class, 'showLoginForm'])->name(('login'))->middleware('guest');
+Route::post('authenticate', [GerenteLoginController::class, 'authenticate'])->name('authenticate');
+Route::get('@inicio_gerente', [GerenteLoginController::class, 'index'])->name(("@inicio_gerente"));
+Route::get('cerrar_sesion', [GerenteLoginController::class, 'logout'])->name(("cerrar_sesion"));
+
+
+
+
 //rutas para mostrar index cliente
-Route::get('index/cliente', [ExampleController::class, 'dashboard_usuarios'])->name('index_cliente');
-//Route::get('cliente/eventos', [EventosController::class, 'index'])->name('eventos.eventos');
+Route::get('@inicio_cliente', [ExampleController::class, 'dashboard_cliente'])->name(("@inicio_cliente"));
+
+
+
+
 
 //rutas para mostrar login usuario tipo cliente CLIENTE CLIENTE CLIENTE
 Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('user.showLoginForm');
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
+
+
+
 //rutas para mostrar login gerente
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
-Route::get('/gerente2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio2');
+Route::get('/gerente2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio2')->middleware('auth.basic');
+;
 
 Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('gerente.gerenteinicio');
 
@@ -114,9 +138,7 @@ Route::delete('/servicios/eliminar/{id}', [ServiciosController::class, 'destroy'
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Anonimo login e inicio
-Route::get('/login', [AnonimoController::class, 'showLoginForm'])->name('anonimo.showLoginForm');
-Route::post('/anonimovalidar', [AnonimoController::class, 'authenticate'])->name('anonimo.authenticate');
-Route::get('/paquetes', [AnonimoController::class, 'indexAnonimo'])->name('anonimo.index');
+
 
 
 //Empleado login e inicio
