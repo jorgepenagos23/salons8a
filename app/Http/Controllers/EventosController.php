@@ -15,7 +15,7 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $eventos = Eventos::all();
+        $eventos = EventosModel::all();
         return view('eventos.eventos', compact('eventos'));
 
     }
@@ -41,15 +41,16 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'cliente_id' => 'required|integer',
             'id_paquete' => 'required|integer',
             'nombre' => 'required|string',
             'descripción' => 'required|string',
             'fecha_evento' => 'required|date',
-            'status' => 'required|integer',
-            'confirmado' => 'required|boolean',
+            'estado' => 'required|integer',
         ]);
+
 
         $evento = new EventosModel([
             'cliente_id' => $request->cliente_id,
@@ -57,14 +58,15 @@ class EventosController extends Controller
             'nombre' => $request->nombre,
             'descripción' => $request->descripción,
             'fecha_evento' => $request->fecha_evento,
-            'status' => $request->status,
-            'confirmado' => $request->confirmado,
+            'estado' => $request->status,
         ]);
 
         $evento->save();
 
         return redirect()->route('eventos.eventos')
-                         ->with('success', 'Evento agregado correctamente.');
+
+
+        ->with('success', 'Evento agregado correctamente.');
     }
 
     /**
@@ -72,8 +74,6 @@ class EventosController extends Controller
      */
     public function verEventos()
     {
-        $this->authorize('viewAny', App\Models\EventosModel::class);
-
         $evento = EventosModel::all();
         return view('eventos.eventos',compact('evento'), ['lista' => $evento]);
 
@@ -100,8 +100,7 @@ class EventosController extends Controller
         $evento->nombre = $request->nombre;
         $evento->descripción = $request->descripción;
         $evento->fecha_evento = $request->fecha_evento;
-        $evento->status = $request->has('status');
-        $evento->confirmado = $request->has('confirmado');
+        $evento->estado = $request->has('estado');
 
         $evento->save();
 

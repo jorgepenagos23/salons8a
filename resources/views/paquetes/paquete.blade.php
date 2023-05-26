@@ -74,7 +74,6 @@ error_reporting(0);
                                     </thead>
                                     <tbody>
                                         @foreach ($lista AS $item)
-                                        @can('view', $item)
                                       <tr>
                                         <td>{{$item->id_paquete}}</td>
                                         <td>{{$item->nombre}}</td>
@@ -83,16 +82,16 @@ error_reporting(0);
                                         <td> <img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
                                         <td>
                                             <a href="{{ route('paquetes.edit_paquetes', $item->id_paquete) }}" class="btn btn-primary">Editar</a>
-                                            <form action="{{ route('paquetes.destroy',['id_paquete' => $item])}}" method="POST">
+
+
+                                            <form action="{{ route('paquetes.destroy', ['id_paquete' => $item->id_paquete]) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                                             </form>
 
-
                                        </td>
                                       </tr>
-                                      @endcan
                                       @endforeach
                                     </tbody>
 

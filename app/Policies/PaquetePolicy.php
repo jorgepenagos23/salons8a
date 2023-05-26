@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\EventosModel;
+use App\Models\PaquetesModel;
 use App\Models\Usuarios;
 use Illuminate\Auth\Access\Response;
 
-class EventoPolicy
+class PaquetePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class EventoPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(Usuarios $usuarios, EventosModel $eventosModel): bool
+    public function view(Usuarios $usuarios, PaquetesModel $paquetesModel): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class EventoPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(Usuarios $usuarios, EventosModel $eventosModel): bool
+    public function update(Usuarios $usuarios, PaquetesModel $paquetesModel): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class EventoPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(Usuarios $usuarios, EventosModel $eventosModel): bool
+    public function delete(Usuarios $usuarios, PaquetesModel $paquetesModel): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class EventoPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(Usuarios $usuarios, EventosModel $eventosModel): bool
+    public function restore(Usuarios $usuarios, PaquetesModel $paquetesModel): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class EventoPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(Usuarios $usuarios, EventosModel $eventosModel): bool
+    public function forceDelete(Usuarios $usuarios, PaquetesModel $paquetesModel): bool
     {
         //
     }

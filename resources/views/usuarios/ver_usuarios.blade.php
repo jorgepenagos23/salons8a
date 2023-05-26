@@ -59,7 +59,7 @@
                                       <tr>
                                         <th>ID</th>
                                         <th>Nombre</th>
-                                        <th>Rol</th>
+                                        <th>Roles</th>
                                         <th>Apellidos</th>
                                         <th>Direccion</th>
                                         <th>Telefono</th>
@@ -72,7 +72,7 @@
                                       <tr>
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->nombre}}</td>
-                                        <td>{{$item->tipo_usuario}}</td>
+                                        <td>{{$item->Roles}}</td>
                                         <td>{{$item->apellidos}}</td>
                                         <td>{{$item->direccion}}</td>
                                         <td>{{$item->telefono}}</td>

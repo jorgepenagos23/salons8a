@@ -66,12 +66,14 @@
 
 
                         <div class="form-group row">
-                            <label for="tipo_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
-                            <select class="form-control" id="tipo_usuario" name="tipo_usuario" class="form-control @error('tipo_usuario') is-invalid @enderror" name="tipo_usuario" value="{{ old('tipo_usuario') }}" required autocomplete="tipo_usuario" autofocus>
+                            <label for="tipo_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
+                            <select class="form-control" id="Roles" name="Roles" class="form-control @error('Roles') is-invalid @enderror" name="Roles" value="{{ old('Roles') }}" required autocomplete="Roles" autofocus>
                                 <option value="cliente">Cliente</option>
                                 <option value="gerente">Gerente</option>
+                                <option value="gerente">Empleado</option>
+
                             </select>
-                                @error('tipo_usuario')
+                                @error('Roles')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -31,7 +31,7 @@ class UsuariosController extends Controller
         // Validar los datos del formulario  para CLIENTE
         $request->validate([
             'nombre' => 'required|max:20',
-            'tipo_usuario' => 'required',
+            'Roles' => 'required',
             'apellidos' => 'required|max:20',
             'direccion' => 'required',
             'telefono' => 'required',
@@ -43,7 +43,7 @@ class UsuariosController extends Controller
         // Crear un nuevo usuario con los datos del formulario
         $usuario = new Usuarios();
         $usuario->nombre = $request->input('nombre');
-        $usuario->tipo_usuario = $request->input('tipo_usuario');
+        $usuario->Roles = $request->input('Roles');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');
@@ -81,7 +81,7 @@ class UsuariosController extends Controller
     public function update(Request $request, Usuarios $usuario)
     {
         $usuario->nombre = $request->input('nombre');
-        $usuario->tipo_usuario = $request->input('tipo_usuario');
+        $usuario->Roles = $request->input('Roles');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');

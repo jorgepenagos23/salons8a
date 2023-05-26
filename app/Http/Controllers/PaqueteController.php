@@ -42,17 +42,21 @@ class PaqueteController extends Controller
     // Validar los campos del formulario
     $validated = $request->validate([
         'nombre' => 'required|max:255',
-        'descripción' => 'required',
-        'precio' => 'required|numeric|min:0.01',
-        'active' => 'required|boolean',
+        'descripcion' => 'required',
+        'costo' => 'required|numeric|min:0.01',
+        'estado' => 'required|boolean',
+        'capacidad' => 'required',
+
+
     ]);
 
     // Crear un nuevo objeto de PaquetesModel y asignar los valores del formulario
     $paquete = new PaquetesModel;
     $paquete->nombre = $validated['nombre'];
-    $paquete->descripción = $validated['descripción'];
-    $paquete->precio = $validated['precio'];
-    $paquete->active = $validated['active'];
+    $paquete->descripcion = $validated['descripcion'];
+    $paquete->costo = $validated['costo'];
+    $paquete->estado = $validated['active'];
+    $paquete->capacidad = $validated['capacidad'];
 
     // Guardar el paquete en la base de datos
     $paquete->save();
@@ -75,6 +79,9 @@ class PaqueteController extends Controller
      */
     public function edit($id_paquete)
     {
+
+        $this->authorize('author', $id_paquete);
+
         $paquetes = DB::table('paquetes')->where('id_paquete', $id_paquete)->first();
 
     return view('paquetes.edit_paquetes')->with('paquete', $paquetes);
@@ -93,16 +100,20 @@ class PaqueteController extends Controller
         // Validar los campos del formulario
         $validated = $request->validate([
             'nombre' => 'required|max:255',
-            'descripción' => 'required',
-            'precio' => 'required|numeric|min:0.01',
-            'active' => 'required|boolean',
+            'descripcion' => 'required',
+            'costo' => 'required|numeric|min:0.01',
+            'estado' => 'required|boolean',
+            'capacidad' => 'required',
+
         ]);
 
         // Actualizar los valores del paquete con los valores del formulario
         $paquete->nombre = $validated['nombre'];
-        $paquete->descripción = $validated['descripción'];
-        $paquete->precio = $validated['precio'];
-        $paquete->active = $validated['active'];
+        $paquete->descripcion = $validated['descripcion'];
+        $paquete->costo = $validated['costo'];
+        $paquete->estado = $validated['estado'];
+        $paquete->capacidad = $validated['capacidad'];
+
 
         // Guardar el paquete actualizado en la base de datos
         $paquete->save();

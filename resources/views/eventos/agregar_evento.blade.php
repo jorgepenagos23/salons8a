@@ -116,16 +116,16 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
+                            <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('estado') }}</label>
 
                             <div class="col-md-6">
-                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror" required>
+                                <select name="estado" id="stado" class="form-control @error('estado') is-invalid @enderror" required>
                                     <option value="">Seleccionar</option>
-                                    <option value="1" {{ old('status') == 1 ? 'selected' : '' }}>Activo</option>
-                                    <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>Inactivo</option>
+                                    <option value="1" {{ old('estado') == 1 ? 'selected' : '' }}>Activo</option>
+                                    <option value="0" {{ old('estado') == 0 ? 'selected' : '' }}>Inactivo</option>
                                 </select>
 
-                                @error('status')
+                                @error('estado')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

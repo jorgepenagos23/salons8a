@@ -53,8 +53,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status">Status</label>
-                    <input type="checkbox" name="status" value="1" {{ $evento->status ? 'checked' : '' }}>
+                    <label for="estado">Estado</label>
+                    <input type="checkbox" name="estado" value="1" {{ $evento->estado ? 'checked' : '' }}>
                 </div>
 
                 <div class="form-group">

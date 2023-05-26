@@ -43,7 +43,8 @@ class GerenteLoginController extends Controller
 
    public function authenticate (Request $request)
         {
-             // Crear una cookie con el identificador de sesión del usuario
+
+
             $credentials = $request->only('usuario',  'password');
 
             if (Auth::guard('guard_gerentes')->attempt($credentials)) {
@@ -55,6 +56,12 @@ class GerenteLoginController extends Controller
                 // Autenticación exitosa para el cliente
                 return redirect()->intended('@inicio_cliente');
             }
+
+            if(Auth::guard('web')->attempt($credentials)){
+            return redirect()->intended('@inicio_cliente');
+         }
+
+
 
             // Credenciales inválidas
             return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);

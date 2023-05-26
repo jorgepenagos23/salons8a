@@ -2,7 +2,6 @@
 <?php
 
 // Desactivar toda notificación de error
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,7 +56,7 @@ error_reporting(0);
                                 <tr>
                                     <center>
                                     <th>Id Evento</th>
-                                    <th>Id Usuario</th>
+                                    <th>Id Cliente</th>
                                     <th>Id Paquete</th>
                                     <th>Nombre del Evento</th>
                                     <th>Descripcion</th>
@@ -106,7 +105,6 @@ error_reporting(0);
                         </table>
                     </div>
                 </div>
-
 
 </body>
 </html>

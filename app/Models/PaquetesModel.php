@@ -15,7 +15,7 @@ class PaquetesModel extends Model
         'nombre',
         'descripción',
         'precio',
-        'active',
+        'estado',
     ];
 
     public function eventos()

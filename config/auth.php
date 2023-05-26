@@ -76,8 +76,8 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Gerente::class,
-            'model' => App\Models\Cliente::class,
+
+            'model' => App\Models\Usuarios::class,
 
         ],
         'providers_gerentes' => [

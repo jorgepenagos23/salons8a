@@ -63,7 +63,7 @@
                             <label for="descripcion" class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="descripción" class="form-control @error('descripción') is-invalid @enderror" name="descripción" required autocomplete="descripcion">{{ old('descripcion') }}</textarea>
+                                <textarea id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" required autocomplete="descripcion">{{ old('descripcion') }}</textarea>
 
                                 @error('descripcion')
                                     <span class="invalid-feedback" role="alert">
@@ -74,10 +74,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="precio" class="col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+                            <label for="costo" class="col-md-4 col-form-label text-md-right">{{ __('costo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="precio" type="number" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" required autocomplete="precio">
+                                <input id="costo" type="number" class="form-control @error('costo') is-invalid @enderror" name="precio" value="{{ old('costo') }}" required autocomplete="precio">
 
                                 @error('precio')
                                     <span class="invalid-feedback" role="alert">
@@ -103,6 +103,20 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="capacidad" class="col-md-4 col-form-label text-md-right">{{ __('capacidad') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="capacidad" type="number" class="form-control @error('capacidad') is-invalid @enderror" name="precio" value="{{ old('capacidad') }}" required autocomplete="capacidad">
+
+                                @error('capacidad')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
