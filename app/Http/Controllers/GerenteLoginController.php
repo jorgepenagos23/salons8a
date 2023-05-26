@@ -56,6 +56,13 @@ class GerenteLoginController extends Controller
                 return redirect()->intended('@inicio_cliente');
             }
 
+            if (Auth::guard('web')->attempt($credentials)) {
+                // Autenticación exitosa para el cliente
+                return redirect()->intended('ruta usuario');
+            }
+
+
+
             // Credenciales inválidas
             return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);
         }
