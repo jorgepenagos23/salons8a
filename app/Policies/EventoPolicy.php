@@ -30,7 +30,7 @@ class EventoPolicy
     public function delete(Usuarios $authUser, EventosModel $eventos)
     {
         $es_propietario = $authUser->id == $eventos->cliente_id;
-        $esta_sin_evento = $eventos->Usuarios ? $eventos->Usuarios->count() == 0 : true;
+        $esta_sin_evento = $eventos->estado == 0;
         return $es_propietario && $esta_sin_evento;
     }
 
