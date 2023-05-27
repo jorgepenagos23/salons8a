@@ -46,7 +46,7 @@
                         <center>
                         <h1 >PANEL DE CONTROL</h1>
 
-                       <br><h2 style="text-align:center;"> Has accedido al <strong>SISTEMA  SALON DE EVENTOS como (GERENTE) </strong> </h2>
+                       <br><h2 style="text-align:center;"> Has accedido al <strong>SISTEMA  SALON DE EVENTOS  </strong> </h2>
                         </center>
                     </div>
                 </div>

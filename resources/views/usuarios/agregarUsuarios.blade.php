@@ -51,11 +51,11 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="NOMBRE" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="usuario" class="col-md-4 col-form-label text-md-right">{{ __('usuario') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
-                                @error('nombre')
+                                <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" required autocomplete="nombre" autofocus>
+                                @error('usuario')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -66,12 +66,12 @@
 
 
                         <div class="form-group row">
-                            <label for="tipo_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
-                            <select class="form-control" id="tipo_usuario" name="tipo_usuario" class="form-control @error('tipo_usuario') is-invalid @enderror" name="tipo_usuario" value="{{ old('tipo_usuario') }}" required autocomplete="tipo_usuario" autofocus>
+                            <label for="Roles" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
+                            <select class="form-control" id="Roles" name="Roles" class="form-control @error('Roles') is-invalid @enderror" name="Roles" value="{{ old('Roles') }}" required autocomplete="tipo_usuario" autofocus>
                                 <option value="cliente">Cliente</option>
                                 <option value="gerente">Gerente</option>
                             </select>
-                                @error('tipo_usuario')
+                                @error('Roles')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -155,9 +155,9 @@
                         <div class="form-group ">
                             <br>
                             <br>
-                            <label for="contraseña" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
                             <div class="col-md-6">
-                                <input id="contraseña" type="password" class="form-control @error('contraseña') is-invalid @enderror" name="contraseña" required autocomplete="new-contraseña">
+                                <input id="password" type="password" class="form-control @error('contraseña') is-invalid @enderror" name="contraseña" required autocomplete="new-contraseña">
 
                                 @error('contraseña')
                                     <span class="invalid-feedback" role="alert">

@@ -33,6 +33,12 @@ class GerenteLoginController extends Controller
     {
         return view('gerente.login');
     }
+    public function registro()
+    {
+
+        return view('gerente.registro');
+    }
+
 
     public function logout()
     {
@@ -56,9 +62,17 @@ class GerenteLoginController extends Controller
                 return redirect()->intended('@inicio_cliente');
             }
 
+            if (Auth::guard('web')->attempt($credentials)) {
+                // Autenticación exitosa para el cliente
+                return redirect()->intended('@inicio_cliente');
+            }
+
+
+
             // Credenciales inválidas
             return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);
         }
+
 
 
         }

@@ -30,26 +30,26 @@ class UsuariosController extends Controller
     {
         // Validar los datos del formulario  para CLIENTE
         $request->validate([
-            'nombre' => 'required|max:20',
-            'tipo_usuario' => 'required',
+            'usuario' => 'required|max:20',
+            'Roles' => 'required',
             'apellidos' => 'required|max:20',
             'direccion' => 'required',
             'telefono' => 'required',
             'edad' => 'required|integer|min:18|max:99',
             'email' => 'required|email|unique:usuarios,email',
-            'contraseña' => 'required'
+            'password' => 'required'
         ]);
 
         // Crear un nuevo usuario con los datos del formulario
         $usuario = new Usuarios();
-        $usuario->nombre = $request->input('nombre');
-        $usuario->tipo_usuario = $request->input('tipo_usuario');
+        $usuario->usuario = $request->input('usuario');
+        $usuario->Roles = $request->input('Roles');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');
         $usuario->edad = $request->input('edad');
         $usuario->email = $request->input('email');
-        $usuario->contraseña = bcrypt($request->input('contraseña'));
+        $usuario->password = bcrypt($request->input('password'));
         $usuario->save();
 
         // Redireccionar al usuario a la lista de usuarios

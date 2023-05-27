@@ -69,8 +69,8 @@ error_reporting(0);
                                         <tr>
                                           <td>{{$item->id}}</td>
                                           <td>{{$item->nombre}}</td>
-                                          <td>{{$item->descripción}}</td>
-                                          <td>{{$item->precio}}</td>
+                                          <td>{{$item->descripcion}}</td>
+                                          <td>{{$item->costo}}</td>
                                           <td> <img src="{{ asset('css/party.jpeg') }}" width="100" height="100"></td>
                                           <td> <img src="{{ asset('css/payaso.jpg') }}" width="100" height="100"></td>
                                           <td> <img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100"></td>

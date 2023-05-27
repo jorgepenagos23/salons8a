@@ -48,6 +48,7 @@ Route::post('authenticate', [GerenteLoginController::class, 'authenticate'])->na
 Route::get('@inicio_gerente', [GerenteLoginController::class, 'index'])->name(("@inicio_gerente"));
 Route::get('cerrar_sesion', [GerenteLoginController::class, 'logout'])->name(("cerrar_sesion"));
 
+Route::get('/registro', [GerenteLoginController::class, 'registro'])->name(('registro'));
 
 
 

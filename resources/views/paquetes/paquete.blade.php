@@ -74,7 +74,6 @@ error_reporting(0);
                                     </thead>
                                     <tbody>
                                         @foreach ($lista AS $item)
-                                        @can('view', $item)
                                       <tr>
                                         <td>{{$item->id_paquete}}</td>
                                         <td>{{$item->nombre}}</td>
@@ -85,14 +84,18 @@ error_reporting(0);
                                             <a href="{{ route('paquetes.edit_paquetes', $item->id_paquete) }}" class="btn btn-primary">Editar</a>
                                             <form action="{{ route('paquetes.destroy',['id_paquete' => $item])}}" method="POST">
                                                 @csrf
+
+
+                                                @auth
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                @endauth
                                             </form>
 
 
                                        </td>
                                       </tr>
-                                      @endcan
+
                                       @endforeach
                                     </tbody>
 
