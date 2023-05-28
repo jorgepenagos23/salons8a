@@ -6,7 +6,7 @@ use App\Models\Servicios;
 use App\Models\ServiciosModel;
 use Database\Seeders\ServiciosSeeder;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class ServiciosController extends Controller
 {
@@ -51,15 +51,18 @@ class ServiciosController extends Controller
 
         $validatedData = $request->validate([
             'nombre' => 'required|max:255',
-            'descripción' => 'required',
+            'descripcion' => 'required',
             'precio' => 'required|numeric|min:0',
+            'estado' => 'required',
 
         ]);
 
         $servicio = new ServiciosModel();
         $servicio->nombre = $validatedData['nombre'];
-        $servicio->descripción = $validatedData['descripción'];
-        $servicio->precio = $validatedData['precio'];
+        $servicio->descripcion = $validatedData['descripcion'];
+        $servicio->costo = $validatedData['costo'];
+        $servicio->estado = $validatedData['estado'];
+
         $servicio->save();
 
         return redirect()->route('servicios.servicios')->with('success', 'El servicio ha sido creado exitosamente.');
@@ -79,6 +82,8 @@ class ServiciosController extends Controller
      */
     public function edit(ServiciosModel $servicio)
 {
+    $this->authorize('editar', $servicio);
+
     return view('servicios.edit_servicios', compact('servicio'));
 }
 
@@ -86,13 +91,15 @@ public function update(Request $request, ServiciosModel $servicio)
 {
     $request->validate([
         'nombre' => 'required',
-        'descripción' => 'required',
-'precio' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
+        'descripcion' => 'required',
+        'costo' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
     ]);
 
     $servicio->nombre = $request->nombre;
-    $servicio->descripción = $request->descripción;
-    $servicio->precio = $request->precio;
+    $servicio->descripcion = $request->descripcion;
+    $servicio->costo = $request->costo;
+    $servicio->estado = $request->estado;
+
     $servicio->save();
 
     return redirect()->route('servicios.servicios')->with('success', 'Servicio actualizado exitosamente.');
@@ -104,11 +111,30 @@ public function update(Request $request, ServiciosModel $servicio)
      */
     public function destroy($id)
     {
-        $paquete = ServiciosModel::findOrFail($id);
-        $paquete->delete();
+        if (Auth::check()) {
+            $user = Auth::guard('web')->user();
+            $servicio = ServiciosModel::findOrFail($id);
+            $this->authorize('eliminar', $servicio);
+            $servicio->delete();
+            return redirect()->route('servicios.servicios')->with('success', 'Servicio actualizado exitosamente.');
 
-        return redirect()->route('servicios.servicios')->with('success', 'Servicio actualizado exitosamente.');
+
+            dd($user);
+        } else {
+            echo "Usuario no autenticado";
+        }
+          // Imprimir el usuario y el paquete
+
+
+        }
+
+
+
+
 
 
     }
-}
+
+
+
+

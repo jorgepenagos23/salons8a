@@ -6,6 +6,7 @@ use App\Models\Paquete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PaquetesModel;
+use Illuminate\Support\Facades\Auth;
 
 
 class PaqueteController extends Controller
@@ -42,17 +43,17 @@ class PaqueteController extends Controller
     // Validar los campos del formulario
     $validated = $request->validate([
         'nombre' => 'required|max:255',
-        'descripción' => 'required',
-        'precio' => 'required|numeric|min:0.01',
-        'active' => 'required|boolean',
+        'descripcion' => 'required',
+        'costo' => 'required|numeric|min:0.01',
+        'estado' => 'required|boolean',
     ]);
 
     // Crear un nuevo objeto de PaquetesModel y asignar los valores del formulario
     $paquete = new PaquetesModel;
     $paquete->nombre = $validated['nombre'];
-    $paquete->descripción = $validated['descripción'];
-    $paquete->precio = $validated['precio'];
-    $paquete->active = $validated['active'];
+    $paquete->descripcion = $validated['descripcion'];
+    $paquete->costo = $validated['costo'];
+    $paquete->estado = $validated['estado'];
 
     // Guardar el paquete en la base de datos
     $paquete->save();
@@ -73,9 +74,14 @@ class PaqueteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id_paquete)
+         public function edit($id_paquete)
     {
+        $paquete = PaquetesModel::findOrFail($id_paquete);
+        $this->authorize('edit', $paquete);
+
+
         $paquetes = DB::table('paquetes')->where('id_paquete', $id_paquete)->first();
+
 
     return view('paquetes.edit_paquetes')->with('paquete', $paquetes);
     }
@@ -93,16 +99,16 @@ class PaqueteController extends Controller
         // Validar los campos del formulario
         $validated = $request->validate([
             'nombre' => 'required|max:255',
-            'descripción' => 'required',
-            'precio' => 'required|numeric|min:0.01',
-            'active' => 'required|boolean',
+            'descripcion' => 'required',
+            'costo' => 'required|numeric|min:0.01',
+            'estado' => 'required|boolean',
         ]);
 
         // Actualizar los valores del paquete con los valores del formulario
         $paquete->nombre = $validated['nombre'];
-        $paquete->descripción = $validated['descripción'];
-        $paquete->precio = $validated['precio'];
-        $paquete->active = $validated['active'];
+        $paquete->descripcion = $validated['descripcion'];
+        $paquete->costo = $validated['costo'];
+        $paquete->estado = $validated['estado'];
 
         // Guardar el paquete actualizado en la base de datos
         $paquete->save();
@@ -116,11 +122,22 @@ class PaqueteController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($id_paquete)
-    {
-        $paquete = PaquetesModel::findOrFail($id_paquete);
-        $paquete->delete();
 
-    return redirect()->route('paquetes.paquete')->with('success', 'Paquete eliminado exitosamente.');
+{
+      // Obtener el usuario actual autenticado
+      if (Auth::check()) {
+        $user = Auth::guard('web')->user();
+        $paquete = PaquetesModel::findOrFail($id_paquete);
+        $this->authorize('delete', $paquete);
+        $paquete->delete();
+         return redirect()->route('paquetes.paquete')->with('success', 'Paquete eliminado exitosamente.');
+
+
+        dd($user);
+    } else {
+        echo "Usuario no autenticado";
+    }
+      // Imprimir el usuario y el paquete
 
 
     }

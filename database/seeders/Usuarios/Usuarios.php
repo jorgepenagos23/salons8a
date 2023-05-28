@@ -24,16 +24,6 @@ class clienteSeeder extends Seeder
             'email' => 'juan@gmail.com',
             'contraseña' => Hash::make('123456'),
         ]);
-        DB::table('usuarios')->insert([
-            'nombre' => 'Ana',
-            'tipo_usuario' => 'Gerente',
-            'apellidos' => 'López Hernández',
-            'direccion' => 'Calle Secundaria #456',
-            'Telefono' => '0987654321',
-            'edad' => 35,
-            'email' => 'ana@gmail.com',
-            'contraseña' => Hash::make('abcdef'),
-        ]);
 
 
 

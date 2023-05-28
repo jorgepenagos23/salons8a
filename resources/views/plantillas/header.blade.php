@@ -73,9 +73,14 @@
 					<li>
                         <a href="{{route('servicios.servicios')}}"><i class="fa fa-cubes fa-3x"></i>Servicios</a>
                     </li>
-					 <li>
-                        <a href="{{route('usuariotabla.ver')}}"><i class="fa fa-users  fa-3x "></i>Ver Usuarios  </a>
-                    </li>
+
+                    @if (Auth::user()->Roles == 'Gerente')
+                        <p>Bienvenido {{ Auth::user()->usuario }}</p>
+                      <li>
+                       <a href="{{route('usuariotabla.ver')}}"><i class="fa fa-users  fa-3x "></i>Ver Usuarios  </a>
+                        </li>
+                      @endif
+
 
 
 

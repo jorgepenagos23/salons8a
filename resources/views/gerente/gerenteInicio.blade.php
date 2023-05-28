@@ -63,19 +63,32 @@
                         }
                         </style>
 
+                        @if (Auth::user()->Roles == 'Gerente')
+                        <p>Bienvenido {{ Auth::user()->usuario }}</p>
+                        <div class="row">
+                            <br><br>
+                              <div class="col-md-4">
+                                    <div class="main-box">
+                                        {{-- {{route()}} --}}
+                                        <a href="{{route('eventos.eventos')}}">
+                                            <i class="fa fa-calendar fa-5x"></i>
+                                            <h5>VER Y AGREGAR  EVENTOS</h5>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="main-box">
+                                        <a href="{{route('usuariotabla.ver')}}">
+                                            <i class="fa fa-users fa-5x"></i>
+                                            <h5>VER Y AGREGAR USUARIOS</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                        @endif
 
 
-                <div class="row">
-				<br><br>
-				  <div class="col-md-4">
-                        <div class="main-box">
-                            {{-- {{route()}} --}}
-                            <a href="{{route('eventos.eventos')}}">
-                                <i class="fa fa-calendar fa-5x"></i>
-                                <h5>VER Y AGREGAR  EVENTOS</h5>
-                            </a>
-                        </div>
-                    </div>
+
 
                     <div class="col-md-4">
                         <div class="main-box">
@@ -95,14 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="main-box">
-                            <a href="{{route('usuariotabla.ver')}}">
-                                <i class="fa fa-users fa-5x"></i>
-                                <h5>VER Y AGREGAR USUARIOS</h5>
-                            </a>
-                        </div>
-                    </div>
+
 
                 </div>
                 <!-- /. ROW  -->

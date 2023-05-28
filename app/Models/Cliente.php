@@ -13,6 +13,10 @@ class Cliente extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'clientes';
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
 
         'nombre',

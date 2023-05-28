@@ -10,6 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class Gerente extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $table = 'gerentes';
+    protected $primaryKey = 'id';
 
 
 

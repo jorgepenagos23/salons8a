@@ -24,7 +24,7 @@ class EventosSeeder extends Seeder
         ]);
 
         DB::table('eventos')->insert([
-            'cliente_id' => 2,
+            'cliente_id' => 1,
             'id_paquete' => 3,
             'nombre' => ' Dia del niño ',
             'descripción' => 'Pruebas priuebas ',
@@ -34,8 +34,8 @@ class EventosSeeder extends Seeder
         ]);
 
         DB::table('eventos')->insert([
-            'cliente_id' => 3,
-            'id_paquete' => 1,
+            'cliente_id' => 1,
+            'id_paquete' => 3,
             'nombre' => ' Dia del estudiante Prevo ',
             'descripción' => 'Para todo  el plantel ',
             'fecha_evento' => now(),
@@ -45,7 +45,7 @@ class EventosSeeder extends Seeder
 
 
         DB::table('eventos')->insert([
-            'cliente_id' => 3,
+            'cliente_id' => 2,
             'id_paquete' => 2,
             'nombre' => ' Dia del maestro UNACH ',
             'descripción' => 'Para todo  el plantel ',
@@ -80,7 +80,7 @@ class EventosSeeder extends Seeder
             'nombre' => 'Quince años XV',
             'descripción' => 'XV  duracion de seis horas   ',
             'fecha_evento' => now(),
-            'estaado' => 1,
+            'estado' => 1,
 
         ]);
 
