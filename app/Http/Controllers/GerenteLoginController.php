@@ -59,12 +59,12 @@ class GerenteLoginController extends Controller
 
             if (Auth::guard('guard_clientes')->attempt($credentials)) {
                 // Autenticación exitosa para el cliente
-                return redirect()->intended('@inicio_cliente');
+                return redirect()->intended('@inicio');
             }
 
             if (Auth::guard('web')->attempt($credentials)) {
                 // Autenticación exitosa para el cliente
-                return redirect()->intended('@inicio_cliente');
+                return redirect()->intended('@inicio');
             }
 
 

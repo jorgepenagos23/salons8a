@@ -28,6 +28,12 @@ class PaquetePolicy
         return false;
     }
 
+    public function insercion(Usuarios $usuario, PaquetesModel $paquetes): bool
+    {
+          
+        return $usuario->Roles == 'Gerente';
+    }
+
 
 
 }

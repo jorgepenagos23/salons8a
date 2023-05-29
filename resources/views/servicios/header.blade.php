@@ -53,15 +53,20 @@
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('gerente.gerenteinicio2')}}"><i class="fa fa-dashboard "></i>Home </a>
+                    
+                       <a class="active-menu" href="{{route('@inicio')}}"><i class="fa fa-dashboard "></i>Home </a>
                    </li>
-
+                 
+                   @auth
+                   @can('agregar',$servicio)
 
                     <li>
                         <a class="active-menu" href="{{route('agregar.servicios')}}"><i class="fa fa-dashboard "></i>Agregar Servicios </a>
                     </li>
 
-
+                  
+                    @endcan
+                    @endauth
 
 
 

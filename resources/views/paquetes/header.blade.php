@@ -63,13 +63,17 @@
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('gerente.gerenteinicio2')}}"><i class="fa fa-dashboard "></i>Home </a>
+                       <a class="active-menu" href="{{route('@inicio')}}"><i class="fa fa-dashboard "></i>Home </a>
                    </li>
 
 
+                @if (Auth::user()->Roles == 'Gerente')
+                
                     <li>
-                        <a class="active-menu" href="{{route('agregar.paquetes')}}"><i class="fa fa-dashboard "></i>Agregar Paquetes </a>
+                        <a class="active-menu" href="{{route('agregar.paquetes')}}"><i class="fa fa-dashboard "></i>Agregar paquetes </a>
                     </li>
+                @endif
+
 
 
 

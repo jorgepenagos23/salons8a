@@ -61,12 +61,12 @@ error_reporting(0);
                         </div>
 
                         <div class="form-group row">
-                            <label for="descripción" class="col-md-4 col-form-label text-md-right">{{ __('descripción') }}</label>
+                            <label for="descripcion" class="col-md-4 col-form-label text-md-right">{{ __('descripcion') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="descripción" class="form-control @error('descripción') is-invalid @enderror" name="descripción" required autocomplete="descripción">{{ old('descripcion') }}</textarea>
+                                <textarea id="descripcion" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" required autocomplete="descripcion">{{ old('descripcion') }}</textarea>
 
-                                @error('descripción')
+                                @error('descripcion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -75,12 +75,12 @@ error_reporting(0);
                         </div>
 
                         <div class="form-group row">
-                            <label for="precio" class="col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
+                            <label for="costo" class="col-md-4 col-form-label text-md-right">{{ __('costo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="precio" type="number" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" required autocomplete="precio">
+                                <input id="costo" type="number" class="form-control @error('costo') is-invalid @enderror" name="costo" value="{{ old('costo') }}" required autocomplete="costo">
 
-                                @error('precio')
+                                @error('costo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -89,15 +89,15 @@ error_reporting(0);
                         </div>
 
                         <div class="form-group row">
-                            <label for="activo" class="col-md-4 col-form-label text-md-right">{{ __('Activo') }}</label>
+                            <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('estado') }}</label>
 
                             <div class="col-md-6">
-                                <select id="activo" class="form-control @error('activo') is-invalid @enderror" name="activo" required autocomplete="activo">
-                                    <option value="1" {{ old('activo') == '1' ? 'selected' : '' }}>Sí</option>
-                                    <option value="0" {{ old('activo') == '0' ? 'selected' : '' }}>No</option>
+                                <select id="estado" class="form-control @error('activo') is-invalid @enderror" name="estado" required autocomplete="estado">
+                                    <option value="1" {{ old('estado') == '1' ? 'estado' : '' }}>Sí</option>
+                                    <option value="0" {{ old('estado') == '0' ? 'estado' : '' }}>No</option>
                                 </select>
 
-                                @error('activo')
+                                @error('estado')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -26,6 +26,14 @@ class ServicioPolicy
 
     }
 
+    public function agregar(Usuarios $usuario, ServiciosModel $servicio): bool
+    {
+
+        return $usuario->Roles == 'Gerente';
+
+
+    }
+
     public function editar(Usuarios $usuario, ServiciosModel $servicio): bool
     {
 

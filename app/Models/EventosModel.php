@@ -19,13 +19,11 @@ class EventosModel extends Model
         'nombre',
         'descripción',
         'fecha_evento',
-        'status',
-        'confirmado',
+        'estado',
         'created_at',
         'updated_at',
 
     ];
-
 
 
     public function paquetes()

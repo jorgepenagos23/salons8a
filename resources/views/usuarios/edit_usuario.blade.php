@@ -60,7 +60,7 @@
                                 <label for="Roles" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="tipo_usuario" class="form-control @error('Roles') is-invalid @enderror" name="Roles" required autocomplete="tipo_usuario">
+                                    <select id="Roles" class="form-control @error('Roles') is-invalid @enderror" name="Roles" required autocomplete="tipo_usuario">
                                         <option value="">Seleccione un tipo de usuario</option>
                                         <option value="Cliente" @if($usuario->Roles == 'Cliente') selected @endif>Cliente</option>
                                         <option value="Gerente" @if($usuario->Roles == 'Gerente') selected @endif>Gerente</option>

@@ -32,9 +32,9 @@ class EventosController extends Controller
      */
     public function create()
     {
+        $paquetes = PaquetesModel::all();
+        return view('eventos.agregar_evento')->with('paquetes', $paquetes);
 
-
-        return view('eventos.agregar_evento');
     }
 
     /**
@@ -48,8 +48,9 @@ class EventosController extends Controller
             'nombre' => 'required|string',
             'descripción' => 'required|string',
             'fecha_evento' => 'required|date',
-            'estado' => 'required|integer',
-            'confirmado' => 'required|boolean',
+            'estado' => 'required',
+
+
         ]);
 
         $evento = new EventosModel([
@@ -59,7 +60,6 @@ class EventosController extends Controller
             'descripción' => $request->descripción,
             'fecha_evento' => $request->fecha_evento,
             'estado' => $request->estado,
-            'confirmado' => $request->confirmado,
         ]);
 
         $evento->save();

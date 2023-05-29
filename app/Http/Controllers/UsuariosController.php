@@ -30,6 +30,7 @@ class UsuariosController extends Controller
     {
         // Validar los datos del formulario  para CLIENTE
         $request->validate([
+            'nombre' => 'required|max:20',
             'usuario' => 'required|max:20',
             'Roles' => 'required',
             'apellidos' => 'required|max:20',
@@ -42,6 +43,7 @@ class UsuariosController extends Controller
 
         // Crear un nuevo usuario con los datos del formulario
         $usuario = new Usuarios();
+        $usuario->nombre = $request->input('nombre');
         $usuario->usuario = $request->input('usuario');
         $usuario->Roles = $request->input('Roles');
         $usuario->apellidos = $request->input('apellidos');
@@ -87,8 +89,8 @@ class UsuariosController extends Controller
         $usuario->telefono = $request->input('telefono');
         $usuario->edad = $request->input('edad');
         $usuario->email = $request->input('email');
-        if (!empty($request->input('contraseña'))) {
-            $usuario->password = bcrypt($request->input('contraseña'));
+        if (!empty($request->input('password'))) {
+            $usuario->password = bcrypt($request->input('password'));
         }
         $usuario->save();
 

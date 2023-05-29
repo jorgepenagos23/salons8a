@@ -28,7 +28,6 @@ error_reporting(0);
 
     <script src="js/jquery-1.10.2.js"></script>
 </head>
-
 @include('paquetes.header')
 
 <div id="page-wrapper">
@@ -42,7 +41,7 @@ error_reporting(0);
         <link href="css/datatable/datatable.css" rel="stylesheet" />
         <div class="panel panel-default">
             <div class="panel-heading">
-                Panel para Administrar la
+                Panel para Administrar PAQUETES
             </div>
             <div class="panel-body">
                 <div class="table-sorting table-responsive">
@@ -65,8 +64,10 @@ error_reporting(0);
                                 <td>{{$item->costo}}</td>
                                 <td> <img src="{{ asset('css/paquete1.jpg') }}" width="100" height="100"></td>
                                 <td>
+                                    @can('edit', $item)
                                     <a href="{{ route('paquetes.edit_paquetes', $item->id_paquete) }}" class="btn btn-primary">Editar</a>
                                     <form action="{{ route('paquetes.destroy',['id_paquete' => $item])}}" method="POST">
+                                     @endcan
                                         @csrf
                                         @method('DELETE')
                                         @auth

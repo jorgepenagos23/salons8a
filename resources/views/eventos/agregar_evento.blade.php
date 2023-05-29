@@ -46,11 +46,16 @@
                     <form method="POST" action="{{ route('eventos.store') }}">
                         @csrf
 
+
                         <div class="form-group row">
                             <label for="cliente_id" class="col-md-4 col-form-label text-md-right">{{ __('Usuario ID') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cliente_id" type="number" class="form-control @error('cliente_id') is-invalid @enderror" name="cliente_id" value="{{ old('cliente_id') }}" required autocomplete="cliente_id" autofocus>
+                                <select name="cliente_id" id="cliente_id" class="form-control @error('cliente_id') is-invalid @enderror" required>
+                                    @auth
+                                        <option value="{{ auth()->user()->id }}">{{ auth()->user()->id }}</option>
+                                    @endauth
+                                </select>
 
                                 @error('cliente_id')
                                     <span class="invalid-feedback" role="alert">
@@ -59,23 +64,29 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="id_paquete" class="col-md-4 col-form-label text-md-right">{{ __('Paquete ID') }}</label>
+                            <label for="id_paquete" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione su Paquete') }}</label>
 
                             <div class="col-md-6">
-                                <input id="id_paquete" type="number" class="form-control @error('id_paquete') is-invalid @enderror" name="id_paquete" value="{{ old('id_paquete') }}" required autocomplete="id_paquete">
-
+                                <select name="id_paquete" id="id_paquete" class="form-control @error('id_paquete') is-invalid @enderror" required>
+                                    <option value="">Seleccionar paquete</option>
+                                    @foreach (\App\Models\PaquetesModel::all() as $paquete)
+                                        <option value="{{ $paquete->id_paquete }}" {{ old('id_paquete') == $paquete->id_paquete ? 'selected' : '' }}>
+                                            {{ $paquete->nombre }} - Costo: {{ $paquete->costo }}
+                                            <br><br>
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('id_paquete')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
                         <div class="form-group row">
-                            <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <br><br>
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre del Evento: ') }}</label>
 
                             <div class="col-md-6">
                                 <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre">
@@ -116,16 +127,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
-
+                            <label for="estado" class="col-md-4 col-form-label text-md-right">{{ __('Seleccionar si desea confirmar su evento') }}</label>
                             <div class="col-md-6">
-                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror" required>
-                                    <option value="">Seleccionar</option>
-                                    <option value="1" {{ old('status') == 1 ? 'selected' : '' }}>Activo</option>
-                                    <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>Inactivo</option>
+                                <select name="estado" id="estado" class="form-control @error('estado') is-invalid @enderror" required>
+                                    <option value="">Seleccione</option>
+                                    <option value="1" {{ old('estado') == 1 ? 'selected' : '' }}>Activo</option>
+                                    <option value="0" {{ old('estado') == 0 ? 'selected' : '' }}>Pendiente</option>
                                 </select>
-
-                                @error('status')
+                                @error('estado')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -133,35 +142,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="confirmado" class="col-md-4 col-form-label text-md-right">{{ __('Confirmado') }}</label>
 
-                            <div class="col-md-6">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="confirmado" id="confirmado1" value="1" {{ old('confirmado') == '1' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="confirmado1">
-                                        {{ __('Sí') }}
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="confirmado" id="confirmado0" value="0" {{ old('confirmado') == '0' ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="confirmado0">
-                                        {{ __('No') }}
-                                    </label>
-                                </div>
-
-                                @error('confirmado')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Agregar Paquete') }}
+                                    {{ __('Agregar Evento') }}
                                 </button>
                             </div>
 

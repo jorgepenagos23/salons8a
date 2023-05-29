@@ -31,6 +31,8 @@ class PaqueteController extends Controller
      */
     public function create()
     {
+        $this->authorize('insercion', $paquetes);
+
         return view('paquetes.agregar_paquetes');
     }
 
