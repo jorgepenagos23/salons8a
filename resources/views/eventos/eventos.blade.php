@@ -62,7 +62,7 @@ error_reporting(0);
                                     <th>Nombre del Evento</th>
                                     <th>Descripcion</th>
                                     <th>Fecha_evento</th>
-                                    <th>Estatus(Contrato activo)</th>
+                                    <th>Estado</th>
                                     <th>Imagen</th>
                                     <th></th>
                                     <th>Operaciones</th>

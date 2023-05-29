@@ -81,7 +81,7 @@ class UsuariosController extends Controller
     public function update(Request $request, Usuarios $usuario)
     {
         $usuario->nombre = $request->input('nombre');
-        $usuario->tipo_usuario = $request->input('tipo_usuario');
+        $usuario->Roles = $request->input('Roles');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');

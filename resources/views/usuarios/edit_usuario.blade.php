@@ -57,16 +57,18 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="tipo_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuario') }}</label>
+                                <label for="Roles" class="col-md-4 col-form-label text-md-right">{{ __('Roles') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="tipo_usuario" class="form-control @error('tipo_usuario') is-invalid @enderror" name="tipo_usuario" required autocomplete="tipo_usuario">
-                                        <option value="">Selecciona un tipo de usuario</option>
-                                        <option value="Cliente" @if($usuario->tipo_usuario == 'Cliente') selected @endif>Cliente</option>
-                                        <option value="Gerente" @if($usuario->tipo_usuario == 'Gerente') selected @endif>Gerente</option>
+                                    <select id="tipo_usuario" class="form-control @error('Roles') is-invalid @enderror" name="Roles" required autocomplete="tipo_usuario">
+                                        <option value="">Seleccione un tipo de usuario</option>
+                                        <option value="Cliente" @if($usuario->Roles == 'Cliente') selected @endif>Cliente</option>
+                                        <option value="Gerente" @if($usuario->Roles == 'Gerente') selected @endif>Gerente</option>
+                                        <option value="Empleado" @if($usuario->Roles == 'Empleado') selected @endif>Empleado</option>
+
                                     </select>
 
-                                    @error('tipo_usuario')
+                                    @error('Roles')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

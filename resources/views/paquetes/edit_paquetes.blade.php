@@ -58,7 +58,7 @@
                         <option value="1" @if ($paquete->estado) selected @endif>Sí</option>
                         <option value="0" @if (!$paquete->estado) selected @endif>No</option>
                     </select>
-                </div
+                </div>
 
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">

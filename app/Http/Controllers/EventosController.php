@@ -48,7 +48,7 @@ class EventosController extends Controller
             'nombre' => 'required|string',
             'descripción' => 'required|string',
             'fecha_evento' => 'required|date',
-            'status' => 'required|integer',
+            'estado' => 'required|integer',
             'confirmado' => 'required|boolean',
         ]);
 
@@ -58,7 +58,7 @@ class EventosController extends Controller
             'nombre' => $request->nombre,
             'descripción' => $request->descripción,
             'fecha_evento' => $request->fecha_evento,
-            'status' => $request->status,
+            'estado' => $request->estado,
             'confirmado' => $request->confirmado,
         ]);
 
@@ -96,13 +96,15 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+
         $evento = EventosModel::findOrFail($id);
 
         $evento->nombre = $request->nombre;
         $evento->descripción = $request->descripción;
         $evento->fecha_evento = $request->fecha_evento;
-        $evento->status = $request->has('status');
-        $evento->confirmado = $request->has('confirmado');
+        $evento->estado = $request->estado;
 
         $evento->save();
 

@@ -49,8 +49,14 @@ error_reporting(0);
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Estado</th>
                             <th>Precio</th>
                             <th>Fotos</th>
+                            <th>Fotos</th>
+                            <th>Fotos</th>
+
+
+
                             @auth
                             <th>Acciones</th>
                             @endauth
@@ -62,6 +68,7 @@ error_reporting(0);
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->descripcion }}</td>
+                            <td>{{ $item->estado }}</td>
                             <td>{{ $item->costo }}</td>
                             <td><img src="{{ asset('css/party.jpeg') }}" width="100" height="100"></td>
                             <td><img src="{{ asset('css/payaso.jpg') }}" width="100" height="100"></td>

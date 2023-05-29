@@ -41,13 +41,22 @@
         </div>
 
         <div class="form-group">
-          <label for="descripción">Descripción:</label>
-          <textarea name="descripción" class="form-control" required>{{ $servicio->descripción }}</textarea>
+          <label for="descripcion">Descripción:</label>
+          <textarea name="descripcion" class="form-control" required>{{ $servicio->descripcion }}</textarea>
         </div>
 
         <div class="form-group">
-          <label for="precio">Precio:</label>
-          <input type="number" name="precio" class="form-control" value="{{ $servicio->precio }}" required>
+            <label for="estado">Estado:</label>
+            <select class="form-control" id="estado" name="estado" required>
+                <option value="1" @if ($servicio->estado) selected @endif>Sí</option>
+                <option value="0" @if (!$servicio->estado) selected @endif>No</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="costo">Precio:</label>
+          <input type="number" name="costo" class="form-control" value="{{ $servicio->costo }}" required>
         </div>
 
 
