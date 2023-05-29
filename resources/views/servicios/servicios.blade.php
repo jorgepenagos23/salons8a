@@ -53,7 +53,7 @@ error_reporting(0);
                             <th>Descripción</th>
                             <th>Estado</th>
                             <th>Precio</th>
-                            <th>Foto</th>
+                            <th>Fotos</th>
 
                             @auth
                             <th>Acciones</th>

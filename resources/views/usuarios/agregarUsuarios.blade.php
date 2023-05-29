@@ -84,6 +84,7 @@
                             <select class="form-control" id="Roles" name="Roles" class="form-control @error('Roles') is-invalid @enderror" name="Roles" value="{{ old('Roles') }}" required autocomplete="tipo_usuario" autofocus>
                                 <option value="cliente">Cliente</option>
                                 <option value="gerente">Gerente</option>
+                                <option value="empleado">Empleado</option>
                             </select>
                                 @error('Roles')
                                     <span class="invalid-feedback" role="alert">

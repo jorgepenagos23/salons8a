@@ -64,7 +64,8 @@ Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
 
-
+Route::get('/abonos', [ExampleController::class, 'mostrarAbono'])->name('sistema.abonos');
+Route::post('/abonos/store', [ExampleController::class, 'store'])->name('abonos.store');
 
 //rutas para mostrar login gerente
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');

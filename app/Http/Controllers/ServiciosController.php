@@ -67,6 +67,7 @@ class ServiciosController extends Controller
         $servicio->descripcion = $validatedData['descripcion'];
         $servicio->costo = $validatedData['costo'];
         $servicio->estado = $validatedData['estado'];
+        $servicio->imagen = $validatedData['imagen'];
 
         $servicio->save();
 
@@ -99,12 +100,15 @@ public function update(Request $request, ServiciosModel $servicio)
         'descripcion' => 'required',
         'estado' => 'required',
         'costo' => 'required',
+        'imagen' => 'required',
     ]);
 
     $servicio->nombre = $request->nombre;
     $servicio->descripcion = $request->descripcion;
     $servicio->costo = $request->costo;
     $servicio->estado = $request->estado;
+    $servicio->imagen = $request->imagen;
+
 
     $servicio->save();
 

@@ -67,7 +67,7 @@
                    </li>
 
 
-                @if (Auth::user()->Roles == 'Gerente')
+                @if (Auth::user())
 
                     <li>
                         <a class="active-menu" href="{{route('agregar.paquetes')}}"><i class="fa fa-dashboard "></i>Agregar paquetes </a>

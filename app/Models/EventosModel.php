@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use PhpParser\Node\Expr\FuncCall;
+use App\Models\Abono;
 
 class EventosModel extends Model
 {
@@ -37,6 +38,10 @@ class EventosModel extends Model
     return $this->belongsToMany(ServiciosModel::class);
 }
 
+        public function abonos()
+{
+    return $this->hasMany(Abono::class);
+}
 
 
 }
