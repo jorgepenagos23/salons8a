@@ -58,7 +58,7 @@
         }
     </style>
 </head>
-@include('servicios.header')
+@include('paquetes.header')
 
 <body>
     <div id="page-wrapper">
