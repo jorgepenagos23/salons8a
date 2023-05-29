@@ -63,7 +63,7 @@ error_reporting(0);
                                     <th>Descripcion</th>
                                     <th>Fecha_evento</th>
                                     <th>Estatus(Contrato activo)</th>
-                                    <th>Confirmado</th>
+                                    <th>Imagen</th>
                                     <th></th>
                                     <th>Operaciones</th>
 
@@ -81,9 +81,8 @@ error_reporting(0);
                                   <td>{{$item->nombre}}</td>
                                   <td>{{$item->descripción}}</td>
                                   <td>{{$item->fecha_evento}}</td>
-                                  <td>{{$item->status}}</td>
-                                  <td>{{$item->confirmado}}</td>
-
+                                  <td>{{$item->estado}}</td>
+                                  <td>{{$item->imagen}}</td>
                                   <td> <img src="{{ asset('css/evento.jpg') }}" width="100" height="100"></td>
 
                                   <td>
@@ -92,6 +91,7 @@ error_reporting(0);
                                         <br>
                                       <form action="{{ route('eventos.destroy',['id' => $item])}}" method="POST">
                                           @csrf
+
                                           @method('DELETE')
                                           <button type="submit" class="btn btn-danger">Eliminar</button>
                                       </form>
@@ -106,7 +106,6 @@ error_reporting(0);
                         </table>
                     </div>
                 </div>
-
 
 </body>
 </html>

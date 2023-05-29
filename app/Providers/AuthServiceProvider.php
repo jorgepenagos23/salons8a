@@ -16,10 +16,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
 
-        'App\Models\EventosModel' =>'App\Policies\EventoPolicy',
-        'App\Models\Paquete' => 'App\Policies\PaquetePolicy',
+        'App\Models\ServiciosModel' => 'App\Policies\ServicioPolicy',
+        'App\Models\EventosModel' => 'App\Policies\EventoPolicy',
+        'App\Models\PaquetesModel' => 'App\Policies\PaquetePolicy',
+
 
     ];
 
@@ -39,5 +40,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('forbidden', function ($user) {
             return abort(403, 'Acceso denegado');
         });
+
+        Gate::define('delete', [PaquetePolicy::class, 'delete']);
     }
 }

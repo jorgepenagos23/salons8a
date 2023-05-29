@@ -6,6 +6,7 @@ use App\Models\Eventos;
 use App\Models\EventosModel;
 use App\Models\PaquetesModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\FuncCall;
 
 class EventosController extends Controller
@@ -15,7 +16,7 @@ class EventosController extends Controller
      */
     public function index()
     {
-        $eventos = Eventos::all();
+        $eventos = Eventos::all()->where('cliente_id'. '=', Auth::user()->id);
         return view('eventos.eventos', compact('eventos'));
 
     }
@@ -72,7 +73,6 @@ class EventosController extends Controller
      */
     public function verEventos()
     {
-        $this->authorize('viewAny', App\Models\EventosModel::class);
 
         $evento = EventosModel::all();
         return view('eventos.eventos',compact('evento'), ['lista' => $evento]);
@@ -87,6 +87,7 @@ class EventosController extends Controller
     public function editar($id)
 {
     $evento = EventosModel::findOrFail($id);
+    $this->authorize('edit', $evento);
     return view('eventos.editar', compact('evento'));
 }
 
@@ -112,10 +113,11 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        $paquete = EventosModel::findOrFail($id);
-        $paquete->delete();
 
-        return redirect()->route('eventos.eventos')->with('success', 'Servicio actualizado exitosamente.');
+         $evento = EventosModel::findOrFail($id);
+        $this->authorize('delete', $evento);
+        $evento->delete();
+        return redirect()->route('eventos.eventos')->with('success', 'eliminaddo  a');
 
 
     }

@@ -15,15 +15,29 @@ class UsuarioSeeder extends Seeder
     public function run(): void
     {
         $usuario = new Usuarios();
-        $usuario->nombre = 'casemiro gonzalez';
-        $usuario->apellidos = 'Apellidos';
+        $usuario->nombre = 'cristiano';
+        $usuario->usuario = 'CRISTIANO';
+        $usuario->apellidos = 'ronaldo';
         $usuario->direccion = 'Dirección';
         $usuario->telefono = 'Teléfono';
-        $usuario->edad = 25;
-        $usuario->email = 'case@gmail.com';
-        $usuario->contraseña = Hash::make('rodri');
+        $usuario->edad = 26;
+        $usuario->email = 'cr7@gmail.com';
+        $usuario->Roles = 'Cliente';
+        $usuario->password = Hash::make('cr7');
         $usuario->save();
 
+
+        $usuario = new Usuarios();
+        $usuario->nombre = 'gerardo ';
+        $usuario->usuario = 'gera';
+        $usuario->apellidos = 'perez lopez';
+        $usuario->direccion = 'Dirección';
+        $usuario->telefono = 'Teléfono';
+        $usuario->edad = 65;
+        $usuario->email = 'gera@gmail.com';
+        $usuario->Roles = 'Cliente';
+        $usuario->password = Hash::make('gera');
+        $usuario->save();
 
 
         // Agregar más registros de usuarios si es necesario

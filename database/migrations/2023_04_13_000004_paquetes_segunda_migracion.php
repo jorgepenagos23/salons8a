@@ -21,7 +21,9 @@ return new class extends Migration
             $table->enum('estado', ['0', '1'])->default('0');
             $table->string("capacidad");
             $table->unsignedBigInteger('gerente_id');
-            $table->foreign('gerente_id')->references('id')->on('gerentes')->onDelete('cascade');
+            $table->foreign('gerente_id')->references('id')->on('usuarios')->onDelete('cascade');
+
+
             $table->timestamps();
 
         });

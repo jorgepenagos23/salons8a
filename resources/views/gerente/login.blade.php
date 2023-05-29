@@ -41,6 +41,8 @@
                             </div>
                         </form>
                     </div>
+                    <a href="{{ route('registro') }}" class="btn btn-primary">Registrarse</a>
+
                 </div>
             </div>
         </div>

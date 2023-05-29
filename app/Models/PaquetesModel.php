@@ -14,8 +14,8 @@ class PaquetesModel extends Model
     protected $fillable = [
         'nombre',
         'descripción',
-        'precio',
-        'active',
+        'costo',
+        'estado',
     ];
 
     public function eventos()

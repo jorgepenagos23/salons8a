@@ -71,8 +71,8 @@
                                         @foreach ($lista AS $item)
                                       <tr>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->nombre}}</td>
-                                        <td>{{$item->tipo_usuario}}</td>
+                                        <td>{{$item->usuario}}</td>
+                                        <td>{{$item->Roles}}</td>
                                         <td>{{$item->apellidos}}</td>
                                         <td>{{$item->direccion}}</td>
                                         <td>{{$item->telefono}}</td>

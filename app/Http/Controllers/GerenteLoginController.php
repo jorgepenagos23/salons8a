@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Cliente;
 use App\Models\Gerente;
 
@@ -23,16 +24,22 @@ class GerenteLoginController extends Controller
     }
 
 
-    public function index(){
+    public function index()
+    {
         $paquetes = PaquetesModel::all();
         return view('gerente.gerenteInicio', compact('paquetes'));
-
     }
 
     public function showLoginForm()
     {
         return view('gerente.login');
     }
+    public function registro()
+    {
+
+        return view('gerente.registro');
+    }
+
 
     public function logout()
     {
@@ -41,34 +48,29 @@ class GerenteLoginController extends Controller
     }
 
 
-   public function authenticate (Request $request)
-        {
-             // Crear una cookie con el identificador de sesión del usuario
-            $credentials = $request->only('usuario',  'password');
+    public function authenticate(Request $request)
+    {
+        // Crear una cookie con el identificador de sesión del usuario
+        $credentials = $request->only('usuario',  'password');
 
-            if (Auth::guard('guard_gerentes')->attempt($credentials)) {
-                // Autenticación exitosa para el gerente
-                return redirect()->intended('@inicio_gerente');
-            }
-
-            if (Auth::guard('guard_clientes')->attempt($credentials)) {
-                // Autenticación exitosa para el cliente
-                return redirect()->intended('@inicio_cliente');
-            }
-
-            if (Auth::guard('web')->attempt($credentials)) {
-                // Autenticación exitosa para el cliente
-                return redirect()->intended('ruta usuario');
-            }
-
-
-
-            // Credenciales inválidas
-            return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);
+        if (Auth::guard('guard_gerentes')->attempt($credentials)) {
+            // Autenticación exitosa para el gerente
+            return redirect()->intended('@inicio_gerente');
         }
 
+        if (Auth::guard('guard_clientes')->attempt($credentials)) {
+            // Autenticación exitosa para el cliente
+            return redirect()->intended('@inicio_cliente');
+        }
 
+        if (Auth::guard('web')->attempt($credentials)) {
+            // Autenticación exitosa para el cliente
+            return redirect()->intended('@inicio_cliente');
         }
 
 
 
+        // Credenciales inválidas
+        return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);
+    }
+}

@@ -43,20 +43,20 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="descripción">Descripción:</label>
-                  <textarea name="descripción" class="form-control" required>{{ $paquete->descripción }}</textarea>
+                  <label for="descripcion">Descripción:</label>
+                  <textarea name="descripcion" class="form-control" required>{{ $paquete->descripcion }}</textarea>
                 </div>
 
                 <div class="form-group">
-                  <label for="precio">Precio:</label>
-                  <input type="number" name="precio" class="form-control" value="{{ $paquete->precio }}" required>
+                  <label for="costo">Precio:</label>
+                  <input type="number" name="costo" class="form-control" value="{{ $paquete->costo }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="activo">Activo:</label>
-                    <select class="form-control" id="active" name="active" required>
-                        <option value="1" @if ($paquete->active) selected @endif>Sí</option>
-                        <option value="0" @if (!$paquete->active) selected @endif>No</option>
+                    <label for="estado">Activo:</label>
+                    <select class="form-control" id="estado" name="estado" required>
+                        <option value="1" @if ($paquete->estado) selected @endif>Sí</option>
+                        <option value="0" @if (!$paquete->estado) selected @endif>No</option>
                     </select>
                 </div
 

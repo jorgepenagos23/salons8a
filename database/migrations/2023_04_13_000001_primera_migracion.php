@@ -16,13 +16,14 @@ return new class extends Migration
             $table->collation='utf8mb4_unicode_ci';
             $table->id();
             $table->string('nombre',20);
+            $table->string('usuario',20);
             $table->string('apellidos',20);
             $table->text('direccion');
             $table->text('telefono');
             $table->integer('edad');
             $table->string('email')->unique();
             $table->enum('Roles', ['Gerente', 'Cliente', 'Empleado'])->default('Cliente');
-            $table->string('contraseña')->nullable(false); // Definir la co
+            $table->string('password')->nullable(false); // Definir la co
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -21,7 +21,7 @@ class PaquetesSeeder extends Seeder
         $paquete->costo = '20000';
         $paquete->estado = '1';
         $paquete->capacidad = '400';
-        $paquete->gerente_id = '1';
+        $paquete->gerente_id = '2';
         $paquete->save();
 
         $paquete = new PaquetesModel();
@@ -30,7 +30,7 @@ class PaquetesSeeder extends Seeder
         $paquete->costo = '10000';
         $paquete->estado = '1';
         $paquete->capacidad = '200';
-        $paquete->gerente_id = '1';
+        $paquete->gerente_id = '2';
         $paquete->save();
 
         $paquete = new PaquetesModel();
@@ -39,7 +39,7 @@ class PaquetesSeeder extends Seeder
         $paquete->costo = '5000';
         $paquete->estado = '1';
         $paquete->capacidad = '400';
-        $paquete->gerente_id = '1';
+        $paquete->gerente_id = '2';
         $paquete->save();
 
         $paquete = new PaquetesModel();
@@ -48,7 +48,7 @@ class PaquetesSeeder extends Seeder
         $paquete->costo = '9000';
         $paquete->estado = '1';
         $paquete->capacidad = '200';
-        $paquete->gerente_id = '1';
+        $paquete->gerente_id = '2';
         $paquete->save();
 
     }

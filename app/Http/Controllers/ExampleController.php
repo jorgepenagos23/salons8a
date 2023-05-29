@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaquetesModel;
 use Illuminate\Http\Request;
-
 class ExampleController extends Controller
 {
 
@@ -33,8 +33,8 @@ class ExampleController extends Controller
         $mensaje = 'Hola, mundo!';
 
         // Llamamos a la vista 'ejemplo' y le pasamos el mensaje como variable
-        return view('cliente.indexcliente', ['mensaje' => $mensaje]);
-    }
+        $paquetes = PaquetesModel::all();
+        return view('gerente.gerenteInicio', compact('paquetes'));    }
 
 
 

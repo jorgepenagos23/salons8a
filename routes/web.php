@@ -48,6 +48,7 @@ Route::post('authenticate', [GerenteLoginController::class, 'authenticate'])->na
 Route::get('@inicio_gerente', [GerenteLoginController::class, 'index'])->name(("@inicio_gerente"));
 Route::get('cerrar_sesion', [GerenteLoginController::class, 'logout'])->name(("cerrar_sesion"));
 
+Route::get('/registro', [GerenteLoginController::class, 'registro'])->name(('registro'));
 
 
 
@@ -74,7 +75,7 @@ Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('
 
 
 //rutas para el gerente muestre paquetes, servicios eventos
-Route::get('gerente/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
+Route::get('sistema/paquetes', [PaqueteController::class, 'index'])->name('paquetes.paquete');
 
 //rutas para eventos
 
@@ -96,7 +97,7 @@ Route::delete('/eventos/eliminar/{id}', [EventosController::class, 'destroy'])->
 
 
 
-Route::get('gerente/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
+Route::get('sistema/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
 
 
 

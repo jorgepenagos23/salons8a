@@ -1,8 +1,8 @@
-<?php
+ <?php
 
-return [
+    return [
 
-    /*
+        /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
     |--------------------------------------------------------------------------
@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
-    ],
+        'defaults' => [
+            'guard' => 'web',
+            'passwords' => 'users',
+        ],
 
-    /*
+        /*
     |--------------------------------------------------------------------------
     | Authentication Guards
     |--------------------------------------------------------------------------
@@ -35,30 +35,30 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-        'guard_gerentes' => [
-            'driver' => 'session',
-            'provider' => 'providers_gerentes',
-        ],
-        'guard_clientes' => [
-            'driver' => 'session',
-            'provider' => 'providers_clientes',
-        ],
-       
-        
+        'guards' => [
+            'web' => [
+                'driver' => 'session',
+                'provider' => 'users',
+            ],
+            'guard_gerentes' => [
+                'driver' => 'session',
+                'provider' => 'providers_gerentes',
+            ],
+            'guard_clientes' => [
+                'driver' => 'session',
+                'provider' => 'providers_clientes',
+            ],
 
-        'api' => [
-            'driver' => 'basic',
-            'provider' => 'users',
+
+
+            'api' => [
+                'driver' => 'basic',
+                'provider' => 'users',
+            ],
+
         ],
 
-    ],
-
-    /*
+        /*
     |--------------------------------------------------------------------------
     | User Providers
     |--------------------------------------------------------------------------
@@ -75,25 +75,23 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Usuarios::class,
+        'providers' => [
+            'users' => [
+                'driver' => 'eloquent',
+                'model' => App\Models\Usuarios::class,
 
-           
+            ],
+            'providers_gerentes' => [
+                'driver' => 'eloquent',
+                'model' => App\Models\Gerente::class,
+            ],
+            'providers_clientes' => [
+                'driver' => 'eloquent',
+                'model' => App\Models\Cliente::class,
+            ],
+        ],
 
-        ],
-        'providers_gerentes' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Gerente::class,
-        ],
-        'providers_clientes' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Cliente::class,
-        ],
-    ],
-
-    /*
+        /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
     |--------------------------------------------------------------------------
@@ -112,16 +110,16 @@ return [
     |
     */
 
-    'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_reset_tokens',
-            'expire' => 60,
-            'throttle' => 60,
+        'passwords' => [
+            'users' => [
+                'provider' => 'users',
+                'table' => 'password_reset_tokens',
+                'expire' => 60,
+                'throttle' => 60,
+            ],
         ],
-    ],
 
-    /*
+        /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout
     |--------------------------------------------------------------------------
@@ -132,6 +130,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+        'password_timeout' => 10800,
 
-];
+    ];
