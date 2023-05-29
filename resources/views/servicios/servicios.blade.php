@@ -26,6 +26,7 @@ error_reporting(0);
 
 </head>
 @include('servicios.header')
+<body>
 <div id="page-wrapper">
     <div id="page-inner">
         <div class="row">
@@ -34,12 +35,13 @@ error_reporting(0);
             </div>
         </div>
         <style>
+        .zoom {
+            zoom: 4.9; /* Ajusta el valor para cambiar el nivel de zoom */
+        }
             h3 {
                 color: rgb(77, 77, 77);
             }
-            div {
-                zoom: 1.0; /* Aumenta el tamaño del navbar en un 20% */
-            }
+
         </style>
         <div class="panel-body">
             <div class="table-sorting table-responsive">
@@ -54,9 +56,6 @@ error_reporting(0);
                             <th>Fotos</th>
                             <th>Fotos</th>
                             <th>Fotos</th>
-
-
-
                             @auth
                             <th>Acciones</th>
                             @endauth

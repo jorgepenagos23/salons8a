@@ -41,7 +41,9 @@ class ServiciosController extends Controller
 
     public function create()
     {
-        $this->authorize('agregar', $servicio);
+        $servicios = ServiciosModel::all();
+
+        $this->authorize('agregar', $servicios);
 
         return view('servicios.create');
     }

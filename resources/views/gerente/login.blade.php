@@ -8,21 +8,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/stylelogin.css') }}" />
+    <style>
+        body {
+            background: linear-gradient(135deg, white, yellow);
+        }
+    </style>
     <title>Login</title>
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Mi Aplicación</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <img src="imagenes/logo.png" style="width: 120px;">
+                        <img src="{{ asset('css/logo.png') }}" width="400" height="300">
                     </div>
                     <div class="card-body">
                         <h1 class="text-center mb-4">Inicia sesión</h1>
-                        <form action="{{route('authenticate')}}" method="post">
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
+                        <form action="{{ route('authenticate') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="usuario">Usuario</label>
@@ -33,16 +62,13 @@
                                 <label for="password">Contraseña</label>
                                 <input type="password" id="password" name="password" placeholder="Contraseña">
                                 <button type="button" id="togglePassword">Mostrar</button>
-
-
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-primary" type="submit">Iniciar sesión</button>
                             </div>
                         </form>
+                        <a href="{{ route('registro') }}" class="btn btn-primary">Registrarse</a>
                     </div>
-                    <a href="{{ route('registro') }}" class="btn btn-primary">Registrarse</a>
-
                 </div>
             </div>
         </div>

@@ -30,7 +30,9 @@ class PaqueteController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+
+    {        $paquetes = PaquetesModel::all();
+
         $this->authorize('insercion', $paquetes);
 
         return view('paquetes.agregar_paquetes');
