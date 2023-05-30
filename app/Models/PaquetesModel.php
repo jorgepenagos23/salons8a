@@ -13,9 +13,11 @@ class PaquetesModel extends Model
     use HasFactory;
     protected $fillable = [
         'nombre',
-        'descripción',
+        'descripcion',
         'costo',
         'estado',
+        'capacidad',
+
     ];
 
     public function eventos()

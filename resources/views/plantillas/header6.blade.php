@@ -50,7 +50,7 @@
 
                     </li>
                     <li>
-                       <a class="active-menu" href="{{route('gerente.gerenteinicio2')}}"><i class="fa fa-dashboard "></i>Home </a>
+                       <a class="active-menu" href="{{route('@inicio')}}"><i class="fa fa-dashboard "></i>Home </a>
                    </li>
 
 

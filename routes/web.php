@@ -45,7 +45,7 @@ Route::get('/ejemplo', [ExampleController::class, 'index'])->name('ejemplo');
 ///INGRESAR AL SISTEMA LOGIN
 Route::get('login', [GerenteLoginController::class, 'showLoginForm'])->name(('login'))->middleware('guest');
 Route::post('authenticate', [GerenteLoginController::class, 'authenticate'])->name('authenticate');
-Route::get('@inicio_gerente', [GerenteLoginController::class, 'index'])->name(("@inicio_gerente"));
+Route::get('@inicio_g', [GerenteLoginController::class, 'index'])->name(("@inicio_gerente"));
 Route::get('cerrar_sesion', [GerenteLoginController::class, 'logout'])->name(("cerrar_sesion"));
 
 Route::get('/registro', [GerenteLoginController::class, 'registro'])->name(('registro'));
@@ -53,7 +53,7 @@ Route::get('/registro', [GerenteLoginController::class, 'registro'])->name(('reg
 
 
 //rutas para mostrar index cliente
-Route::get('@inicio_cliente', [ExampleController::class, 'dashboard_cliente'])->name(("@inicio_cliente"));
+Route::get('@inicio', [ExampleController::class, 'dashboard_cliente'])->name(("@inicio"));
 
 
 
@@ -64,12 +64,12 @@ Route::get('/user/login', [UserLoginController::class, 'showLoginForm'])->name('
 Route::post('/user/login', [UserLoginController::class, 'authenticate'])->name('login.authenticate');
 
 
-
+Route::get('/abonos', [ExampleController::class, 'mostrarAbono'])->name('sistema.abonos');
+Route::post('/abonos/store', [ExampleController::class, 'store'])->name('abonos.store');
 
 //rutas para mostrar login gerente
 Route::get('/gerente/login', [GerenteLoginController::class, 'showLoginForm'])->name('gerente.showLoginForm');
 Route::get('/gerente2', [GerenteLoginController::class, 'index'])->name('gerente.gerenteinicio2')->middleware('auth.basic');
-;
 
 Route::post('/gerente', [GerenteLoginController::class, 'authenticate'])->name('gerente.gerenteinicio');
 
@@ -91,16 +91,7 @@ Route::delete('/eventos/eliminar/{id}', [EventosController::class, 'destroy'])->
 
 //rutas evento y servicios
 
-
-
-
-
-
-
 Route::get('sistema/servicios', [ServiciosController::class, 'index'])->name('servicios.servicios');
-
-
-
 
 
 //rutas para mostrar paquetes no moverle
@@ -111,8 +102,6 @@ Route::post('/paquetes/agrega', [PaqueteController::class, 'store'])->name('paqu
 Route::get('paquetes/{id_paquete}/edit', [PaqueteController::class, 'edit'])->name('paquetes.edit_paquetes');
 Route::put('paquetes/{id_paquete}', [PaqueteController::class, 'update'])->name('paquetes.update');
 Route::delete('paquetes/{id_paquete}', [PaqueteController::class, 'destroy'])->name('paquetes.destroy');
-
-
 
 
 //rutas para mostrar eventos para clientes
@@ -133,13 +122,11 @@ Route::delete('/servicios/eliminar/{id}', [ServiciosController::class, 'destroy'
 
 
 
-
 //rutas para logout salir de cliente
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Anonimo login e inicio
-
 
 
 //Empleado login e inicio

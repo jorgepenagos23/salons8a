@@ -53,14 +53,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status">Status</label>
-                    <input type="checkbox" name="status" value="1" {{ $evento->status ? 'checked' : '' }}>
+                    <label for="estado">Estado:</label>
+                    <select class="form-control" id="estado" name="estado" required>
+                        <option value="1" @if ($evento->estado) selected @endif>Sí</option>
+                        <option value="0" @if (!$evento->estado) selected @endif>No</option>
+                    </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="confirmado">Confirmado</label>
-                    <input type="checkbox" name="confirmado" value="1" {{ $evento->confirmado ? 'checked' : '' }}>
-                </div>
+
 
                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
             </form>

@@ -18,8 +18,13 @@ class PaquetePolicy
 
     public function delete(Cliente $usuario, PaquetesModel $paquetes): bool
     {
-        if ($usuario->id == $paquetes->gerente_id) {
-        }
-        return false;
+
+        return $usuario->id == $paquetes->gerente_id;
+    }
+
+    public function insercion(Usuarios $usuario, PaquetesModel $paquetes): bool
+    {
+
+        return $usuario->Roles == 'Gerente';
     }
 }

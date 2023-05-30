@@ -26,6 +26,7 @@ error_reporting(0);
 
 </head>
 @include('servicios.header')
+<body>
 <div id="page-wrapper">
     <div id="page-inner">
         <div class="row">
@@ -34,12 +35,13 @@ error_reporting(0);
             </div>
         </div>
         <style>
+        .zoom {
+            zoom: 4.9; /* Ajusta el valor para cambiar el nivel de zoom */
+        }
             h3 {
                 color: rgb(77, 77, 77);
             }
-            div {
-                zoom: 1.0; /* Aumenta el tamaño del navbar en un 20% */
-            }
+
         </style>
         <div class="panel-body">
             <div class="table-sorting table-responsive">
@@ -49,8 +51,10 @@ error_reporting(0);
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Estado</th>
                             <th>Precio</th>
                             <th>Fotos</th>
+
                             @auth
                             <th>Acciones</th>
                             @endauth
@@ -62,10 +66,10 @@ error_reporting(0);
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->nombre }}</td>
                             <td>{{ $item->descripcion }}</td>
+                            <td>{{ $item->estado }}</td>
                             <td>{{ $item->costo }}</td>
-                            <td><img src="{{ asset('css/party.jpeg') }}" width="100" height="100"></td>
-                            <td><img src="{{ asset('css/payaso.jpg') }}" width="100" height="100"></td>
-                            <td><img src="{{ asset('css/trampolin.jpg') }}" width="100" height="100"></td>
+                            <td><img src="{{ asset($item->imagen) }}" width="100" height="100"></td>
+
                             @auth
                             <td>
                                 @can('eliminar', $item)

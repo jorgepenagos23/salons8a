@@ -7,6 +7,7 @@ use App\Models\ServiciosModel;
 use Database\Seeders\ServiciosSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class ServiciosController extends Controller
 {
@@ -40,6 +41,10 @@ class ServiciosController extends Controller
 
     public function create()
     {
+        $servicios = ServiciosModel::all();
+
+        $this->authorize('agregar', $servicios);
+
         return view('servicios.create');
     }
 
@@ -52,7 +57,7 @@ class ServiciosController extends Controller
         $validatedData = $request->validate([
             'nombre' => 'required|max:255',
             'descripcion' => 'required',
-            'precio' => 'required|numeric|min:0',
+            'costo' => 'required|numeric|min:0',
             'estado' => 'required',
 
         ]);
@@ -62,6 +67,7 @@ class ServiciosController extends Controller
         $servicio->descripcion = $validatedData['descripcion'];
         $servicio->costo = $validatedData['costo'];
         $servicio->estado = $validatedData['estado'];
+        $servicio->imagen = $validatedData['imagen'];
 
         $servicio->save();
 
@@ -92,13 +98,17 @@ public function update(Request $request, ServiciosModel $servicio)
     $request->validate([
         'nombre' => 'required',
         'descripcion' => 'required',
-        'costo' => ['required', 'numeric', 'regex:/^\d+(\.\d{1,2})?$/']
+        'estado' => 'required',
+        'costo' => 'required',
+        'imagen' => 'required',
     ]);
 
     $servicio->nombre = $request->nombre;
     $servicio->descripcion = $request->descripcion;
     $servicio->costo = $request->costo;
     $servicio->estado = $request->estado;
+    $servicio->imagen = $request->imagen;
+
 
     $servicio->save();
 

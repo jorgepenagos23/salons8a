@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
             $table->string('usuario');
-            $table->string('accion');
+            $table->string('registro');
             $table->timestamps();
         });
     }

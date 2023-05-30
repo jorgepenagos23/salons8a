@@ -62,7 +62,7 @@ error_reporting(0);
                                     <th>Nombre del Evento</th>
                                     <th>Descripcion</th>
                                     <th>Fecha_evento</th>
-                                    <th>Estatus(Contrato activo)</th>
+                                    <th>Estado</th>
                                     <th>Imagen</th>
                                     <th></th>
                                     <th>Operaciones</th>
@@ -74,32 +74,35 @@ error_reporting(0);
 
                             <tbody>
                                 @foreach ($lista AS $item)
-                                <tr>
-                                  <td>{{$item->id}}</td>
-                                  <td>{{$item->cliente_id}}</td>
-                                  <td>{{$item->id_paquete}}</td>
-                                  <td>{{$item->nombre}}</td>
-                                  <td>{{$item->descripción}}</td>
-                                  <td>{{$item->fecha_evento}}</td>
-                                  <td>{{$item->estado}}</td>
-                                  <td>{{$item->imagen}}</td>
-                                  <td> <img src="{{ asset('css/evento.jpg') }}" width="100" height="100"></td>
+                                @if ($item->cliente_id == Auth::id() || Auth::user()->Roles === 'Gerente')
+                                    <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->cliente_id}}</td>
+                                        <td>{{$item->id_paquete}}</td>
+                                        <td>{{$item->nombre}}</td>
+                                        <td>{{$item->descripción}}</td>
+                                        <td>{{$item->fecha_evento}}</td>
+                                        <td>{{$item->estado}}</td>
+                                        <td>{{$item->imagen}}</td>
+                                        <td> <img src="{{ asset('css/evento.jpg') }}" width="100" height="100"></td>
+                                        <td>
+                                            <br>
+                                            @can('edit')
+                                            <a href="{{ route('evento.editar', $item->id) }}" class="btn btn-primary">Editar</a> <br>
+                                            <br>
+                                            @endcan
+                                            <form action="{{ route('eventos.destroy',['id' => $item])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                @can('delete',$item)
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                @endcan
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
 
-                                  <td>
-                                    <br>
-                                      <a href="{{ route('evento.editar', $item->id) }}" class="btn btn-primary">Editar</a> <br>
-                                        <br>
-                                      <form action="{{ route('eventos.destroy',['id' => $item])}}" method="POST">
-                                          @csrf
-
-                                          @method('DELETE')
-                                          <button type="submit" class="btn btn-danger">Eliminar</button>
-                                      </form>
-
-
-                                 </td>
-                                </tr>
-                                @endforeach
 
                                 </tr>
                             </tbody>

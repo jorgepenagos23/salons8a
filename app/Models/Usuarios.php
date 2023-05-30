@@ -32,6 +32,10 @@ class Usuarios extends Authenticatable
         'remember_token',
     ];
 
+    public function abonos()
+    {
+        return $this->hasMany(Abono::class);
+    }
 
 
 }
