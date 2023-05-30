@@ -48,31 +48,10 @@ class GerenteLoginController extends Controller
     }
 
 
-   public function authenticate (Request $request)
-        {
-             // Crear una cookie con el identificador de sesión del usuario
-            $credentials = $request->only('usuario',  'password');
-
-            if (Auth::guard('guard_gerentes')->attempt($credentials)) {
-                // Autenticación exitosa para el gerente
-                return redirect()->intended('@inicio_gerente');
-            }
-
-            if (Auth::guard('guard_clientes')->attempt($credentials)) {
-                // Autenticación exitosa para el cliente
-                return redirect()->intended('@inicio');
-            }
-
-            if (Auth::guard('web')->attempt($credentials)) {
-                // Autenticación exitosa para el cliente
-                return redirect()->intended('@inicio');
-            }
-
-
-
-            // Credenciales inválidas
-            return redirect()->back()->withInput()->withErrors(['error' => 'Credenciales inválidas']);
-        }
+    public function authenticate(Request $request)
+    {
+        // Crear una cookie con el identificador de sesión del usuario
+        $credentials = $request->only('usuario',  'password');
 
         if (Auth::guard('guard_gerentes')->attempt($credentials)) {
             // Autenticación exitosa para el gerente
@@ -81,12 +60,12 @@ class GerenteLoginController extends Controller
 
         if (Auth::guard('guard_clientes')->attempt($credentials)) {
             // Autenticación exitosa para el cliente
-            return redirect()->intended('@inicio_cliente');
+            return redirect()->intended('@inicio');
         }
 
         if (Auth::guard('web')->attempt($credentials)) {
             // Autenticación exitosa para el cliente
-            return redirect()->intended('@inicio_cliente');
+            return redirect()->intended('@inicio');
         }
 
 

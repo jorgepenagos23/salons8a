@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Cliente;
+use App\Models\Usuarios;
 use App\Models\PaquetesModel;
 use Illuminate\Auth\Access\Response;
 

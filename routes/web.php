@@ -152,3 +152,4 @@ Route::get('usuarios/{id}/edit', [UsuariosController::class, 'edit'])->name('usu
 Route::delete('usuarios/{id}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
 
 
+Route::post('/usuarios', [UsuariosController::class, 'store2'])->name('usuarios.store2');
