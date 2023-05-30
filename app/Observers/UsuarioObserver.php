@@ -10,10 +10,14 @@ class UsuarioObserver
 {
     public function created(Usuarios $usuario): void
     {
+        if (Auth::check()) {
         $registro = new Registro();
         $registro->usuario = Auth::user()->nombre;
         $registro->accion = 'se creó el usuario : ---> ' . $usuario->nombre;
         $registro->save();
+        } else{
+
+        }
     }
 
     public function updated(Usuarios $usuario): void

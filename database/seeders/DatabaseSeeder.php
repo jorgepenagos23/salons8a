@@ -11,8 +11,11 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-
-
+        $this->call(UsuarioSeeder::class);
+        $this->call(ClienteSeeder::class);
+        $this->call(ServiciosSeeder::class);
+        $this->call(PaquetesSeeder::class);
+/* 
         DB::table('usuarios')->insert([
             'nombre' => 'Hugo',
             'tipo_usuario' => 'Cliente',
@@ -62,6 +65,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-
+ */
     }
 }
