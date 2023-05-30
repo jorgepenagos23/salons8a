@@ -11,57 +11,57 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+            $this->call(UsuarioSeeder::class);
 
-
-        DB::table('usuarios')->insert([
+       /*  DB::table('usuarios')->insert([
             'nombre' => 'Hugo',
-            'tipo_usuario' => 'Cliente',
+            'usuario' => 'Cliente',
             'apellidos' => 'Pérez García',
             'direccion' => 'Av. Principal #123',
             'Telefono' => '1234567890',
             'edad' => 30,
             'email' => 'juan@gmail.com',
-            'contraseña' => Hash::make('123456'),
+            'password' => Hash::make('123456'),
         ]);
 
 
         DB::table('usuarios')->insert([
+            'usuario' => 'Cliente',
             'nombre' => 'Paco',
-            'tipo_usuario' => 'Cliente',
             'apellidos' => 'Lopez Diaz',
             'direccion' => 'Av. Principal #123',
             'Telefono' => '4352545435',
             'edad' => 30,
             'email' => 'paquito@gmail.com',
-            'contraseña' => Hash::make('123456'),
+            'password' => Hash::make('123456'),
         ]);
         DB::table('usuarios')->insert([
             'nombre' => 'Luis',
-            'tipo_usuario' => 'Cliente',
+            'usuario' => 'Cliente',
             'apellidos' => 'Gonzales G',
             'direccion' => 'Av. Principal #123',
             'Telefono' => '9982456235',
             'edad' => 30,
             'email' => 'luis@gmail.com',
-            'contraseña' => Hash::make('123456'),
+            'password' => Hash::make('123456'),
         ]);
 
 
 
         DB::table('usuarios')->insert([
             'nombre' => 'Carlos',
-            'tipo_usuario' => 'Gerente',
+            'usuario' => 'Gerente',
             'apellidos' => 'Lopez Diaz',
             'direccion' => 'Calle Secundaria #456',
             'Telefono' => '9611702282',
             'edad' => 35,
             'email' => 'ana@gmail.com',
-            'contraseña' => Hash::make('abcdef'),
+            'password' => Hash::make('abcdef'),
         ]);
 
 
 
 
-
+ */
     }
 }
