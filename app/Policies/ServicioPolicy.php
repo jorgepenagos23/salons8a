@@ -10,19 +10,14 @@ class ServicioPolicy
 {
 
 
-    /**
-     * Determine whether the user can view the model.
-     */
 
-
-    /**
-     * Determine whether the user can delete the model.
-     */
     public function eliminar(Usuarios $usuario, ServiciosModel $servicio): bool
     {
 
-        return $usuario->Roles == 'Gerente';
+            $sin_uso = $servicio->estado==0;
 
+
+            return $sin_uso;
 
     }
 
@@ -34,10 +29,13 @@ class ServicioPolicy
 
     }
 
-    public function editar(Usuarios $usuario, ServiciosModel $servicio): bool
+    public function editar(Usuarios $authUser, ServiciosModel $servicio): bool
     {
 
-        return $usuario->Roles == 'Gerente';
+        $es_gerente = $authUser->id == $servicio->cliente_id;
+        $esta_sin_uso_elservicio = $servicio->estado == 0;
+        return $$es_gerente && $esta_sin_uso_elservicio && $authUser->Roles == 'Gerente' ;
+
 
 
     }

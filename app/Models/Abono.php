@@ -16,6 +16,7 @@ class Abono extends Model
         'fecha_pago',
         'abono_cantidad',
         'cliente_id',
+        'id_paquete',
 
 
 

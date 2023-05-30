@@ -20,6 +20,8 @@ class ServiciosModel extends Model
 
     ];
 
+
+
     public function paquetes()
     {
         return $this->belongsToMany(PaquetesModel::class);
@@ -34,6 +36,14 @@ class ServiciosModel extends Model
         return $this->belongsTo(Gerente::class);
     }
 
+  // Obtener el evento correspondiente al abono actual public function getCostoAttribute()
+   // Obtener el evento correspondiente al abono actual {
+      // Obtener el evento correspondiente al abono actual  $costoServicio = $this->ServiciosModel->costo;
+      // Obtener el evento correspondiente al abono actual  $costoPaquete = $this->PaquetesModel->costo;
+      // Obtener el evento correspondiente al abono actual  $costoTotal = $costoServicio + $costoPaquete;
+
+       // Obtener el evento correspondiente al abono actual return $costoTotal;
+   // Obtener el evento correspondiente al abono actual }
 
 
 }

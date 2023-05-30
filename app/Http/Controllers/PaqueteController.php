@@ -106,6 +106,10 @@ class PaqueteController extends Controller
             'descripcion' => 'required',
             'costo' => 'required|numeric|min:0.01',
             'estado' => 'required|boolean',
+            'capacidad' => 'capacidad',
+            'gerente_id' => 'gerente_id',
+
+
         ]);
 
         // Actualizar los valores del paquete con los valores del formulario
@@ -113,6 +117,9 @@ class PaqueteController extends Controller
         $paquete->descripcion = $validated['descripcion'];
         $paquete->costo = $validated['costo'];
         $paquete->estado = $validated['estado'];
+        $paquete->capacidad = $validated['capacidad'];
+        $paquete->gerente_id = $validated['gerente_id'];
+
 
         // Guardar el paquete actualizado en la base de datos
         $paquete->save();

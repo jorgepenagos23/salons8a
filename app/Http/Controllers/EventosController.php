@@ -63,6 +63,7 @@ class EventosController extends Controller
         ]);
 
         $evento->save();
+        
 
         return redirect()->route('eventos.eventos')
                          ->with('success', 'Evento agregado correctamente.');

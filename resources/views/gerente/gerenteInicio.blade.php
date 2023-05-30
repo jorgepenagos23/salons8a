@@ -88,8 +88,6 @@
                         @endif
 
 
-
-
                     <div class="col-md-4">
                         <div class="main-box">
                             <a href="{{route('paquetes.paquete')}}">
@@ -112,11 +110,22 @@
                         <div class="main-box">
                             <a href="{{route('sistema.abonos')}}">
                                 <i class="fa fa-cubes fa-5x"></i>
-                                <h5>VER abonos de clintes</h5>
+                                <h5>AGREGAR UN ABONO</h5>
                             </a>
                         </div>
                     </div>
 
+
+                    @auth
+                    <div class="col-md-4">
+                        <div class="main-box">
+                            <a href="{{route('sistema.abonos')}}">
+                                <i class="fa fa-cubes fa-5x"></i>
+                                <h5>AGREGAR UN ABONO</h5>
+                            </a>
+                        </div>
+                    </div>
+                    @endauth
 
                 </div>
                 <!-- /. ROW  -->

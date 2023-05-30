@@ -48,67 +48,69 @@
 
 						  </style>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                         Listar Usuarios
-                        </div>
-                        <div class="panel-body">
-                             <div class="table-sorting table-responsive">
-                                <table class="table">
-                                    <thead>
-                                      <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Rol</th>
-                                        <th>Apellidos</th>
-                                        <th>Direccion</th>
-                                        <th>Telefono</th>
-                                        <th>Edad</th>
-                                        <th>Email</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($lista AS $item)
-                                      <tr>
-                                        <td>{{$item->id}}</td>
-                                        <td>{{$item->usuario}}</td>
-                                        <td>{{$item->Roles}}</td>
-                                        <td>{{$item->apellidos}}</td>
-                                        <td>{{$item->direccion}}</td>
-                                        <td>{{$item->telefono}}</td>
-                                        <td>{{$item->edad}}</td>
-                                        <td>{{$item->email}}</td>
+                @if (Auth::user()->Roles == 'Gerente')
 
+                <p>Bienvenido {{ Auth::user()->usuario }}</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
 
+                    Listar Usuarios
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-sorting table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Rol</th>
+                                    <th>Apellidos</th>
+                                    <th>Direccion</th>
+                                    <th>Telefono</th>
+                                    <th>Edad</th>
+                                    <th>Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($lista AS $item)
+                                <tr>
+                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->usuario}}</td>
+                                    <td>{{$item->Roles}}</td>
+                                    <td>{{$item->apellidos}}</td>
+                                    <td>{{$item->direccion}}</td>
+                                    <td>{{$item->telefono}}</td>
+                                    <td>{{$item->edad}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td> <img src="{{ asset('users_img/user1.png') }}" width="100" height="100"></td>
+                                    <td>
+                                        @if (Auth::user()->Roles == 'Gerente')
 
+                                        <form action="{{ route('usuarios.destroy',['id' => $item])}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                        </form>
+                                    <a href="{{ route('usuarios.edit_usuario', ['id' => $item]) }}" class="btn btn-primary">Editar</a>
 
-                                        <td> <img src="{{ asset('users_img/user1.png') }}" width="100" height="100"></td>
-                                        <td>
-                                            <form action="{{ route('usuarios.destroy',['id' => $item])}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                                            </form>
-                                         <a href="{{ route('usuarios.edit_usuario', ['id' => $item]) }}" class="btn btn-primary">Editar</a>
+                                        @endif
 
-                                        </td>
-                                      </tr>
+                                    </td>
+                                </tr>
 
-                                       <tr>
-                                       </tr>
-                                      @endforeach
-                                    </tbody>
+                                <tr>
+                                </tr>
+                                @endforeach
+                                </tbody>
 
-                                  </table>
+                            </table>
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                </div>
 
-
-
-
+         @endif
 </body>
 </html>

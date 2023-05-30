@@ -27,6 +27,7 @@ class EventosModel extends Model
     ];
 
 
+
     public function paquetes()
     {
         return $this->belongsToMany(PaquetesModel::class);
