@@ -12,10 +12,14 @@ class PaqueteObserver
 
     public function created(PaquetesModel $paquete): void
     {
+        if (Auth::check()){
         $registro = new Registro();
         $registro->usuario = Auth::user()->nombre;
         $registro->accion = 'se creó el paquete: ' . $paquete->nombre;
         $registro->save();
+        } else {
+            
+        }
     }
 
     public function updated(PaquetesModel $paquete): void

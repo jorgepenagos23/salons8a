@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
             $this->call(UsuarioSeeder::class);
             $this->call(ClienteSeeder::class);
+            $this->call(ServiciosSeeder::class);
+            $this->call(PaquetesSeeder::class);
 
        /*  DB::table('usuarios')->insert([
             'nombre' => 'Hugo',

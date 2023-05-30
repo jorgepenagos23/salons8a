@@ -12,10 +12,14 @@ class ServicioObserver
 
     public function created(ServiciosModel $servicio): void
     {
+    if (Auth::check()){
         $registro = new Registro();
         $registro->usuario = Auth::user()->nombre;
         $registro->accion = 'se creó el servicio : ---> ' . $servicio->nombre;
         $registro->save();
+        } else {
+
+        }
     }
 
     public function updated(ServiciosModel $servicio): void
