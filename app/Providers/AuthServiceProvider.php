@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        session_start();
+        //session_start();
 
         if (isset($_SESSION['AuthGuard'])) {
             Auth::setDefaultDriver($_SESSION['AuthGuard']);
