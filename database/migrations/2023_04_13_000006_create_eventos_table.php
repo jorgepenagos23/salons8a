@@ -20,9 +20,10 @@ return new class extends Migration
             $table->dateTime('fecha_evento');
             $table->string('imagen')->nullable();
             $table->enum('estado',['0','1'])->default('0');
-
+            $table->double('precio', 8, 2); // Ejemplo: precisión de 8 y escala de 2
             $table->foreign('cliente_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('id_paquete')->references('id_paquete')->on('paquetes')->onDelete('cascade');
+
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 

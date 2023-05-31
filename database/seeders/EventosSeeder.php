@@ -20,6 +20,7 @@ class EventosSeeder extends Seeder
             'descripción' => 'Descripción de mi evento de prueba',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
 
         ]);
 
@@ -30,6 +31,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'Pruebas priuebas ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 
@@ -40,6 +43,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'Para todo  el plantel ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 
@@ -51,6 +56,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'Para todo  el plantel ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 
@@ -61,6 +68,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'Para cien personas. ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 
@@ -71,6 +80,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'El bautizo de un sobrino  , se va necesitar bocinas   ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 
@@ -81,6 +92,8 @@ class EventosSeeder extends Seeder
             'descripción' => 'XV  duracion de seis horas   ',
             'fecha_evento' => now(),
             'estado' => 1,
+            'precio' => 8000.80, // Utiliza un punto decimal en lugar de una coma
+
 
         ]);
 

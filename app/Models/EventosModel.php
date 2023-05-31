@@ -21,6 +21,8 @@ class EventosModel extends Model
         'descripción',
         'fecha_evento',
         'estado',
+        'precio',
+
         'created_at',
         'updated_at',
 

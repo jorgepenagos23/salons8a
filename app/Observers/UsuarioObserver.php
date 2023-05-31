@@ -11,8 +11,13 @@ class UsuarioObserver
     public function created(Usuarios $usuario): void
     {
         $registro = new Registro();
-        $registro->usuario = Auth::user()->nombre;
-        $registro->accion = 'se creó el usuario : ---> ' . $usuario->nombre;
+        if(Auth::guest()){
+            $registro->usuario = "Seeder";
+        }else{
+            $registro->usuario = Auth::user()->nombre;
+        }
+
+        $registro->registro = 'se creó el usuario : ---> ' . $usuario->nombre;
         $registro->save();
     }
 

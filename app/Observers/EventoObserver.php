@@ -8,13 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class EventoObserver
 {
-    public function created(EventosModel $evento): void
+    public function created(EventosModel $eventos): void
     {
-        $registro = new Registro();
-        $registro->usuario = Auth::user()->nombre;
-        $registro->accion = 'se creó el evento:  -->' . $evento->nombre;
-        $registro->save();
+        $eventos = new Registro();
+        if(Auth::guest()){
+            $eventos->usuario = "Seeder";
+        }else{
+            $eventos->usuario = Auth::user()->nombre;
+        }
+
+        $eventos->registro = 'se creó el usuario : ---> ' . $eventos->nombre;
+        $eventos->save();
     }
+
 
     public function updated(EventosModel $evento): void
     {

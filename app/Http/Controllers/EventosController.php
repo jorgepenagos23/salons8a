@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Eventos;
 use App\Models\EventosModel;
 use App\Models\PaquetesModel;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\FuncCall;
@@ -14,10 +15,19 @@ class EventosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $eventos = Eventos::all()->where('cliente_id'. '=', Auth::user()->id);
-        return view('eventos.eventos', compact('eventos'));
+
+            $usuario = $request->input('usuario');
+            $password = $request->input('password');
+
+            $usuario = Usuarios::where('usuario', $request->input('usuario'))->first();
+
+             $eventos = Eventos::all()->where('cliente_id'. '=', Auth::user()->id);
+             return view('eventos.eventos', compact('eventos'));
+
+
+             
 
     }
 
@@ -63,7 +73,7 @@ class EventosController extends Controller
         ]);
 
         $evento->save();
-        
+
 
         return redirect()->route('eventos.eventos')
                          ->with('success', 'Evento agregado correctamente.');

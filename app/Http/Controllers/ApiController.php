@@ -14,37 +14,61 @@ use Laravel\Sanctum\PersonalAccessToken;
 
 class ApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
 
+        $paquetes = PaquetesModel::select('nombre', 'costo', 'descripcion', 'capacidad')->get();
 
-        $paquetes= PaquetesModel::all();
-        return response()->json([
-
-            'message' => "Paquetes   buscados correctamente",
-            'paquetes' => $paquetes,
-        ],Response::HTTP_OK);
-
+            return response()->json([
+                'message' => "Paquetes buscados correctamente",
+                'paquetes' => $paquetes,
+            ], Response::HTTP_OK);
 
     }
 
-    public function eventos()
+
+    public function eventos(Request $request)
     {
+        $usuario = $request->input('usuario');
+        $password = $request->input('password');
 
+        $usuarioEncontrado = Usuarios::where('usuario', $usuario)->first();
 
-        $eventos= EventosModel::all();
+        if ($usuarioEncontrado && Hash::check($password, $usuarioEncontrado->password)) {
+            switch ($usuarioEncontrado->Roles) {
+                case 'Gerente':
+                    $eventos = EventosModel::select('id','nombre', 'cliente_id', 'estado','fecha_evento','descripción','precio')->get();
+                    $message = 'Hola Gerente'  .  $usuarioEncontrado->  usuario . 'estos son los eventos';
+                    break;
 
+                    case 'Empleado':
+                        $eventos = EventosModel::select('id','nombre', 'cliente_id', 'estado','fecha_evento', 'descripción','precio')->get();
+                        $message = 'Hola Empleado '. $usuarioEncontrado->  usuario . ' estos son los eventos';
+                        break;
 
-         return response()->json([
+                default:
+                    $eventos = EventosModel::where('cliente_id', $usuarioEncontrado->id)->get();
+                    $message = 'Hola! ' . $usuarioEncontrado->  usuario.'estos tus los eventos';
+                    break;
+            }
 
-            'message' => "Eventos  buscados correctamente",
-            'evento' => $eventos,
-        ],Response::HTTP_OK);
-
+            return response()->json([
+                'message' => $message,
+                'eventos' => $eventos,
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json(['mensaje' => 'Credenciales inválidas o usuario no autorizado'], Response::HTTP_UNAUTHORIZED);
+        }
     }
+
+
+
+
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.

@@ -11,13 +11,13 @@ class PaquetePolicy
 {
 
 
-    public function edit(Cliente $authUser, PaquetesModel $paquetes)
+    public function edit(Usuarios $authUser, PaquetesModel $paquetes)
     {
 
         return  $authUser->id == $paquetes->gerente_id;
     }
 
-    public function delete(Cliente $usuario, PaquetesModel $paquetes): bool
+    public function delete(Usuarios $usuario, PaquetesModel $paquetes): bool
     {
 
         return $usuario->id == $paquetes->gerente_id;

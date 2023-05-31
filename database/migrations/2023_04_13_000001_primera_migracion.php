@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('direccion');
             $table->text('telefono');
             $table->integer('edad');
+            $table->string('token', 500)->nullable()->unique();
             $table->string('email')->unique();
             $table->enum('Roles', ['Gerente', 'Cliente', 'Empleado'])->default('Cliente');
             $table->string('password')->nullable(false); // Definir la co
